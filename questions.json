@@ -1,0 +1,106 @@
+{
+  "title": "Grade 10 Math Warm-Up",
+  "intro": "Percents, ratios, algebra, geometry, data, and probability — easiest first. Take a hint if you need one; the worked solution comes after every answer.",
+  "questions": [
+    {
+      "topic": "Percents",
+      "prompt": "A jacket normally costs $48. It is on sale for 25% off. What is the sale price?",
+      "options": ["$12", "$24", "$36", "$38"],
+      "correct": 2,
+      "hint": "25% off means you still pay 75% of the original price.",
+      "why": "25% of $48 is $12, so the discount is $12 and the sale price is $48 − $12 = $36. Shortcut: <span class='expr'>0.75 × 48 = 36</span>.",
+      "ok": "Exactly right.",
+      "no": "Close — check the last step."
+    },
+    {
+      "topic": "Ratio & rate",
+      "prompt": "A car travels 150 miles on 6 gallons of gas. At the same rate, how far can it travel on 10 gallons?",
+      "options": ["180 miles", "250 miles", "260 miles", "300 miles"],
+      "correct": 1,
+      "hint": "Find the miles per gallon first.",
+      "why": "<span class='expr'>150 ÷ 6 = 25</span> miles per gallon, and <span class='expr'>25 × 10 = 250</span> miles.",
+      "ok": "Nice work.",
+      "no": "Not quite — try the unit rate."
+    },
+    {
+      "topic": "Linear equations",
+      "prompt": "Solve for x: <span class='expr'>3x − 7 = 20</span>",
+      "options": ["x = 4⅓", "x = 9", "x = 13", "x = 27"],
+      "correct": 1,
+      "hint": "Undo the subtraction before you undo the multiplication.",
+      "why": "Add 7 to both sides to get <span class='expr'>3x = 27</span>, then divide by 3 for <span class='expr'>x = 9</span>. Check: <span class='expr'>3(9) − 7 = 20</span>. ✓",
+      "ok": "That checks out.",
+      "no": "Watch the order of operations."
+    },
+    {
+      "topic": "Geometry",
+      "prompt": "A rectangle has a length of 12 cm and a perimeter of 34 cm. What is its area?",
+      "options": ["45 cm²", "60 cm²", "120 cm²", "204 cm²"],
+      "correct": 1,
+      "hint": "Use the perimeter to find the width first.",
+      "why": "<span class='expr'>P = 2l + 2w</span>, so <span class='expr'>34 = 24 + 2w</span> and the width is 5 cm. Area = <span class='expr'>12 × 5 = 60</span> cm².",
+      "ok": "Well reasoned.",
+      "no": "Find the width first."
+    },
+    {
+      "topic": "Coordinate geometry",
+      "prompt": "What is the equation of the line passing through the points (−2, 3) and (4, 15)?",
+      "options": ["y = 2x + 7", "y = 2x − 1", "y = ½x + 4", "y = 3x + 9"],
+      "correct": 0,
+      "hint": "Slope is rise over run: (y₂ − y₁) ÷ (x₂ − x₁).",
+      "why": "Slope = <span class='expr'>(15 − 3) ÷ (4 − (−2)) = 12 ÷ 6 = 2</span>. Substituting (4, 15) into <span class='expr'>y = 2x + b</span> gives <span class='expr'>b = 7</span>.",
+      "ok": "Solid.",
+      "no": "Recheck the y-intercept."
+    },
+    {
+      "topic": "Data & statistics",
+      "prompt": "A student's five test scores are 70, 78, 85, 85, and 92. What is the mean score?",
+      "options": ["80", "82", "84", "85"],
+      "correct": 1,
+      "hint": "Add all five, then divide by 5. (85 is the median and the mode — a common trap.)",
+      "why": "The scores total 410, and <span class='expr'>410 ÷ 5 = 82</span>. The median and mode are both 85, so the mean is the odd one out here.",
+      "ok": "Right on the money.",
+      "no": "That's a different measure of center."
+    },
+    {
+      "topic": "Probability",
+      "prompt": "A bag holds 4 red marbles, 5 blue marbles, and 3 green marbles. If one marble is drawn at random, what is the probability that it is NOT blue?",
+      "options": ["1/3", "5/12", "7/12", "5/7"],
+      "correct": 2,
+      "hint": "How many marbles are there in total, and how many of them are not blue?",
+      "why": "There are 12 marbles in all and <span class='expr'>4 + 3 = 7</span> are not blue, giving <span class='expr'>7/12</span>. You could also compute <span class='expr'>1 − 5/12</span>.",
+      "ok": "You've got it.",
+      "no": "Count the total again."
+    },
+    {
+      "topic": "Right triangles",
+      "prompt": "A 13-foot ladder leans against a wall with its base 5 feet from the wall. How high up the wall does the ladder reach?",
+      "options": ["8 feet", "12 feet", "14 feet", "18 feet"],
+      "correct": 1,
+      "hint": "The ladder is the hypotenuse, not a leg.",
+      "why": "By the Pythagorean theorem, <span class='expr'>5² + h² = 13²</span>, so <span class='expr'>h² = 144</span> and <span class='expr'>h = 12</span> feet — the familiar 5-12-13 right triangle.",
+      "ok": "Textbook.",
+      "no": "The 13 is the hypotenuse."
+    },
+    {
+      "topic": "Quadratics",
+      "prompt": "What are the solutions to <span class='expr'>x² + 5x − 24 = 0</span>?",
+      "options": ["x = 3 and x = −8", "x = −3 and x = 8", "x = 4 and x = −6", "x = 2 and x = −12"],
+      "correct": 0,
+      "hint": "Find two numbers that multiply to −24 and add to 5.",
+      "why": "<span class='expr'>8 × (−3) = −24</span> and <span class='expr'>8 + (−3) = 5</span>, so it factors as <span class='expr'>(x + 8)(x − 3) = 0</span>, giving x = −8 and x = 3.",
+      "ok": "Factored cleanly.",
+      "no": "Check the signs."
+    },
+    {
+      "topic": "Growth",
+      "prompt": "A town's population is 2,400 and grows by 5% each year. What will the population be after 2 years?",
+      "options": ["2,520", "2,640", "2,646", "2,880"],
+      "correct": 2,
+      "hint": "The second year's growth is calculated on the new, larger population.",
+      "why": "Year 1: <span class='expr'>2400 × 1.05 = 2520</span>. Year 2: <span class='expr'>2520 × 1.05 = 2646</span>. Growth compounds, so it beats the 2,640 you'd get by adding 5% of the original twice.",
+      "ok": "Compounding handled.",
+      "no": "Growth builds on itself."
+    }
+  ]
+}
