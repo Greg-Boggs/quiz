@@ -1,0 +1,1026 @@
+{
+  "title": "Grade 10 Math Warm-Up",
+  "intro": "Basic skills from middle school and freshman year, grouped by topic: an easy question to get the idea, then the same idea a step further. Take a hint if you need one; the worked solution comes after every answer.",
+  "questions": [
+    {
+      "topic": "Prime numbers",
+      "prompt": "Which of these numbers is prime?",
+      "options": [
+        "21",
+        "27",
+        "31",
+        "33"
+      ],
+      "correct": 2,
+      "hint": "A prime number has exactly two factors: 1 and itself. Try dividing each option by 3.",
+      "why": "<span class='expr'>21 = 3 × 7</span>, <span class='expr'>27 = 3 × 9</span>, and <span class='expr'>33 = 3 × 11</span> all divide evenly by 3. 31 has no factors besides 1 and 31, so it is prime.",
+      "ok": "Correctly spotted.",
+      "no": "Check whether each option divides evenly by 3."
+    },
+    {
+      "topic": "Prime numbers",
+      "prompt": "What is the prime factorization of 84?",
+      "options": [
+        "2 × 3 × 14",
+        "2² × 3 × 7",
+        "2 × 3² × 7",
+        "4 × 3 × 7"
+      ],
+      "correct": 1,
+      "hint": "Keep splitting until every factor is prime. 14 and 4 are not prime.",
+      "why": "Split it down: <span class='expr'>84 = 4 × 21 = (2 × 2) × (3 × 7)</span>, which is <span class='expr'>2² × 3 × 7</span>. The other options stop early and leave a composite factor behind.",
+      "ok": "Broken all the way down.",
+      "no": "Check whether every factor in your answer is actually prime."
+    },
+    {
+      "topic": "Factors & multiples",
+      "prompt": "What is the greatest common factor (GCF) of 12 and 18?",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "36"
+      ],
+      "correct": 2,
+      "hint": "List the factors of each number and find the biggest one they share.",
+      "why": "Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 18: 1, 2, 3, 6, 9, 18. The largest they share is 6. Note that 36 is the least common <span class='expr'>multiple</span>, not a factor.",
+      "ok": "Correct.",
+      "no": "You're looking for the largest factor both numbers share."
+    },
+    {
+      "topic": "Factors & multiples",
+      "prompt": "What is the least common multiple (LCM) of 6 and 8?",
+      "options": [
+        "2",
+        "14",
+        "24",
+        "48"
+      ],
+      "correct": 2,
+      "hint": "Count up by 6s and by 8s until you hit the same number.",
+      "why": "Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. The first they share is 24. Multiplying them gives 48, which is a common multiple but not the <span class='expr'>least</span> one.",
+      "ok": "Smallest one found.",
+      "no": "Multiplying the two numbers gives a common multiple, but not the smallest."
+    },
+    {
+      "topic": "Fractions",
+      "prompt": "What is <span class='expr'>1/2 + 1/3</span>?",
+      "options": [
+        "2/5",
+        "5/6",
+        "1/5",
+        "3/5"
+      ],
+      "correct": 1,
+      "hint": "You can't add fractions until the denominators match. Rewrite both over 6.",
+      "why": "<span class='expr'>1/2 = 3/6</span> and <span class='expr'>1/3 = 2/6</span>, so the sum is <span class='expr'>5/6</span>. Adding tops and bottoms straight across gives 2/5, which is the most common mistake here.",
+      "ok": "Denominators handled.",
+      "no": "Never add the denominators straight across."
+    },
+    {
+      "topic": "Fractions",
+      "prompt": "What is <span class='expr'>2/3 ÷ 4/9</span>?",
+      "options": [
+        "8/27",
+        "1½",
+        "2¼",
+        "6"
+      ],
+      "correct": 1,
+      "hint": "Dividing by a fraction is the same as multiplying by its reciprocal — flip the second one.",
+      "why": "Flip and multiply: <span class='expr'>2/3 × 9/4 = 18/12</span>, which reduces to <span class='expr'>3/2</span>, or 1½. Multiplying without flipping gives 8/27.",
+      "ok": "Flipped correctly.",
+      "no": "Flip the second fraction, then multiply."
+    },
+    {
+      "topic": "Decimals",
+      "prompt": "What is <span class='expr'>3.6 × 0.4</span>?",
+      "options": [
+        "0.144",
+        "1.44",
+        "14.4",
+        "144"
+      ],
+      "correct": 1,
+      "hint": "Multiply as if there were no decimal points, then count the total decimal places.",
+      "why": "<span class='expr'>36 × 4 = 144</span>. There is 1 decimal place in 3.6 and 1 in 0.4, so 2 in total, giving <span class='expr'>1.44</span>.",
+      "ok": "Decimal placed correctly.",
+      "no": "Count the decimal places in both numbers being multiplied."
+    },
+    {
+      "topic": "Decimals",
+      "prompt": "What is <span class='expr'>0.144 ÷ 0.6</span>?",
+      "options": [
+        "0.024",
+        "0.24",
+        "2.4",
+        "24"
+      ],
+      "correct": 1,
+      "hint": "Move the decimal point in both numbers until the one you're dividing by is a whole number.",
+      "why": "Multiply both by 10 to clear the divisor: <span class='expr'>1.44 ÷ 6 = 0.24</span>. Shifting both numbers the same amount leaves the answer unchanged.",
+      "ok": "Handled the divisor cleanly.",
+      "no": "Shift both numbers by the same number of places first."
+    },
+    {
+      "topic": "Rounding & estimation",
+      "prompt": "Round 4.762 to the nearest tenth.",
+      "options": [
+        "4.7",
+        "4.76",
+        "4.8",
+        "5.0"
+      ],
+      "correct": 2,
+      "hint": "The tenths place is the first digit after the decimal point. Look at the digit just after it to decide.",
+      "why": "The tenths digit is 7, and the digit after it is 6, which is 5 or more, so round up to 4.8. Rounding to 4.76 stops at the hundredths place instead.",
+      "ok": "Rounded correctly.",
+      "no": "Check which place value the tenths actually is."
+    },
+    {
+      "topic": "Rounding & estimation",
+      "prompt": "Without a calculator, which is the best estimate of <span class='expr'>19.8 × 4.1</span>?",
+      "options": [
+        "24",
+        "60",
+        "80",
+        "800"
+      ],
+      "correct": 2,
+      "hint": "Round each number to something easy first, then multiply.",
+      "why": "Round to <span class='expr'>20 × 4 = 80</span>. The exact answer is 81.18, so 80 is close. Estimating like this is the fastest way to rule out wrong multiple-choice answers on a timed test.",
+      "ok": "Good estimate.",
+      "no": "Round each number to the nearest whole ten or one first."
+    },
+    {
+      "topic": "Negative numbers",
+      "prompt": "What is <span class='expr'>−8 + 3 × (−2)</span>?",
+      "options": [
+        "−14",
+        "−11",
+        "−2",
+        "22"
+      ],
+      "correct": 0,
+      "hint": "Multiply before you add, and watch the signs.",
+      "why": "Multiplication first: <span class='expr'>3 × (−2) = −6</span>. Then <span class='expr'>−8 + (−6) = −14</span>.",
+      "ok": "Signs handled correctly.",
+      "no": "Do the multiplication before the addition."
+    },
+    {
+      "topic": "Negative numbers",
+      "prompt": "What is <span class='expr'>(−2)³ + (−4)(−3)</span>?",
+      "options": [
+        "−20",
+        "−4",
+        "4",
+        "20"
+      ],
+      "correct": 2,
+      "hint": "An odd power of a negative stays negative. Two negatives multiplied give a positive.",
+      "why": "<span class='expr'>(−2)³ = −2 × −2 × −2 = −8</span>, and <span class='expr'>(−4)(−3) = 12</span>. So <span class='expr'>−8 + 12 = 4</span>.",
+      "ok": "Both signs tracked.",
+      "no": "Check the sign on the cube first."
+    },
+    {
+      "topic": "Absolute value",
+      "prompt": "What is <span class='expr'>|−7|</span>?",
+      "options": [
+        "−7",
+        "0",
+        "7",
+        "14"
+      ],
+      "correct": 2,
+      "hint": "Absolute value is the distance from zero, and distance is never negative.",
+      "why": "−7 sits 7 units from zero on the number line, so its absolute value is 7. The bars strip the sign; they don't double the number.",
+      "ok": "Correct.",
+      "no": "Absolute value asks how far from zero, ignoring direction."
+    },
+    {
+      "topic": "Absolute value",
+      "prompt": "What is <span class='expr'>|3 − 10| + |−2|</span>?",
+      "options": [
+        "−5",
+        "5",
+        "9",
+        "15"
+      ],
+      "correct": 2,
+      "hint": "Work out what's inside each set of bars first, then take the absolute value of each.",
+      "why": "Inside the first bars: <span class='expr'>3 − 10 = −7</span>, so <span class='expr'>|−7| = 7</span>. The second gives <span class='expr'>|−2| = 2</span>. Then <span class='expr'>7 + 2 = 9</span>. Simplify inside the bars before stripping the sign.",
+      "ok": "Both parts handled.",
+      "no": "Simplify inside the bars first, then take absolute values."
+    },
+    {
+      "topic": "Order of operations",
+      "prompt": "What is <span class='expr'>5 + 2 × 3</span>?",
+      "options": [
+        "11",
+        "16",
+        "21",
+        "30"
+      ],
+      "correct": 0,
+      "hint": "Multiplication comes before addition, no matter which is written first.",
+      "why": "Multiply first: <span class='expr'>2 × 3 = 6</span>, then <span class='expr'>5 + 6 = 11</span>. Working strictly left to right gives 21, which is the trap.",
+      "ok": "Order respected.",
+      "no": "Left to right isn't the rule — multiplication comes first."
+    },
+    {
+      "topic": "Order of operations",
+      "prompt": "What is <span class='expr'>(8 − 3)² ÷ 5 + 4</span>?",
+      "options": [
+        "5",
+        "9",
+        "13",
+        "29"
+      ],
+      "correct": 1,
+      "hint": "Parentheses, then the exponent, then divide, then add.",
+      "why": "Parentheses: <span class='expr'>8 − 3 = 5</span>. Exponent: <span class='expr'>5² = 25</span>. Divide: <span class='expr'>25 ÷ 5 = 5</span>. Add: <span class='expr'>5 + 4 = 9</span>. Adding before dividing would give 29.",
+      "ok": "All four steps in order.",
+      "no": "Finish the division before you add."
+    },
+    {
+      "topic": "Exponents",
+      "prompt": "What is <span class='expr'>3⁴</span>?",
+      "options": [
+        "12",
+        "27",
+        "64",
+        "81"
+      ],
+      "correct": 3,
+      "hint": "That's four 3s multiplied together, not 3 times 4.",
+      "why": "<span class='expr'>3 × 3 × 3 × 3 = 81</span>. Multiplying the base by the exponent gives 12, which is the classic misread.",
+      "ok": "Correct.",
+      "no": "An exponent means repeated multiplication, not multiplying base by exponent."
+    },
+    {
+      "topic": "Exponents",
+      "prompt": "Simplify: <span class='expr'>x³ · x⁵</span>",
+      "options": [
+        "x⁸",
+        "x¹⁵",
+        "2x⁸",
+        "x²"
+      ],
+      "correct": 0,
+      "hint": "Write it out as x's multiplied together and count them.",
+      "why": "Three x's times five x's is eight x's: <span class='expr'>x⁸</span>. When multiplying powers of the same base you add the exponents; multiplying them gives x¹⁵, which is a different rule entirely.",
+      "ok": "Rule applied correctly.",
+      "no": "Add the exponents when multiplying like bases."
+    },
+    {
+      "topic": "Square roots",
+      "prompt": "What is <span class='expr'>√144</span>?",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "72"
+      ],
+      "correct": 1,
+      "hint": "What number, multiplied by itself, gives 144?",
+      "why": "<span class='expr'>12 × 12 = 144</span>, so <span class='expr'>√144 = 12</span>. Halving 144 gives 72, which is a different operation entirely.",
+      "ok": "Correct.",
+      "no": "Try squaring each option to test it."
+    },
+    {
+      "topic": "Square roots",
+      "prompt": "Which of these is <span class='expr'>√50</span> in simplest radical form?",
+      "options": [
+        "5√2",
+        "2√5",
+        "10√5",
+        "25√2"
+      ],
+      "correct": 0,
+      "hint": "Look for the largest perfect square that divides 50.",
+      "why": "<span class='expr'>50 = 25 × 2</span>, and 25 is a perfect square, so <span class='expr'>√50 = √25 × √2 = 5√2</span>. Check it: <span class='expr'>5√2 ≈ 7.07</span>, and <span class='expr'>7.07² ≈ 50</span>. ✓",
+      "ok": "Simplified properly.",
+      "no": "Pull out the perfect square factor."
+    },
+    {
+      "topic": "Scientific notation",
+      "prompt": "Write <span class='expr'>4.5 × 10³</span> in standard form.",
+      "options": [
+        "45",
+        "450",
+        "4,500",
+        "45,000"
+      ],
+      "correct": 2,
+      "hint": "The exponent tells you how many places to move the decimal point to the right.",
+      "why": "Moving the decimal 3 places right turns 4.5 into 4,500. Equivalently, <span class='expr'>4.5 × 1000 = 4500</span>.",
+      "ok": "Correct.",
+      "no": "Count the decimal places you moved."
+    },
+    {
+      "topic": "Scientific notation",
+      "prompt": "Write 0.00072 in scientific notation.",
+      "options": [
+        "7.2 × 10⁻³",
+        "7.2 × 10⁻⁴",
+        "72 × 10⁻⁵",
+        "7.2 × 10⁴"
+      ],
+      "correct": 1,
+      "hint": "Move the decimal until exactly one non-zero digit sits in front of it, then count the moves. Small numbers take a negative exponent.",
+      "why": "Moving the decimal 4 places right gives 7.2, so the exponent is <span class='expr'>−4</span>. The 72 version has two digits before the decimal, which isn't proper scientific notation.",
+      "ok": "Notation correct.",
+      "no": "Exactly one non-zero digit belongs in front of the decimal."
+    },
+    {
+      "topic": "Patterns",
+      "prompt": "What comes next in the pattern? 2, 6, 18, 54, ___",
+      "options": [
+        "58",
+        "108",
+        "162",
+        "216"
+      ],
+      "correct": 2,
+      "hint": "Look at what each term is multiplied by, not what's added.",
+      "why": "Each term is multiplied by 3: <span class='expr'>2 → 6 → 18 → 54</span>, so the next is <span class='expr'>54 × 3 = 162</span>.",
+      "ok": "Spotted the pattern.",
+      "no": "Check for multiplication rather than addition."
+    },
+    {
+      "topic": "Patterns",
+      "prompt": "What comes next in the pattern? 3, 7, 15, 31, ___",
+      "options": [
+        "47",
+        "62",
+        "63",
+        "127"
+      ],
+      "correct": 2,
+      "hint": "The gaps between terms are 4, 8, 16. What comes next in that list?",
+      "why": "The differences double each time: 4, 8, 16, then 32. So <span class='expr'>31 + 32 = 63</span>. Another way to see it: each term is double the one before, plus 1.",
+      "ok": "Found the rule.",
+      "no": "Look at the differences between terms, then at how those differences change."
+    },
+    {
+      "topic": "Percents",
+      "prompt": "A jacket normally costs $48. It is on sale for 25% off. What is the sale price?",
+      "options": [
+        "$12",
+        "$24",
+        "$36",
+        "$38"
+      ],
+      "correct": 2,
+      "hint": "25% off means you still pay 75% of the original price.",
+      "why": "25% of $48 is $12, so the sale price is <span class='expr'>48 − 12 = $36</span>. Shortcut: <span class='expr'>0.75 × 48 = 36</span>.",
+      "ok": "Exactly right.",
+      "no": "The discount isn't the answer — subtract it from the original."
+    },
+    {
+      "topic": "Percents",
+      "prompt": "After a 20% discount, a pair of shoes costs $36. What was the original price?",
+      "options": [
+        "$43.20",
+        "$45",
+        "$46",
+        "$56"
+      ],
+      "correct": 1,
+      "hint": "$36 represents 80% of the original, not 100%. Work backwards.",
+      "why": "If the price dropped 20%, then $36 is 80% of the original: <span class='expr'>0.80x = 36</span>, so <span class='expr'>x = 36 ÷ 0.8 = $45</span>. Adding 20% back onto $36 gives $43.20, which is the classic trap — percentages are taken from different starting numbers.",
+      "ok": "Worked backwards correctly.",
+      "no": "Adding 20% back on doesn't undo a 20% discount."
+    },
+    {
+      "topic": "Ratio & rate",
+      "prompt": "A car travels 150 miles on 6 gallons of gas. At the same rate, how far can it travel on 10 gallons?",
+      "options": [
+        "180 miles",
+        "250 miles",
+        "260 miles",
+        "300 miles"
+      ],
+      "correct": 1,
+      "hint": "Find the miles per gallon first.",
+      "why": "<span class='expr'>150 ÷ 6 = 25</span> miles per gallon, and <span class='expr'>25 × 10 = 250</span> miles.",
+      "ok": "Nice work.",
+      "no": "Try finding the unit rate first."
+    },
+    {
+      "topic": "Ratio & rate",
+      "prompt": "If 3 painters can paint a room in 8 hours, how long would 4 painters take working at the same rate?",
+      "options": [
+        "6 hours",
+        "10⅔ hours",
+        "11 hours",
+        "12 hours"
+      ],
+      "correct": 0,
+      "hint": "More painters means less time. This one runs the opposite way to the usual proportion.",
+      "why": "The job takes <span class='expr'>3 × 8 = 24</span> painter-hours in total. With 4 painters that's <span class='expr'>24 ÷ 4 = 6</span> hours. Watch for this reversal: adding workers shrinks the time rather than growing it.",
+      "ok": "Caught the inverse relationship.",
+      "no": "Should more painters take more time or less?"
+    },
+    {
+      "topic": "Unit conversion",
+      "prompt": "How many inches are in 4 feet?",
+      "options": [
+        "16",
+        "40",
+        "48",
+        "144"
+      ],
+      "correct": 2,
+      "hint": "There are 12 inches in a foot.",
+      "why": "<span class='expr'>4 × 12 = 48</span> inches. Going from a larger unit to a smaller one always multiplies, so the number gets bigger.",
+      "ok": "Correct.",
+      "no": "Multiply by 12 when converting feet to inches."
+    },
+    {
+      "topic": "Unit conversion",
+      "prompt": "A car travels at 60 miles per hour. How far does it travel in 20 minutes?",
+      "options": [
+        "12 miles",
+        "20 miles",
+        "30 miles",
+        "180 miles"
+      ],
+      "correct": 1,
+      "hint": "20 minutes is a third of an hour. The rate is given per hour.",
+      "why": "20 minutes is <span class='expr'>20/60 = ⅓</span> of an hour, so the car covers <span class='expr'>60 × ⅓ = 20</span> miles. Multiplying 60 by 20 without converting the minutes gives 1,200, and dividing carelessly gives 3.",
+      "ok": "Units matched.",
+      "no": "Convert the minutes to a fraction of an hour first."
+    },
+    {
+      "topic": "Prealgebra",
+      "prompt": "Simplify: <span class='expr'>4(x + 3) − 2x</span>",
+      "options": [
+        "2x + 3",
+        "2x + 12",
+        "6x + 3",
+        "6x + 12"
+      ],
+      "correct": 1,
+      "hint": "Distribute the 4 across both terms, then combine like terms.",
+      "why": "Distributing gives <span class='expr'>4x + 12 − 2x</span>. Combining the x terms: <span class='expr'>4x − 2x = 2x</span>, leaving <span class='expr'>2x + 12</span>.",
+      "ok": "Cleanly simplified.",
+      "no": "The 4 multiplies both the x and the 3."
+    },
+    {
+      "topic": "Prealgebra",
+      "prompt": "Evaluate <span class='expr'>2a² − 3b</span> when <span class='expr'>a = −3</span> and <span class='expr'>b = 4</span>.",
+      "options": [
+        "−30",
+        "6",
+        "18",
+        "30"
+      ],
+      "correct": 1,
+      "hint": "Square the −3 before multiplying by 2. The square makes it positive.",
+      "why": "<span class='expr'>a² = (−3)² = 9</span>, so <span class='expr'>2a² = 18</span>. Then <span class='expr'>3b = 12</span>, and <span class='expr'>18 − 12 = 6</span>. Squaring before multiplying is what keeps this positive.",
+      "ok": "Substituted carefully.",
+      "no": "Apply the exponent before the multiplication."
+    },
+    {
+      "topic": "Linear equations",
+      "prompt": "Solve for x: <span class='expr'>3x − 7 = 20</span>",
+      "options": [
+        "x = 4⅓",
+        "x = 9",
+        "x = 13",
+        "x = 27"
+      ],
+      "correct": 1,
+      "hint": "Undo the subtraction before you undo the multiplication.",
+      "why": "Add 7 to both sides for <span class='expr'>3x = 27</span>, then divide by 3 to get <span class='expr'>x = 9</span>. Check: <span class='expr'>3(9) − 7 = 20</span>. ✓",
+      "ok": "That checks out.",
+      "no": "Watch the order you undo the operations."
+    },
+    {
+      "topic": "Linear equations",
+      "prompt": "Solve for x: <span class='expr'>5x − 3 = 2x + 12</span>",
+      "options": [
+        "x = 3",
+        "x = 5",
+        "x = 9",
+        "x = 15"
+      ],
+      "correct": 1,
+      "hint": "Get all the x terms onto one side first.",
+      "why": "Subtract <span class='expr'>2x</span> from both sides: <span class='expr'>3x − 3 = 12</span>. Add 3: <span class='expr'>3x = 15</span>, so <span class='expr'>x = 5</span>. Check: <span class='expr'>5(5) − 3 = 22</span> and <span class='expr'>2(5) + 12 = 22</span>. ✓",
+      "ok": "Both sides balanced.",
+      "no": "Collect the x terms on one side before solving."
+    },
+    {
+      "topic": "Inequalities",
+      "prompt": "Solve: <span class='expr'>x + 5 > 12</span>",
+      "options": [
+        "x > 7",
+        "x > 17",
+        "x < 7",
+        "x > 60"
+      ],
+      "correct": 0,
+      "hint": "Solve it exactly like an equation — subtract 5 from both sides.",
+      "why": "Subtracting 5 from both sides gives <span class='expr'>x > 7</span>. Adding and subtracting work the same as with an equals sign; the inequality symbol doesn't change.",
+      "ok": "Correct.",
+      "no": "Subtract 5 from both sides, as you would with an equation."
+    },
+    {
+      "topic": "Inequalities",
+      "prompt": "Solve: <span class='expr'>−3x > 12</span>",
+      "options": [
+        "x > −4",
+        "x < −4",
+        "x > 4",
+        "x < 4"
+      ],
+      "correct": 1,
+      "hint": "When you divide both sides by a negative number, the inequality symbol flips direction.",
+      "why": "Divide both sides by −3 to get <span class='expr'>x < −4</span> — the symbol flips because you divided by a negative. Test it: <span class='expr'>x = −5</span> gives <span class='expr'>−3(−5) = 15</span>, which is greater than 12. ✓",
+      "ok": "You flipped the sign.",
+      "no": "Dividing by a negative flips the inequality."
+    },
+    {
+      "topic": "Quadratics",
+      "prompt": "What are the solutions to <span class='expr'>x² − 9 = 0</span>?",
+      "options": [
+        "x = 3 only",
+        "x = 3 and x = −3",
+        "x = 9 and x = −9",
+        "There are no solutions"
+      ],
+      "correct": 1,
+      "hint": "What numbers, when squared, give 9?",
+      "why": "<span class='expr'>x² = 9</span>, and both <span class='expr'>3² = 9</span> and <span class='expr'>(−3)² = 9</span>. A quadratic like this has two solutions, so leaving off the negative loses half the answer.",
+      "ok": "Both roots found.",
+      "no": "Don't forget the negative root."
+    },
+    {
+      "topic": "Quadratics",
+      "prompt": "What are the solutions to <span class='expr'>x² + 5x − 24 = 0</span>?",
+      "options": [
+        "x = 3 and x = −8",
+        "x = −3 and x = 8",
+        "x = 4 and x = −6",
+        "x = 2 and x = −12"
+      ],
+      "correct": 0,
+      "hint": "Find two numbers that multiply to −24 and add to 5.",
+      "why": "<span class='expr'>8 × (−3) = −24</span> and <span class='expr'>8 + (−3) = 5</span>, so it factors as <span class='expr'>(x + 8)(x − 3) = 0</span>, giving <span class='expr'>x = −8</span> and <span class='expr'>x = 3</span>. Note the signs flip from the factors to the solutions.",
+      "ok": "Factored cleanly.",
+      "no": "Check the signs — the factors and the solutions have opposite ones."
+    },
+    {
+      "topic": "Growth",
+      "prompt": "A town's population is 2,400 and grows by 5% in one year. What is the population after that year?",
+      "options": [
+        "2,405",
+        "2,520",
+        "2,640",
+        "3,600"
+      ],
+      "correct": 1,
+      "hint": "Find 5% of 2,400, then add it on. Or multiply by 1.05 in one step.",
+      "why": "5% of 2,400 is 120, so the population becomes <span class='expr'>2400 + 120 = 2520</span>. In one step: <span class='expr'>2400 × 1.05 = 2520</span>.",
+      "ok": "Correct.",
+      "no": "5% of 2,400 is 120, not 5."
+    },
+    {
+      "topic": "Growth",
+      "prompt": "That same town of 2,400 people grows by 5% every year. What is the population after 2 years?",
+      "options": [
+        "2,520",
+        "2,640",
+        "2,646",
+        "2,880"
+      ],
+      "correct": 2,
+      "hint": "The second year's 5% is calculated on the new, larger population.",
+      "why": "Year 1: <span class='expr'>2400 × 1.05 = 2520</span>. Year 2: <span class='expr'>2520 × 1.05 = 2646</span>. Growth compounds, so it beats the 2,640 you'd get by adding 5% of the original twice.",
+      "ok": "Compounding handled.",
+      "no": "The second year grows from 2,520, not from 2,400."
+    },
+    {
+      "topic": "Geometry vocabulary",
+      "prompt": "Two lines that cross at a right angle are called:",
+      "options": [
+        "Parallel",
+        "Perpendicular",
+        "Congruent",
+        "Similar"
+      ],
+      "correct": 1,
+      "hint": "Think of the corner of a square, or a plus sign.",
+      "why": "Perpendicular lines meet at 90°. Parallel lines never meet at all. Congruent means identical in size and shape, and similar means same shape at a different size — both describe figures, not the angle between lines.",
+      "ok": "Right term.",
+      "no": "Parallel lines never cross at all."
+    },
+    {
+      "topic": "Geometry vocabulary",
+      "prompt": "A quadrilateral with exactly one pair of parallel sides is called a:",
+      "options": [
+        "Rhombus",
+        "Parallelogram",
+        "Trapezoid",
+        "Rectangle"
+      ],
+      "correct": 2,
+      "hint": "The other three shapes listed all have two pairs of parallel sides.",
+      "why": "A trapezoid has exactly one pair of parallel sides. A parallelogram, rhombus, and rectangle each have two pairs, which is what separates them from a trapezoid.",
+      "ok": "Correct shape.",
+      "no": "Count how many pairs of parallel sides each shape has."
+    },
+    {
+      "topic": "Angles",
+      "prompt": "Two angles are complementary. One measures 35°. What does the other measure?",
+      "options": [
+        "55°",
+        "65°",
+        "145°",
+        "325°"
+      ],
+      "correct": 0,
+      "hint": "Complementary angles add to 90°. Supplementary angles add to 180° — don't mix them up.",
+      "why": "<span class='expr'>90 − 35 = 55</span>°. If they had been supplementary, adding to 180°, the answer would be 145°, which is why the two words are worth keeping straight.",
+      "ok": "Right pair.",
+      "no": "Complementary means adding to 90°, not 180°."
+    },
+    {
+      "topic": "Angles",
+      "prompt": "Two angles are supplementary, and one is three times the size of the other. What is the smaller angle?",
+      "options": [
+        "30°",
+        "45°",
+        "60°",
+        "135°"
+      ],
+      "correct": 1,
+      "hint": "Call the smaller angle x. Then the larger is 3x, and together they make 180°.",
+      "why": "<span class='expr'>x + 3x = 180</span>, so <span class='expr'>4x = 180</span> and <span class='expr'>x = 45</span>°. The larger angle is 135°, and the two do add to 180°. ✓",
+      "ok": "Set it up well.",
+      "no": "Write both angles in terms of one variable first."
+    },
+    {
+      "topic": "Perimeter & area",
+      "prompt": "A square has an area of 81 square inches. What is its perimeter?",
+      "options": [
+        "9 inches",
+        "18 inches",
+        "36 inches",
+        "81 inches"
+      ],
+      "correct": 2,
+      "hint": "Find the side length first — what number times itself is 81?",
+      "why": "Since <span class='expr'>9 × 9 = 81</span>, each side is 9 inches, and the perimeter is <span class='expr'>4 × 9 = 36</span> inches.",
+      "ok": "Nailed it.",
+      "no": "Find the side length before the perimeter."
+    },
+    {
+      "topic": "Perimeter & area",
+      "prompt": "A rectangle has a length of 12 cm and a perimeter of 34 cm. What is its area?",
+      "options": [
+        "45 cm²",
+        "60 cm²",
+        "120 cm²",
+        "204 cm²"
+      ],
+      "correct": 1,
+      "hint": "Use the perimeter to find the missing width first.",
+      "why": "<span class='expr'>P = 2l + 2w</span>, so <span class='expr'>34 = 24 + 2w</span> and the width is 5 cm. Area is <span class='expr'>12 × 5 = 60</span> cm². This runs the reverse of the square problem: perimeter in, area out.",
+      "ok": "Well reasoned.",
+      "no": "Solve for the width using the perimeter formula."
+    },
+    {
+      "topic": "Circles",
+      "prompt": "A circle has a diameter of 10 cm. What is its circumference? (Use <span class='expr'>π ≈ 3.14</span>)",
+      "options": [
+        "15.7 cm",
+        "31.4 cm",
+        "78.5 cm",
+        "314 cm"
+      ],
+      "correct": 1,
+      "hint": "Circumference is <span class='expr'>π × diameter</span>. You're given the diameter already.",
+      "why": "<span class='expr'>C = πd = 3.14 × 10 = 31.4</span> cm. Using the radius by mistake gives 15.7, and using the area formula gives 78.5.",
+      "ok": "Correct formula.",
+      "no": "Circumference uses the diameter; area uses the radius squared."
+    },
+    {
+      "topic": "Circles",
+      "prompt": "A circle has a diameter of 12 inches. What is its area, in terms of π?",
+      "options": [
+        "6π",
+        "12π",
+        "36π",
+        "144π"
+      ],
+      "correct": 2,
+      "hint": "The area formula needs the radius, but you've been handed the diameter. Halve it first.",
+      "why": "The radius is <span class='expr'>12 ÷ 2 = 6</span>. Then <span class='expr'>A = πr² = π(6²) = 36π</span> square inches. Squaring the diameter instead gives 144π, the usual slip.",
+      "ok": "Halved before squaring.",
+      "no": "Convert diameter to radius before squaring."
+    },
+    {
+      "topic": "Volume & surface area",
+      "prompt": "What is the volume of a rectangular box measuring 3 cm by 4 cm by 5 cm?",
+      "options": [
+        "12 cm³",
+        "47 cm³",
+        "60 cm³",
+        "94 cm³"
+      ],
+      "correct": 2,
+      "hint": "Volume of a box is length times width times height.",
+      "why": "<span class='expr'>3 × 4 × 5 = 60</span> cm³. The answer 94 is the surface area of the same box, which is a different question.",
+      "ok": "Correct.",
+      "no": "Multiply all three dimensions together."
+    },
+    {
+      "topic": "Volume & surface area",
+      "prompt": "What is the total surface area of a cube with edges of 4 inches?",
+      "options": [
+        "16 in²",
+        "64 in²",
+        "96 in²",
+        "384 in²"
+      ],
+      "correct": 2,
+      "hint": "A cube has 6 identical square faces. Find the area of one, then account for all of them.",
+      "why": "Each face is <span class='expr'>4 × 4 = 16</span> in², and a cube has 6 faces, so <span class='expr'>6 × 16 = 96</span> in². The answer 64 is the cube's volume, not its surface area.",
+      "ok": "All six faces counted.",
+      "no": "Find one face's area, then multiply by 6."
+    },
+    {
+      "topic": "Congruent triangles",
+      "prompt": "Two triangles are congruent. What does that tell you about them?",
+      "options": [
+        "Same shape, but different sizes",
+        "Same shape and same size",
+        "They have the same perimeter but may differ in shape",
+        "They are both right triangles"
+      ],
+      "correct": 1,
+      "hint": "Congruent and similar are different words. One allows resizing, the other doesn't.",
+      "why": "Congruent figures are identical: matching side lengths and matching angles. Similar figures have the same shape at a different scale. Congruent triangles are always similar, but similar triangles are only congruent when the scale factor is 1.",
+      "ok": "Vocabulary nailed.",
+      "no": "That describes similar triangles, not congruent ones."
+    },
+    {
+      "topic": "Congruent triangles",
+      "prompt": "Triangle ABC is congruent to triangle DEF. Side AB measures 7 cm, and angle A measures 40°. What can you conclude?",
+      "options": [
+        "DE = 7 cm and angle D = 40°",
+        "DE = 14 cm and angle D = 40°",
+        "DE = 7 cm and angle D = 50°",
+        "There isn't enough information"
+      ],
+      "correct": 0,
+      "hint": "The letter order tells you which parts match up: A pairs with D, B with E, C with F.",
+      "why": "In congruent triangles, corresponding parts are equal. The naming order pairs A with D and B with E, so AB corresponds to DE and measures 7 cm, and angle D matches angle A at 40°.",
+      "ok": "Corresponding parts matched.",
+      "no": "Congruent means the matching parts are equal, not scaled."
+    },
+    {
+      "topic": "Similar triangles",
+      "prompt": "Triangle A has sides 4, 6, and 8. Triangle B is similar to Triangle A, and its shortest side is 10. What is Triangle B's longest side?",
+      "options": [
+        "12",
+        "16",
+        "20",
+        "24"
+      ],
+      "correct": 2,
+      "hint": "Find the scale factor from the shortest sides, then apply it to the longest.",
+      "why": "The scale factor is <span class='expr'>10 ÷ 4 = 2.5</span>. Triangle A's longest side is 8, so Triangle B's longest is <span class='expr'>8 × 2.5 = 20</span>.",
+      "ok": "Scaled correctly.",
+      "no": "Match corresponding sides before scaling."
+    },
+    {
+      "topic": "Similar triangles",
+      "prompt": "A 6-foot-tall person casts a 4-foot shadow. At the same time, a nearby tree casts a 22-foot shadow. How tall is the tree?",
+      "options": [
+        "14.7 feet",
+        "26 feet",
+        "33 feet",
+        "44 feet"
+      ],
+      "correct": 2,
+      "hint": "The person and the tree form similar triangles with their shadows. Set up matching ratios.",
+      "why": "Height over shadow is the same for both: <span class='expr'>6/4 = h/22</span>. Cross-multiplying gives <span class='expr'>4h = 132</span>, so <span class='expr'>h = 33</span> feet. The trap is subtracting or adding instead of scaling.",
+      "ok": "Set the proportion up right.",
+      "no": "Keep height over shadow on both sides of the proportion."
+    },
+    {
+      "topic": "Right triangles",
+      "prompt": "A 13-foot ladder leans against a wall with its base 5 feet from the wall. How high up the wall does the ladder reach?",
+      "options": [
+        "8 feet",
+        "12 feet",
+        "14 feet",
+        "18 feet"
+      ],
+      "correct": 1,
+      "hint": "The ladder is the hypotenuse, not a leg.",
+      "why": "By the Pythagorean theorem, <span class='expr'>5² + h² = 13²</span>, so <span class='expr'>h² = 144</span> and <span class='expr'>h = 12</span> feet. This is the familiar 5-12-13 right triangle.",
+      "ok": "Textbook.",
+      "no": "The 13 is the longest side, so it's the hypotenuse."
+    },
+    {
+      "topic": "Right triangles",
+      "prompt": "A right triangle has a hypotenuse of 10 and one leg of 6. What is its area?",
+      "options": [
+        "24",
+        "30",
+        "48",
+        "60"
+      ],
+      "correct": 0,
+      "hint": "You need both legs before you can find the area. Find the missing one first.",
+      "why": "The missing leg: <span class='expr'>6² + b² = 10²</span> gives <span class='expr'>b² = 64</span> and <span class='expr'>b = 8</span>. Area of a triangle is <span class='expr'>½ × 6 × 8 = 24</span>. Using the hypotenuse as a base gives 30, which is the trap here.",
+      "ok": "Two steps, both right.",
+      "no": "The two legs form the right angle — the hypotenuse isn't one of them."
+    },
+    {
+      "topic": "Coordinate plane",
+      "prompt": "In which quadrant does the point (−3, 5) lie?",
+      "options": [
+        "Quadrant I",
+        "Quadrant II",
+        "Quadrant III",
+        "Quadrant IV"
+      ],
+      "correct": 1,
+      "hint": "Quadrants are numbered counterclockwise starting from the top right. A negative x means left of the y-axis.",
+      "why": "A negative x puts the point left of center, and a positive y puts it above center: the upper-left region, which is Quadrant II.",
+      "ok": "Correct quadrant.",
+      "no": "Negative x means left; positive y means up."
+    },
+    {
+      "topic": "Coordinate plane",
+      "prompt": "What is the distance between the points (2, 3) and (2, 9)?",
+      "options": [
+        "3",
+        "6",
+        "8",
+        "12"
+      ],
+      "correct": 1,
+      "hint": "Both points share the same x value, so this is a straight vertical line. No formula needed.",
+      "why": "Since the x values match, the points sit on a vertical line and the distance is just the gap in y: <span class='expr'>9 − 3 = 6</span>. Adding the coordinates instead gives 12.",
+      "ok": "Spotted the shortcut.",
+      "no": "Same x means a vertical line — just subtract the y values."
+    },
+    {
+      "topic": "Coordinate geometry",
+      "prompt": "What is the slope of the line through the points (1, 2) and (5, 10)?",
+      "options": [
+        "½",
+        "2",
+        "3",
+        "8"
+      ],
+      "correct": 1,
+      "hint": "Slope is rise over run: the change in y divided by the change in x.",
+      "why": "<span class='expr'>(10 − 2) ÷ (5 − 1) = 8 ÷ 4 = 2</span>. Flipping the fraction gives ½, a common slip.",
+      "ok": "Rise over run.",
+      "no": "Divide the change in y by the change in x, in that order."
+    },
+    {
+      "topic": "Coordinate geometry",
+      "prompt": "What is the equation of the line passing through the points (−2, 3) and (4, 15)?",
+      "options": [
+        "y = 2x + 7",
+        "y = 2x − 1",
+        "y = ½x + 4",
+        "y = 3x + 9"
+      ],
+      "correct": 0,
+      "hint": "Find the slope, then substitute one point to solve for the y-intercept.",
+      "why": "Slope = <span class='expr'>(15 − 3) ÷ (4 − (−2)) = 12 ÷ 6 = 2</span>. Substituting (4, 15) into <span class='expr'>y = 2x + b</span> gives <span class='expr'>15 = 8 + b</span>, so <span class='expr'>b = 7</span>.",
+      "ok": "Solid.",
+      "no": "The slope is right in two options — check the intercept."
+    },
+    {
+      "topic": "Reading graphs",
+      "prompt": "A line on a graph passes through (0, 2) and (3, 8). Following the same trend, what value of y would you expect at x = 5?",
+      "options": [
+        "10",
+        "12",
+        "13",
+        "16"
+      ],
+      "correct": 1,
+      "hint": "Work out how much y climbs for each single step in x, then extend it.",
+      "why": "y rises 6 while x rises 3, a rate of 2 per unit. From x = 3 to x = 5 is 2 more units, so y climbs another 4: <span class='expr'>8 + 4 = 12</span>.",
+      "ok": "Read the trend correctly.",
+      "no": "Find the rate of change between the given points first."
+    },
+    {
+      "topic": "Reading graphs",
+      "prompt": "A graph plots a car's total distance travelled against time. Between hour 2 and hour 3, the line is completely flat. What does that mean?",
+      "options": [
+        "The car sped up",
+        "The car was stopped",
+        "The car drove backwards",
+        "The car kept a steady speed"
+      ],
+      "correct": 1,
+      "hint": "On a distance-time graph, the steepness of the line is the speed.",
+      "why": "A flat line means the total distance didn't change during that hour, so the car covered no ground: it was stopped. A steady speed would show as a straight line sloping upward, not a flat one.",
+      "ok": "Read the shape, not just the numbers.",
+      "no": "Ask what a flat line says about the distance changing."
+    },
+    {
+      "topic": "Median & mode",
+      "prompt": "What is the mode of this set? 3, 5, 5, 8, 9, 5, 2",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "5.3"
+      ],
+      "correct": 1,
+      "hint": "The mode is the value that shows up most often. Just count.",
+      "why": "5 appears three times; every other value appears once. The mode is 5. Note that 5.3 is roughly the mean, which is a different measure entirely.",
+      "ok": "Correct.",
+      "no": "The mode is about frequency, not size or average."
+    },
+    {
+      "topic": "Median & mode",
+      "prompt": "What is the median of this set? 4, 8, 11, 15",
+      "options": [
+        "8",
+        "9.5",
+        "11",
+        "19"
+      ],
+      "correct": 1,
+      "hint": "With an even count there's no single middle value. Average the two in the middle.",
+      "why": "Ordered, the two middle values are 8 and 11. Their average is <span class='expr'>(8 + 11) ÷ 2 = 9.5</span>. With an odd count you'd just pick the middle number, but an even count needs this extra step.",
+      "ok": "Even count handled.",
+      "no": "With an even count, average the two middle values."
+    },
+    {
+      "topic": "Data & statistics",
+      "prompt": "A student's five test scores are 70, 78, 85, 85, and 92. What is the mean score?",
+      "options": [
+        "80",
+        "82",
+        "84",
+        "85"
+      ],
+      "correct": 1,
+      "hint": "Add all five, then divide by 5. Note that 85 is the median and the mode — a common trap.",
+      "why": "The scores total 410, and <span class='expr'>410 ÷ 5 = 82</span>. The median and mode are both 85, so the mean is the odd one out here.",
+      "ok": "Right on the money.",
+      "no": "That's a different measure of center."
+    },
+    {
+      "topic": "Data & statistics",
+      "prompt": "A student has averaged 82 across four tests. What score is needed on the fifth test to bring the average up to 85?",
+      "options": [
+        "88",
+        "91",
+        "97",
+        "100"
+      ],
+      "correct": 2,
+      "hint": "Work with totals rather than averages: what must all five scores add up to?",
+      "why": "Four tests at an 82 average total <span class='expr'>4 × 82 = 328</span>. Five tests averaging 85 must total <span class='expr'>5 × 85 = 425</span>. The difference is <span class='expr'>425 − 328 = 97</span>. Pulling an average up takes more than the target itself.",
+      "ok": "Totals beat averages here.",
+      "no": "Convert both averages into totals first."
+    },
+    {
+      "topic": "Probability",
+      "prompt": "A bag holds 4 red marbles, 5 blue marbles, and 3 green marbles. If one marble is drawn at random, what is the probability that it is NOT blue?",
+      "options": [
+        "1/3",
+        "5/12",
+        "7/12",
+        "5/7"
+      ],
+      "correct": 2,
+      "hint": "How many marbles are there in total, and how many of them are not blue?",
+      "why": "There are 12 marbles in all, and <span class='expr'>4 + 3 = 7</span> are not blue, giving <span class='expr'>7/12</span>. You could also compute <span class='expr'>1 − 5/12</span>.",
+      "ok": "You've got it.",
+      "no": "Count the total marbles again."
+    },
+    {
+      "topic": "Probability",
+      "prompt": "From that same bag of 4 red, 5 blue, and 3 green marbles, two marbles are drawn without replacement. What is the probability that both are red?",
+      "options": [
+        "1/11",
+        "1/9",
+        "2/11",
+        "7/22"
+      ],
+      "correct": 0,
+      "hint": "After the first red is drawn, both the reds and the total are one smaller.",
+      "why": "First draw: <span class='expr'>4/12</span>. Second draw: only 3 reds remain out of 11 marbles, so <span class='expr'>3/11</span>. Multiply: <span class='expr'>4/12 × 3/11 = 12/132 = 1/11</span>. If the marble were put back, you'd get <span class='expr'>1/9</span> instead.",
+      "ok": "Adjusted for the missing marble.",
+      "no": "The second draw comes from a smaller bag."
+    }
+  ]
+}
