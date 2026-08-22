@@ -16,7 +16,7 @@
     --grid:#DAE6EC;
     --rule:#C3D3DC;
     --amber:#E9A400;
-    --amber-deep:#B87D00;
+    --amber-deep:#7A5200;
     --right:#1B6E52;
     --right-bg:#E6F3ED;
     --wrong:#A93520;
@@ -78,6 +78,7 @@
   .card{
     background:var(--card);border:1.5px solid var(--ink);border-radius:4px;
     box-shadow:5px 5px 0 rgba(22,35,59,.09);padding:24px 22px;
+    display:flex;flex-direction:column;min-height:420px;
   }
   .qmeta{
     display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
@@ -88,7 +89,7 @@
   .qmeta .topic{
     color:var(--amber-deep);border-bottom:2px solid var(--amber);padding-bottom:1px;
   }
-  .prompt{font-size:19.5px;line-height:1.45;margin:0 0 18px}
+  .prompt{font-size:19.5px;line-height:1.45;margin:0 0 18px;min-height:90px}
   .prompt .expr{font-family:var(--mono);font-size:.94em;font-weight:600}
 
   ul.options{list-style:none;margin:0;padding:0;display:grid;gap:9px}
@@ -111,14 +112,15 @@
   .opt.is-wrong{border-color:var(--wrong);background:var(--wrong-bg)}
   .opt.is-wrong .key{border-color:var(--wrong);background:var(--wrong);color:#fff}
 
-  .tools{margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .tools{margin-top:auto;padding-top:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .linkbtn{
-    font-family:var(--display);font-size:13.5px;font-weight:500;color:var(--ink-soft);
-    background:none;border:0;border-bottom:1.5px dotted var(--ink-soft);
-    padding:0 0 2px;cursor:pointer;
+    font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--ink-soft);
+    background:var(--paper);border:1.5px solid var(--rule);border-radius:3px;
+    padding:8px 14px;cursor:pointer;transition:border-color .15s,background .15s,color .15s;
   }
-  .linkbtn:hover{color:var(--ink);border-bottom-color:var(--ink)}
-  .linkbtn:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  .linkbtn:hover:not(:disabled){color:var(--ink);border-color:var(--ink);background:var(--card)}
+  .linkbtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+  .linkbtn:disabled{cursor:default}
   .hint{
     margin-top:14px;padding:11px 13px;border-left:3px solid var(--amber);
     background:#FDF6E4;font-size:16px;
@@ -155,9 +157,21 @@
   .review .topic-tag{font-family:var(--display);font-size:11px;font-weight:700;
     letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block}
 
-  .timing{font-family:var(--mono);font-size:14px;color:var(--ink-soft);margin:0 0 16px}
-  .results-actions{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+  .timing{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:15px;font-weight:600;color:var(--ink);
+    background:var(--paper);border:1.5px solid var(--rule);border-radius:20px;
+    padding:6px 14px;margin:0 0 18px;
+  }
+  .results-actions{margin:4px 0 22px;padding-bottom:20px;border-bottom:1.5px dashed var(--rule);display:flex;gap:12px;flex-wrap:wrap}
   .results-actions .next{margin-top:0}
+  .printlink{
+    display:inline-block;margin-top:2px;font-family:var(--display);font-size:13.5px;font-weight:500;
+    color:var(--ink-soft);background:none;border:0;padding:0;cursor:pointer;
+    text-decoration:underline;text-underline-offset:3px;
+  }
+  .printlink:hover{color:var(--ink)}
+  .printlink:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
   .next.secondary{background:var(--card);color:var(--ink)}
   .next.secondary:hover{background:var(--paper)}
 
@@ -182,10 +196,14 @@
     body{background:#fff;font-size:12pt}
     .screen-only,footer.note{display:none!important}
     .print-only{display:block}
+    #resultsPrintSheet{display:none}
     .p-q{break-inside:avoid;margin-bottom:16pt}
     .p-q h3{font-family:var(--display);font-size:12pt;margin:0 0 4pt}
     .p-q ol{margin:4pt 0 0 18pt;padding:0}
     .p-key{break-before:page;border-top:2px solid #000;padding-top:10pt}
+    body.printing-results #printSheet{display:none}
+    body.printing-results #resultsPrintSheet{display:block}
+    #resultsPrintSheet li{margin-bottom:4pt}
   }
 </style>
 </head>
@@ -212,6 +230,7 @@
   </div>
 
   <div class="print-only" id="printSheet"></div>
+  <div class="print-only" id="resultsPrintSheet"></div>
 </div>
 
 <script src="generators.js"></script>
@@ -233,6 +252,7 @@ const ticks      = document.getElementById("rulerTicks");
 const label      = document.getElementById("rulerLabel");
 const footnote   = document.getElementById("footnote");
 const printSheet = document.getElementById("printSheet");
+const resultsPrintSheet = document.getElementById("resultsPrintSheet");
 
 let QUESTIONS = [];
 let index = 0, correctCount = 0, skippedCount = 0, log = [];
@@ -439,10 +459,12 @@ function renderResults(){
   stage.innerHTML =
     '<p class="qmeta"><span>Results</span></p>' +
     '<p class="score">' + rightCount + '<span> / ' + answered + '</span></p>' +
-    '<p class="timing">' +
-      (elapsed ? "Completed in " + elapsed : "") +
-      (skippedCount ? " \u00b7 " + skippedCount + " skipped" : "") +
-    '</p>' +
+    (elapsed ? '<p class="timing">Completed in ' + elapsed +
+      (skippedCount ? " \u00b7 " + skippedCount + " skipped" : "") + '</p>' : '') +
+    '<div class="results-actions">' +
+      (wrongEntries.length ? '<button class="next" id="reviewBtn">Review the ones you missed</button>' : '') +
+      '<button class="next' + (wrongEntries.length ? ' secondary' : '') + '" id="againBtn">Start over</button>' +
+    '</div>' +
     '<p class="why">' + closing + '</p>' +
     '<ul class="review">' +
       log.map((r, i) =>
@@ -452,15 +474,30 @@ function renderResults(){
           (r.status === "skip" ? " (skipped)" : "") + '</span></li>'
       ).join("") +
     '</ul>' +
-    '<div class="results-actions">' +
-      (wrongEntries.length ? '<button class="next" id="reviewBtn">Review the ones you missed</button>' : '') +
-      '<button class="next' + (wrongEntries.length ? ' secondary' : '') + '" id="againBtn">Start over</button>' +
-    '</div>';
+    '<button class="printlink" id="printResultsBtn">Save your results to PDF</button>';
 
   document.getElementById("againBtn").addEventListener("click", startOver);
   const rb = document.getElementById("reviewBtn");
   if (rb) rb.addEventListener("click", startReview);
+  document.getElementById("printResultsBtn").addEventListener("click", () => printResults(rightCount, answered, elapsed));
 }
+
+function printResults(rightCount, answered, elapsed){
+  resultsPrintSheet.innerHTML =
+    '<h2>' + document.getElementById("setTitle").textContent + ' \u2014 Results</h2>' +
+    '<p>Score: ' + rightCount + ' / ' + answered +
+      (elapsed ? ' &nbsp;\u00b7&nbsp; Time: ' + elapsed : '') +
+      (skippedCount ? ' &nbsp;\u00b7&nbsp; ' + skippedCount + ' skipped' : '') + '</p>' +
+    '<ol>' +
+      log.map(r =>
+        '<li>' + (r.status === "right" ? "Correct" : r.status === "skip" ? "Skipped" : "Missed") +
+          ' \u2014 ' + r.topic + '</li>'
+      ).join("") +
+    '</ol>';
+  document.body.classList.add("printing-results");
+  window.print();
+}
+window.addEventListener("afterprint", () => document.body.classList.remove("printing-results"));
 
 function startOver(){
   QUESTIONS = SOURCE ? QUESTIONS : freshQuestions();
