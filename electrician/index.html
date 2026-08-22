@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Electrician Practice Exam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233B;
+    --ink-soft:#4A5A75;
+    --paper:#F1F5F7;
+    --card:#FFFFFF;
+    --grid:#DAE6EC;
+    --rule:#C3D3DC;
+    --amber:#E9A400;
+    --amber-deep:#7A5200;
+    --right:#1B6E52;
+    --right-bg:#E6F3ED;
+    --wrong:#A93520;
+    --wrong-bg:#FAEAE6;
+    --display:"Space Grotesk",'Segoe UI',system-ui,sans-serif;
+    --body:"Source Serif 4",Georgia,serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:26px 26px;
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:660px;margin:0 auto;padding:32px 18px 64px}
+
+  header.masthead{margin-bottom:22px}
+  .eyebrow{
+    font-family:var(--display);font-size:11.5px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
+    margin:0 0 6px;
+  }
+  h1{
+    font-family:var(--display);font-weight:700;font-size:31px;
+    line-height:1.1;letter-spacing:-.02em;margin:0 0 8px;
+  }
+  .standfirst{margin:0;color:var(--ink-soft);font-size:16px;max-width:46ch}
+
+  .ruler{margin:24px 0 20px;position:relative;height:34px}
+  .ruler-track{
+    position:absolute;inset:auto 0 0 0;height:16px;
+    border:1.5px solid var(--ink);border-radius:2px;background:var(--card);
+    overflow:hidden;
+  }
+  .ruler-fill{
+    position:absolute;left:0;top:0;bottom:0;width:0%;
+    background:var(--amber);transition:width .35s ease;
+  }
+  .ruler-ticks{
+    position:absolute;inset:auto 0 0 0;height:16px;
+    display:grid;pointer-events:none;
+  }
+  .ruler-ticks span{border-right:1px solid var(--ink);opacity:.35}
+  .ruler-ticks span:last-child{border-right:0}
+  .ruler-label{
+    position:absolute;top:0;left:0;font-family:var(--mono);
+    font-size:12px;font-weight:600;color:var(--ink-soft);letter-spacing:.02em;
+  }
+
+  .card{
+    background:var(--card);border:1.5px solid var(--ink);border-radius:4px;
+    box-shadow:5px 5px 0 rgba(22,35,59,.09);padding:24px 22px;
+    display:flex;flex-direction:column;min-height:420px;
+  }
+  .qmeta{
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+    font-family:var(--display);font-size:11.5px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .qmeta .topic{
+    color:var(--amber-deep);border-bottom:2px solid var(--amber);padding-bottom:1px;
+  }
+  .prompt{font-size:19.5px;line-height:1.45;margin:0 0 18px;min-height:90px}
+  .prompt .expr{font-family:var(--mono);font-size:.94em;font-weight:600}
+
+  ul.options{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .opt{
+    width:100%;text-align:left;display:flex;gap:12px;align-items:flex-start;
+    font-family:var(--body);font-size:17px;color:var(--ink);
+    background:var(--card);border:1.5px solid var(--rule);border-radius:3px;
+    padding:11px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+  }
+  .opt:hover:not(:disabled){border-color:var(--ink)}
+  .opt:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+  .opt:disabled{cursor:default}
+  .opt .key{
+    font-family:var(--mono);font-size:13px;font-weight:600;
+    min-width:22px;height:22px;line-height:22px;text-align:center;
+    border:1.5px solid var(--rule);border-radius:50%;flex:0 0 auto;margin-top:1px;
+  }
+  .opt.is-right{border-color:var(--right);background:var(--right-bg)}
+  .opt.is-right .key{border-color:var(--right);background:var(--right);color:#fff}
+  .opt.is-wrong{border-color:var(--wrong);background:var(--wrong-bg)}
+  .opt.is-wrong .key{border-color:var(--wrong);background:var(--wrong);color:#fff}
+
+  .tools{margin-top:auto;padding-top:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .linkbtn{
+    font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--ink-soft);
+    background:var(--paper);border:1.5px solid var(--rule);border-radius:3px;
+    padding:8px 14px;cursor:pointer;transition:border-color .15s,background .15s,color .15s;
+  }
+  .linkbtn:hover:not(:disabled){color:var(--ink);border-color:var(--ink);background:var(--card)}
+  .linkbtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+  .linkbtn:disabled{cursor:default}
+  .hint{
+    margin-top:14px;padding:11px 13px;border-left:3px solid var(--amber);
+    background:#FDF6E4;font-size:16px;
+  }
+  .hint strong{font-family:var(--display);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;display:block;color:var(--amber-deep);margin-bottom:3px}
+
+  .feedback{margin-top:18px;padding-top:16px;border-top:1.5px dashed var(--rule)}
+  .verdict{font-family:var(--display);font-weight:700;font-size:16px;margin:0 0 5px}
+  .verdict.right{color:var(--right)}
+  .verdict.wrong{color:var(--wrong)}
+  .why{margin:0;font-size:16.5px}
+  .why .expr{font-family:var(--mono);font-size:.92em;font-weight:600}
+
+  .next{
+    margin-top:18px;font-family:var(--display);font-weight:700;font-size:15px;
+    letter-spacing:.01em;background:var(--ink);color:#fff;border:1.5px solid var(--ink);
+    border-radius:3px;padding:11px 20px;cursor:pointer;
+  }
+  .next:hover{background:#0D1728}
+  .next:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+  .score{font-family:var(--display);font-size:52px;font-weight:700;line-height:1;margin:0 0 4px}
+  .score span{font-size:24px;color:var(--ink-soft)}
+  .review{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+  .review li{display:flex;gap:11px;align-items:flex-start;font-size:16px;
+    padding-bottom:10px;border-bottom:1px solid var(--grid)}
+  .review li:last-child{border-bottom:0}
+  .mark{font-family:var(--mono);font-weight:600;font-size:14px;flex:0 0 auto;
+    width:20px;text-align:center}
+  .mark.ok{color:var(--right)}
+  .mark.no{color:var(--wrong)}
+  .mark.skip{color:var(--ink-soft)}
+  .review .topic-tag{font-family:var(--display);font-size:11px;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block}
+
+  .timing{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:15px;font-weight:600;color:var(--ink);
+    background:var(--paper);border:1.5px solid var(--rule);border-radius:20px;
+    padding:6px 14px;margin:0 0 18px;
+  }
+  .results-actions{margin:4px 0 22px;padding-bottom:20px;border-bottom:1.5px dashed var(--rule);display:flex;gap:12px;flex-wrap:wrap}
+  .results-actions .next{margin-top:0}
+  .next.secondary{background:var(--card);color:var(--ink)}
+  .next.secondary:hover{background:var(--paper)}
+  .share-box{
+    margin:0 0 22px;padding:12px 14px;background:var(--paper);
+    border:1.5px solid var(--rule);border-radius:4px;
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  }
+  .share-box label{font-family:var(--display);font-size:13px;font-weight:600;color:var(--ink-soft)}
+  .share-box input{
+    flex:1 1 220px;min-width:0;font-family:var(--mono);font-size:13px;
+    padding:7px 9px;border:1.5px solid var(--rule);border-radius:3px;
+    background:var(--card);color:var(--ink);
+  }
+  .share-copied{font-family:var(--display);font-size:12.5px;font-weight:700;color:var(--right)}
+
+  code{font-family:var(--mono);font-size:14px;background:#EDF2F5;
+    border:1px solid var(--rule);border-radius:2px;padding:1px 5px}
+  .loading{color:var(--ink-soft);font-family:var(--display);font-size:15px;margin:0}
+
+  .print-only{display:none}
+  footer.note{margin-top:22px;font-size:14px;color:var(--ink-soft);text-align:center;
+    font-family:var(--display)}
+
+  @media (max-width:520px){
+    .wrap{padding:22px 14px 48px}
+    h1{font-size:26px}
+    .prompt{font-size:18px}
+    .card{padding:19px 16px;box-shadow:4px 4px 0 rgba(22,35,59,.09)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+  @media print{
+    body{background:#fff;font-size:12pt}
+    .screen-only,footer.note{display:none!important}
+    .print-only{display:block}
+    #resultsPrintSheet{display:none}
+    .p-q{break-inside:avoid;margin-bottom:16pt}
+    .p-q h3{font-family:var(--display);font-size:12pt;margin:0 0 4pt}
+    .p-q ol{margin:4pt 0 0 18pt;padding:0}
+    .p-key{break-before:page;border-top:2px solid #000;padding-top:10pt}
+    body.printing-results #printSheet{display:none}
+    body.printing-results #resultsPrintSheet{display:block}
+    #resultsPrintSheet li{margin-bottom:4pt}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead" id="masthead">
+    <p class="eyebrow" id="eyebrow">Practice set</p>
+    <h1 id="setTitle">Master Electrician Practice Exam</h1>
+    <p class="standfirst" id="setIntro"></p>
+  </header>
+
+  <div class="screen-only">
+    <div class="ruler" id="ruler" aria-hidden="true" hidden>
+      <span class="ruler-label" id="rulerLabel"></span>
+      <div class="ruler-track"><div class="ruler-fill" id="rulerFill"></div></div>
+      <div class="ruler-ticks" id="rulerTicks"></div>
+    </div>
+
+    <main class="card" id="stage" aria-live="polite">
+      <p class="loading">Loading questions&hellip;</p>
+    </main>
+    <footer class="note" id="footnote" hidden>Answer, read the explanation, then move on. Skip anything that's too easy — it won't be marked wrong.</footer>
+  </div>
+
+  <div class="print-only" id="printSheet"></div>
+  <div class="print-only" id="resultsPrintSheet"></div>
+</div>
+
+<script>
+/* ---------------------------------------------------------------
+   A fixed, hand-written question bank (questions.json) — no random
+   number generation here, unlike the math quiz this app was forked
+   from. Load a different bank instead with ?set=other.json.
+   --------------------------------------------------------------- */
+
+const SOURCE = new URLSearchParams(location.search).get("set") || "questions.json";
+const LETTERS = ["A","B","C","D","E","F"];
+
+const stage      = document.getElementById("stage");
+const ruler      = document.getElementById("ruler");
+const fill       = document.getElementById("rulerFill");
+const ticks      = document.getElementById("rulerTicks");
+const label      = document.getElementById("rulerLabel");
+const footnote   = document.getElementById("footnote");
+const printSheet = document.getElementById("printSheet");
+const resultsPrintSheet = document.getElementById("resultsPrintSheet");
+
+let QUESTIONS = [];
+let index = 0, correctCount = 0, skippedCount = 0, log = [];
+let startTime = null;
+
+/* ---------- loading ---------- */
+
+async function boot(){
+  const shareParam = new URLSearchParams(location.search).get("share");
+  if (shareParam) {
+    renderSharedResults(shareParam);
+    return;
+  }
+
+  let data;
+  try {
+    const res = await fetch(SOURCE, {cache:"no-store"});
+    if (!res.ok) throw new Error("Server returned " + res.status);
+    data = await res.json();
+  } catch (err) {
+    showLoadError(err);
+    return;
+  }
+
+  const list = Array.isArray(data) ? data : data.questions;
+  const problem = validate(list);
+  if (problem) { showDataError(problem); return; }
+
+  QUESTIONS = list.map(q => ({...q, genIndex: null}));
+  if (!Array.isArray(data)) {
+    if (data.title) { document.getElementById("setTitle").textContent = data.title; document.title = data.title; }
+    if (data.intro) { document.getElementById("setIntro").textContent = data.intro; }
+  }
+
+  document.getElementById("eyebrow").textContent =
+    "Practice set · " + QUESTIONS.length + " question" + (QUESTIONS.length === 1 ? "" : "s");
+
+  ticks.style.gridTemplateColumns = "repeat(" + QUESTIONS.length + ",1fr)";
+  ticks.innerHTML = QUESTIONS.map(() => "<span></span>").join("");
+  ruler.hidden = false;
+  footnote.hidden = false;
+
+  buildPrintSheet();
+  startTime = Date.now();
+  renderQuestion();
+}
+
+function validate(list){
+  if (!Array.isArray(list) || list.length === 0) {
+    return "The file loaded, but it has no questions in it. Expected a <code>questions</code> array.";
+  }
+  for (let i = 0; i < list.length; i++) {
+    const q = list[i];
+    if (!q.prompt) return "Question " + (i + 1) + " is missing a <code>prompt</code>.";
+    if (!Array.isArray(q.options) || q.options.length < 2)
+      return "Question " + (i + 1) + " needs at least two <code>options</code>.";
+    if (typeof q.correct !== "number" || q.correct < 0 || q.correct >= q.options.length)
+      return "Question " + (i + 1) + " has a <code>correct</code> value outside its options. It counts from 0, so the first option is 0.";
+  }
+  return null;
+}
+
+function showLoadError(err){
+  const local = location.protocol === "file:";
+  stage.innerHTML =
+    '<p class="qmeta"><span>Could not load ' + SOURCE + '</span></p>' +
+    (local
+      ? '<p class="why">The page is open straight from disk, and browsers block pages on <code>file://</code> from reading neighbouring files. Two ways round it:</p>' +
+        '<p class="why" style="margin-top:12px"><strong>Publish it.</strong> Upload <code>index.html</code> and <code>' + SOURCE + '</code> to a host and open the live URL.</p>' +
+        '<p class="why" style="margin-top:10px"><strong>Or serve it locally.</strong> In the folder holding both files, run <code>python3 -m http.server</code> and open <code>http://localhost:8000</code>.</p>'
+      : '<p class="why">Check that <code>' + SOURCE + '</code> sits in the same folder as this page and that the filename matches exactly, including capitals.</p>') +
+    '<p class="why" style="margin-top:12px;color:var(--ink-soft);font-size:15px">Browser reported: ' + String(err.message || err) + '</p>';
+}
+
+function showDataError(msg){
+  stage.innerHTML =
+    '<p class="qmeta"><span>Problem in ' + SOURCE + '</span></p>' +
+    '<p class="why">' + msg + '</p>' +
+    '<p class="why" style="margin-top:12px;color:var(--ink-soft);font-size:15px">Fix the file and reload. A stray comma or a missing quote will also land you here.</p>';
+}
+
+/* ---------- quiz ---------- */
+
+function meter(done){
+  fill.style.width = (done / QUESTIONS.length * 100) + "%";
+  label.textContent = done >= QUESTIONS.length ? "Finished" : (done + 1) + " of " + QUESTIONS.length;
+}
+
+function formatDuration(ms){
+  const totalSec = Math.max(0, Math.round(ms / 1000));
+  const m = Math.floor(totalSec / 60), s = totalSec % 60;
+  return m > 0 ? (m + "m " + String(s).padStart(2, "0") + "s") : (s + "s");
+}
+
+function renderQuestion(){
+  const q = QUESTIONS[index];
+  meter(index);
+  stage.innerHTML =
+    '<p class="qmeta"><span>Question ' + (index + 1) + '</span>' +
+      (q.topic ? '<span class="topic">' + q.topic + '</span>' : '') + '</p>' +
+    '<p class="prompt">' + q.prompt + '</p>' +
+    '<ul class="options">' +
+      q.options.map((t, i) =>
+        '<li><button class="opt" data-i="' + i + '"><span class="key">' + (LETTERS[i] || (i + 1)) + '</span><span>' + t + '</span></button></li>'
+      ).join("") +
+    '</ul>' +
+    '<div class="tools">' +
+      (q.hint ? '<button class="linkbtn" id="hintBtn">Need a hint?</button>' : '') +
+      '<button class="linkbtn" id="skipBtn">Skip — too easy</button>' +
+    '</div>' +
+    '<div id="slot"></div>';
+
+  document.querySelectorAll(".opt").forEach(b =>
+    b.addEventListener("click", () => choose(+b.dataset.i)));
+  const hb = document.getElementById("hintBtn");
+  if (hb) hb.addEventListener("click", showHint);
+  document.getElementById("skipBtn").addEventListener("click", skipQuestion);
+}
+
+function showHint(){
+  const btn = document.getElementById("hintBtn");
+  if (!btn || btn.disabled) return;
+  btn.disabled = true;
+  btn.style.opacity = ".5";
+  document.querySelector(".tools").insertAdjacentHTML("afterend",
+    '<div class="hint"><strong>Hint</strong>' + QUESTIONS[index].hint + '</div>');
+}
+
+function advance(){
+  index++;
+  if (index < QUESTIONS.length) renderQuestion(); else renderResults();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function skipQuestion(){
+  const q = QUESTIONS[index];
+  log.push({topic:q.topic || "Question " + (index + 1), status:"skip", genIndex: q.genIndex});
+  skippedCount++;
+  advance();
+}
+
+function choose(picked){
+  const q = QUESTIONS[index];
+  const right = picked === q.correct;
+  if (right) correctCount++;
+  log.push({topic:q.topic || "Question " + (index + 1), status: right ? "right" : "wrong", genIndex: q.genIndex});
+
+  document.querySelectorAll(".opt").forEach(b => {
+    const i = +b.dataset.i;
+    b.disabled = true;
+    if (i === q.correct) b.classList.add("is-right");
+    else if (i === picked) b.classList.add("is-wrong");
+  });
+  const hb = document.getElementById("hintBtn");
+  if (hb) { hb.disabled = true; hb.style.opacity = ".5"; }
+  const sb = document.getElementById("skipBtn");
+  if (sb) sb.remove();
+
+  document.getElementById("slot").innerHTML =
+    '<div class="feedback">' +
+      '<p class="verdict ' + (right ? "right" : "wrong") + '">' +
+        (right ? (q.ok || "That's right.") : (q.no || "Not quite.")) + '</p>' +
+      '<p class="why">' + (q.why || "") + '</p>' +
+      '<button class="next" id="nextBtn">' +
+        (index === QUESTIONS.length - 1 ? "See results" : "Next question") + '</button>' +
+    '</div>';
+
+  const nb = document.getElementById("nextBtn");
+  nb.addEventListener("click", advance);
+  nb.focus();
+}
+
+function renderResults(){
+  meter(QUESTIONS.length);
+  const wrongEntries = log.filter(r => r.status === "wrong");
+  const rightCount = log.filter(r => r.status === "right").length;
+  const answered = rightCount + wrongEntries.length;
+  const missedTopics = wrongEntries.map(r => r.topic);
+  const closing = missedTopics.length === 0
+    ? "Every topic in this set is solid. Worth trying a harder round."
+    : "Worth another look at: " + [...new Set(missedTopics)].join(", ") + ".";
+  const elapsedMs = startTime ? Date.now() - startTime : null;
+  const elapsed = elapsedMs != null ? formatDuration(elapsedMs) : null;
+
+  stage.innerHTML =
+    '<p class="qmeta"><span>Results</span></p>' +
+    '<p class="score">' + rightCount + '<span> / ' + answered + '</span></p>' +
+    (elapsed ? '<p class="timing">Completed in ' + elapsed +
+      (skippedCount ? " · " + skippedCount + " skipped" : "") + '</p>' : '') +
+    '<div class="results-actions">' +
+      (wrongEntries.length ? '<button class="next" id="reviewBtn">Review the ones you missed</button>' : '') +
+      '<button class="next secondary" id="againBtn">Start over</button>' +
+      '<button class="next secondary" id="printResultsBtn">Save your results to PDF</button>' +
+      '<button class="next secondary" id="shareResultsBtn">Share results</button>' +
+    '</div>' +
+    '<p class="why">' + closing + '</p>' +
+    '<ul class="review">' +
+      log.map((r, i) =>
+        '<li><span class="mark ' + (r.status === "right" ? "ok" : r.status === "skip" ? "skip" : "no") + '">' +
+          (r.status === "right" ? "✓" : r.status === "skip" ? "–" : "✗") + '</span>' +
+        '<span><span class="topic-tag">' + r.topic + '</span>Question ' + (i + 1) +
+          (r.status === "skip" ? " (skipped)" : "") + '</span></li>'
+      ).join("") +
+    '</ul>';
+
+  document.getElementById("againBtn").addEventListener("click", startOver);
+  const rb = document.getElementById("reviewBtn");
+  if (rb) rb.addEventListener("click", startReview);
+  document.getElementById("printResultsBtn").addEventListener("click", () => printResults(rightCount, answered, elapsed));
+  document.getElementById("shareResultsBtn").addEventListener("click", () => shareResults(rightCount, answered, elapsedMs));
+}
+
+function printResults(rightCount, answered, elapsed){
+  resultsPrintSheet.innerHTML =
+    '<h2>' + document.getElementById("setTitle").textContent + ' — Results</h2>' +
+    '<p>Score: ' + rightCount + ' / ' + answered +
+      (elapsed ? ' &nbsp;·&nbsp; Time: ' + elapsed : '') +
+      (skippedCount ? ' &nbsp;·&nbsp; ' + skippedCount + ' skipped' : '') + '</p>' +
+    '<ol>' +
+      log.map(r =>
+        '<li>' + (r.status === "right" ? "Correct" : r.status === "skip" ? "Skipped" : "Missed") +
+          ' — ' + r.topic + '</li>'
+      ).join("") +
+    '</ol>';
+  document.body.classList.add("printing-results");
+  window.print();
+}
+window.addEventListener("afterprint", () => document.body.classList.remove("printing-results"));
+
+/* ---------- share a result as a URL ---------- */
+
+function b64urlEncode(str){
+  const bytes = new TextEncoder().encode(str);
+  let binary = "";
+  bytes.forEach(b => binary += String.fromCharCode(b));
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+function b64urlDecode(str){
+  str = str.replace(/-/g, "+").replace(/_/g, "/");
+  while (str.length % 4) str += "=";
+  const binary = atob(str);
+  const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+const STATUS_CODE = {right: "r", wrong: "w", skip: "s"};
+const STATUS_NAME = {r: "right", w: "wrong", s: "skip"};
+
+function shareResults(rightCount, answered, elapsedMs){
+  const codes = log.map(e => STATUS_CODE[e.status] || "s").join("");
+  const seconds = elapsedMs != null ? Math.round(elapsedMs / 1000) : "";
+  const fields = ["1", rightCount, answered, skippedCount, seconds, codes];
+  const encoded = b64urlEncode(fields.join("|"));
+  const url = location.origin + location.pathname + "?share=" + encoded;
+  showShareUrl(url);
+}
+
+function showShareUrl(url){
+  let box = document.getElementById("shareUrlBox");
+  if (!box) {
+    box = document.createElement("div");
+    box.id = "shareUrlBox";
+    box.className = "share-box";
+    document.querySelector(".results-actions").insertAdjacentElement("afterend", box);
+  }
+  box.innerHTML =
+    '<label for="shareUrlInput">Share this link:</label>' +
+    '<input type="text" id="shareUrlInput" readonly>' +
+    '<span class="share-copied" id="shareCopiedNote" hidden>Copied to clipboard!</span>';
+  const input = document.getElementById("shareUrlInput");
+  input.value = url;
+  input.focus();
+  input.select();
+  const note = document.getElementById("shareCopiedNote");
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      note.hidden = false;
+      setTimeout(() => { note.hidden = true; }, 2500);
+    }).catch(() => {});
+  }
+}
+
+async function renderSharedResults(encoded){
+  let r, a, sk, t, codes;
+  try {
+    const parts = b64urlDecode(encoded).split("|");
+    if (parts[0] !== "1") throw new Error("unsupported version");
+    [, r, a, sk, t, codes] = parts;
+    r = Number(r); a = Number(a); sk = Number(sk);
+    if (!Number.isFinite(r) || !Number.isFinite(a) || typeof codes !== "string") throw new Error("bad fields");
+  } catch (err) {
+    showShareError();
+    return;
+  }
+
+  const defaultTitle = "Master Electrician Practice Exam";
+  document.getElementById("setTitle").textContent = defaultTitle;
+  document.title = defaultTitle + " — Shared score";
+  document.getElementById("setIntro").textContent = "A friend shared their quiz score with you.";
+  document.getElementById("eyebrow").textContent = "Shared result";
+  ruler.hidden = true;
+  footnote.hidden = true;
+
+  // Topics aren't sent over the wire — fetch the question bank so the
+  // per-question list can still show real topic names by position.
+  let topics = null;
+  try {
+    const res = await fetch(SOURCE, {cache:"no-store"});
+    if (res.ok) {
+      const data = await res.json();
+      const list = Array.isArray(data) ? data : data.questions;
+      if (Array.isArray(list) && list.length === codes.length) {
+        topics = list.map(q => q.topic || null);
+      }
+    }
+  } catch (err) { /* fall back below */ }
+  const topicsKnown = !!topics;
+
+  const restoredLog = codes.split("").map((c, i) => ({
+    status: STATUS_NAME[c] || "skip",
+    topic: topicsKnown ? (topics[i] || ("Question " + (i + 1))) : ("Question " + (i + 1))
+  }));
+  const missedTopics = restoredLog.filter(row => row.status === "wrong").map(row => row.topic);
+  const closing = missedTopics.length === 0
+    ? "Every topic in this set was solid."
+    : topicsKnown
+      ? "They could use another look at: " + [...new Set(missedTopics)].join(", ") + "."
+      : "A few questions were missed.";
+  const elapsed = t !== "" && Number.isFinite(Number(t)) ? formatDuration(Number(t) * 1000) : null;
+
+  stage.innerHTML =
+    '<p class="qmeta"><span>Shared result</span></p>' +
+    '<p class="score">' + r + '<span> / ' + a + '</span></p>' +
+    (elapsed ? '<p class="timing">Completed in ' + elapsed +
+      (sk ? " · " + sk + " skipped" : "") + '</p>' : '') +
+    '<div class="results-actions"><button class="next" id="tryQuizBtn">Take the quiz yourself</button></div>' +
+    '<p class="why">' + closing + '</p>' +
+    '<ul class="review">' +
+      restoredLog.map((row, i) =>
+        '<li><span class="mark ' + (row.status === "right" ? "ok" : row.status === "skip" ? "skip" : "no") + '">' +
+          (row.status === "right" ? "✓" : row.status === "skip" ? "–" : "✗") + '</span>' +
+        '<span><span class="topic-tag">' + row.topic + '</span>Question ' + (i + 1) +
+          (row.status === "skip" ? " (skipped)" : "") + '</span></li>'
+      ).join("") +
+    '</ul>';
+
+  document.getElementById("tryQuizBtn").addEventListener("click", () => { location.href = location.pathname; });
+}
+
+function showShareError(){
+  stage.innerHTML =
+    '<p class="qmeta"><span>Could not read this share link</span></p>' +
+    '<p class="why">The link looks incomplete or corrupted. Ask for a fresh one, or ' +
+    '<a href="' + location.pathname + '">take the quiz yourself</a>.</p>';
+}
+
+function startOver(){
+  index = 0; correctCount = 0; skippedCount = 0; log = [];
+  startTime = Date.now();
+  renderQuestion();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ---------- review missed questions ---------- */
+
+let reviewList = [], reviewPos = 0, reviewCurrent = null;
+
+function startReview(){
+  reviewList = log
+    .map((r, i) => ({...r, original: QUESTIONS[i]}))
+    .filter(r => r.status === "wrong");
+  reviewPos = 0;
+  renderReviewExplain();
+}
+
+function renderReviewExplain(){
+  const item = reviewList[reviewPos];
+  const q = item.original;
+  stage.innerHTML =
+    '<p class="qmeta"><span>Review ' + (reviewPos + 1) + ' of ' + reviewList.length + '</span>' +
+      (q.topic ? '<span class="topic">' + q.topic + '</span>' : '') + '</p>' +
+    '<p class="prompt">' + q.prompt + '</p>' +
+    '<div class="feedback">' +
+      '<p class="verdict wrong">Here’s how that one works</p>' +
+      '<p class="why">' + (q.why || "") + '</p>' +
+      '<button class="next" id="tryAgainBtn">Try it again</button>' +
+    '</div>';
+  document.getElementById("tryAgainBtn").addEventListener("click", renderReviewQuestion);
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function renderReviewQuestion(){
+  const item = reviewList[reviewPos];
+  reviewCurrent = item.original;
+  const q = reviewCurrent;
+  stage.innerHTML =
+    '<p class="qmeta"><span>Review ' + (reviewPos + 1) + ' of ' + reviewList.length + '</span>' +
+      (q.topic ? '<span class="topic">' + q.topic + '</span>' : '') + '</p>' +
+    '<p class="prompt">' + q.prompt + '</p>' +
+    '<ul class="options">' +
+      q.options.map((t, i) =>
+        '<li><button class="opt" data-i="' + i + '"><span class="key">' + (LETTERS[i] || (i + 1)) + '</span><span>' + t + '</span></button></li>'
+      ).join("") +
+    '</ul>' +
+    '<div id="slot"></div>';
+  document.querySelectorAll(".opt").forEach(b =>
+    b.addEventListener("click", () => chooseReview(+b.dataset.i)));
+}
+
+function chooseReview(picked){
+  const q = reviewCurrent;
+  const right = picked === q.correct;
+
+  document.querySelectorAll(".opt").forEach(b => {
+    const i = +b.dataset.i;
+    b.disabled = true;
+    if (i === q.correct) b.classList.add("is-right");
+    else if (i === picked) b.classList.add("is-wrong");
+  });
+
+  const isLast = reviewPos === reviewList.length - 1;
+  document.getElementById("slot").innerHTML =
+    '<div class="feedback">' +
+      '<p class="verdict ' + (right ? "right" : "wrong") + '">' +
+        (right ? (q.ok || "That's right.") : (q.no || "Not quite.")) + '</p>' +
+      '<p class="why">' + (q.why || "") + '</p>' +
+      '<button class="next" id="reviewNextBtn">' +
+        (right ? (isLast ? "Finish review" : "Next missed question") : "Try another") +
+      '</button>' +
+    '</div>';
+
+  document.getElementById("reviewNextBtn").addEventListener("click", () => {
+    if (!right) { renderReviewQuestion(); return; }
+    reviewPos++;
+    if (reviewPos < reviewList.length) renderReviewExplain(); else renderReviewComplete();
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
+}
+
+function renderReviewComplete(){
+  stage.innerHTML =
+    '<p class="qmeta"><span>Review complete</span></p>' +
+    '<p class="why">Nice work working back through ' + reviewList.length +
+      ' missed question' + (reviewList.length === 1 ? "" : "s") + '.</p>' +
+    '<button class="next" id="backToResultsBtn">Back to results</button>';
+  document.getElementById("backToResultsBtn").addEventListener("click", renderResults);
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ---------- printable worksheet + answer key ---------- */
+
+function buildPrintSheet(){
+  printSheet.innerHTML =
+    '<h2>' + document.getElementById("setTitle").textContent + '</h2>' +
+    QUESTIONS.map((q, n) =>
+      '<div class="p-q"><h3>' + (n + 1) + '. ' + (q.topic || "") + '</h3><p>' + q.prompt + '</p><ol type="A">' +
+      q.options.map(o => '<li>' + o + '</li>').join("") + '</ol></div>'
+    ).join("") +
+    '<div class="p-key"><h2>Answer key</h2>' +
+    QUESTIONS.map((q, n) =>
+      '<p><strong>' + (n + 1) + '. ' + (LETTERS[q.correct] || (q.correct + 1)) + '</strong> &mdash; ' + (q.why || "") + '</p>'
+    ).join("") + '</div>';
+}
+
+boot();
+</script>
+</body>
+</html>

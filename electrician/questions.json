@@ -1,0 +1,1301 @@
+{
+  "title": "Master Electrician Practice Exam",
+  "intro": "100 practice questions covering the topics on a typical Master Electrician licensing exam: circuit theory, the NEC (NFPA 70), grounding and bonding, wiring methods, services and feeders, motors and transformers, hazardous locations, and code administration. Article and section numbers follow common 2020/2023 NEC numbering — always confirm against the edition your jurisdiction has actually adopted.",
+  "questions": [
+    {
+      "topic": "Circuit theory",
+      "prompt": "A circuit has a resistance of 20 ohms and a current of 5 amps. What is the voltage?",
+      "options": ["4 V", "15 V", "25 V", "100 V"],
+      "correct": 3,
+      "hint": "Ohm's law: V = I × R.",
+      "why": "V = I × R = 5 A × 20 Ω = 100 V.",
+      "ok": "Correct.",
+      "no": "Multiply current by resistance, not divide."
+    },
+    {
+      "topic": "Circuit theory",
+      "prompt": "A load draws 10 amps at 120 volts. How much power does it use?",
+      "options": ["12 W", "130 W", "1,200 W", "12,000 W"],
+      "correct": 2,
+      "hint": "Watt's law: P = I × V.",
+      "why": "P = I × V = 10 A × 120 V = 1,200 W.",
+      "ok": "Correct.",
+      "no": "Multiply amps by volts to get watts."
+    },
+    {
+      "topic": "Circuit theory",
+      "prompt": "Three resistors of 4 Ω, 6 Ω, and 10 Ω are wired in series. What is the total resistance?",
+      "options": ["3.3 Ω", "10 Ω", "16 Ω", "20 Ω"],
+      "correct": 3,
+      "hint": "Series resistances simply add together.",
+      "why": "In series, total resistance is the sum: 4 + 6 + 10 = 20 Ω.",
+      "ok": "Correct.",
+      "no": "Add all three values together for a series circuit."
+    },
+    {
+      "topic": "Circuit theory",
+      "prompt": "Two 6 Ω resistors are wired in parallel. What is the total resistance?",
+      "options": ["3 Ω", "6 Ω", "9 Ω", "12 Ω"],
+      "correct": 0,
+      "hint": "For two equal resistors in parallel, total resistance is half of one resistor.",
+      "why": "Equal parallel resistors: R = R/n = 6 Ω ÷ 2 = 3 Ω.",
+      "ok": "Correct.",
+      "no": "Parallel resistance is always less than the smallest individual resistor."
+    },
+    {
+      "topic": "Circuit theory",
+      "prompt": "In a series circuit, which quantity is the same through every component?",
+      "options": ["Voltage", "Current", "Resistance", "Power"],
+      "correct": 1,
+      "hint": "Think of a single loop with no branches.",
+      "why": "A series circuit has only one path, so the same current flows through every component; voltage divides across each one.",
+      "ok": "Correct.",
+      "no": "Voltage divides in series; current does not."
+    },
+    {
+      "topic": "Circuit theory",
+      "prompt": "In a parallel circuit, which quantity is the same across every branch?",
+      "options": ["Current", "Resistance", "Voltage", "Power"],
+      "correct": 2,
+      "hint": "Each branch connects to the same two points.",
+      "why": "All branches of a parallel circuit share the same two nodes, so voltage is identical across each branch while current divides.",
+      "ok": "Correct.",
+      "no": "Current divides among parallel branches; voltage does not."
+    },
+    {
+      "topic": "AC theory",
+      "prompt": "What is the standard frequency of utility power in the United States?",
+      "options": ["50 Hz", "60 Hz", "100 Hz", "400 Hz"],
+      "correct": 1,
+      "hint": "This is different from most of Europe.",
+      "why": "U.S. utility power is standardized at 60 hertz (cycles per second).",
+      "ok": "Correct.",
+      "no": "50 Hz is the European standard, not the U.S. standard."
+    },
+    {
+      "topic": "AC theory",
+      "prompt": "In a balanced three-phase wye (star) system, how does line voltage relate to phase voltage?",
+      "options": [
+        "Line voltage equals phase voltage",
+        "Line voltage equals phase voltage × √3",
+        "Line voltage equals phase voltage ÷ √3",
+        "Line voltage equals phase voltage × 3"
+      ],
+      "correct": 1,
+      "hint": "The √3 (about 1.732) factor is the signature of a wye connection.",
+      "why": "In a wye system, line voltage = phase voltage × √3 (for example, 120 V phase gives 208 V line).",
+      "ok": "Correct.",
+      "no": "Remember the √3 factor for wye line-to-line voltage."
+    },
+    {
+      "topic": "AC theory",
+      "prompt": "What does power factor describe?",
+      "options": [
+        "The ratio of true power to apparent power",
+        "The ratio of voltage to current",
+        "The number of phases in a system",
+        "The efficiency of a transformer's core"
+      ],
+      "correct": 0,
+      "hint": "It compares the power actually doing work to the total power being supplied.",
+      "why": "Power factor = true power (kW) ÷ apparent power (kVA); a lower power factor means more current is needed to deliver the same useful power.",
+      "ok": "Correct.",
+      "no": "Power factor is a power ratio, not a voltage or phase count."
+    },
+    {
+      "topic": "AC theory",
+      "prompt": "In a purely inductive AC circuit, how does current behave relative to voltage?",
+      "options": ["Current leads voltage", "Current lags voltage", "Current and voltage are in phase", "Current has no relationship to voltage"],
+      "correct": 1,
+      "hint": "Motors and transformers are inductive loads.",
+      "why": "Inductive loads (motors, coils, transformers) cause current to lag behind voltage.",
+      "ok": "Correct.",
+      "no": "Capacitive loads make current lead; inductive loads make it lag."
+    },
+    {
+      "topic": "AC theory",
+      "prompt": "A transformer has a primary-to-secondary turns ratio of 10:1. If the primary voltage is 480 V, what is the secondary voltage?",
+      "options": ["4.8 V", "48 V", "480 V", "4,800 V"],
+      "correct": 1,
+      "hint": "Voltage ratio follows the turns ratio.",
+      "why": "Secondary voltage = primary voltage ÷ turns ratio = 480 ÷ 10 = 48 V.",
+      "ok": "Correct.",
+      "no": "Divide the primary voltage by the turns ratio for a step-down transformer."
+    },
+    {
+      "topic": "AC theory",
+      "prompt": "The RMS value of a sine wave is approximately what fraction of its peak value?",
+      "options": ["0.5", "0.707", "1.0", "1.414"],
+      "correct": 1,
+      "hint": "RMS = peak ÷ √2.",
+      "why": "Vrms ≈ 0.707 × Vpeak, since dividing by √2 gives about 0.707.",
+      "ok": "Correct.",
+      "no": "1.414 (√2) is the peak-to-RMS multiplier, not RMS-to-peak."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "Which NEC table is primarily used to determine conductor ampacity?",
+      "options": ["Table 110.26", "Table 250.66", "Table 310.16", "Table 430.250"],
+      "correct": 2,
+      "hint": "This table cross-references wire size, insulation type, and temperature rating.",
+      "why": "Table 310.16 lists allowable ampacities for insulated conductors rated up to 2000 volts.",
+      "ok": "Correct.",
+      "no": "Table 250.66 is for grounding electrode conductor sizing, not ampacity."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "As wire gauge (AWG) number increases, what happens to the conductor?",
+      "options": ["It gets larger in diameter", "It gets smaller in diameter", "Its diameter stays the same", "It becomes stranded instead of solid"],
+      "correct": 1,
+      "hint": "Think of 14 AWG versus 4/0 AWG.",
+      "why": "AWG sizing is inverse: a higher gauge number means a smaller-diameter, lower-ampacity conductor.",
+      "ok": "Correct.",
+      "no": "Larger AWG numbers mean thinner wire, not thicker."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "For the same ampacity as copper, an aluminum conductor generally needs to be:",
+      "options": ["The same size", "One or two sizes smaller", "One or two sizes larger", "Aluminum cannot match copper ampacity"],
+      "correct": 2,
+      "hint": "Aluminum has lower conductivity than copper by volume.",
+      "why": "Aluminum conductors have lower conductivity than copper, so a larger aluminum conductor is needed to carry the same current as a given copper size.",
+      "ok": "Correct.",
+      "no": "Aluminum needs to be upsized relative to copper, not the reverse."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "When more than three current-carrying conductors are bundled in a raceway, the NEC requires:",
+      "options": [
+        "No change to ampacity",
+        "An ampacity adjustment (derating) factor",
+        "Doubling the conductor size automatically",
+        "Switching to aluminum conductors"
+      ],
+      "correct": 1,
+      "hint": "More conductors bundled together retain more heat.",
+      "why": "Adjustment factors (commonly referenced from 310.15(C)(1)) reduce allowable ampacity as the number of current-carrying conductors in a raceway increases, since bundled conductors dissipate heat less effectively.",
+      "ok": "Correct.",
+      "no": "Bundling conductors requires derating, not an automatic size doubling."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "When ambient temperature exceeds the base temperature used in the ampacity tables, the electrician must:",
+      "options": [
+        "Ignore it if runs are short",
+        "Apply a temperature correction factor",
+        "Use a smaller conductor",
+        "Only worry about this outdoors"
+      ],
+      "correct": 1,
+      "hint": "Hot environments reduce a conductor's ability to shed heat.",
+      "why": "Ampacity tables assume a base ambient temperature (commonly 30°C); correction factors reduce allowable ampacity when the actual ambient is higher.",
+      "ok": "Correct.",
+      "no": "Higher ambient temperature requires a correction factor, not a smaller conductor."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "THHN insulation is rated for use in dry locations at what maximum conductor temperature?",
+      "options": ["60°C", "75°C", "90°C", "105°C"],
+      "correct": 2,
+      "hint": "This is the most common branch-circuit wire insulation type sold today.",
+      "why": "THHN is rated 90°C in dry locations (and 75°C when wet, as THWN-2).",
+      "ok": "Correct.",
+      "no": "90°C is the dry-location rating for THHN, not 60°C or 75°C."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "A neutral conductor in a branch circuit must be sized to carry:",
+      "options": [
+        "Only half the ungrounded conductor's rating",
+        "The maximum unbalanced load it will actually carry",
+        "Twice the ungrounded conductor's rating",
+        "It never needs to be sized independently"
+      ],
+      "correct": 1,
+      "hint": "Think about what current actually returns on the neutral.",
+      "why": "The neutral must be sized for the maximum unbalanced current between the ungrounded conductors and the neutral, which can equal the full ungrounded conductor rating in a single-phase circuit.",
+      "ok": "Correct.",
+      "no": "Neutral sizing is based on unbalanced load, not a fixed fraction."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "Excessive voltage drop on a branch circuit is generally recommended to be kept under:",
+      "options": ["1%", "3%", "10%", "15%"],
+      "correct": 1,
+      "hint": "This is an informational note, not a strict NEC requirement, but it's a widely used design target.",
+      "why": "NEC informational notes recommend no more than 3% voltage drop on a branch circuit alone, and 5% combined for feeder plus branch circuit.",
+      "ok": "Correct.",
+      "no": "3% is the commonly cited branch-circuit target, not 1% or 10%."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "The minimum size of an equipment grounding conductor for a circuit is determined primarily by:",
+      "options": [
+        "The length of the circuit",
+        "The rating of the circuit's overcurrent device",
+        "The number of devices on the circuit",
+        "The conductor insulation color"
+      ],
+      "correct": 1,
+      "hint": "Look at Table 250.122.",
+      "why": "Table 250.122 sizes equipment grounding conductors according to the rating of the overcurrent device protecting the circuit, not simply the circuit conductor size.",
+      "ok": "Correct.",
+      "no": "EGC sizing is tied to the overcurrent device rating, not circuit length."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "What is the primary purpose of a branch-circuit breaker or fuse?",
+      "options": [
+        "To protect appliances from damage",
+        "To protect the conductors from overcurrent",
+        "To regulate voltage",
+        "To provide grounding"
+      ],
+      "correct": 1,
+      "hint": "Think about what physically overheats first if current is too high.",
+      "why": "Overcurrent devices are sized primarily to protect the circuit conductors from damaging overheating, not to protect connected appliances.",
+      "ok": "Correct.",
+      "no": "Protecting the conductors is the main job, not protecting the appliance."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "What does a GFCI device primarily protect against?",
+      "options": ["Overload", "Short circuit", "Ground faults / electric shock", "Arc faults"],
+      "correct": 2,
+      "hint": "It compares current on the hot and neutral conductors.",
+      "why": "A GFCI detects a small imbalance between hot and neutral current (a ground fault) and trips quickly to prevent electric shock.",
+      "ok": "Correct.",
+      "no": "Arc fault protection is the job of an AFCI, not a GFCI."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "What does an AFCI device primarily protect against?",
+      "options": ["Ground faults", "Arc faults that can cause fires", "Voltage surges", "Overloaded neutrals"],
+      "correct": 1,
+      "hint": "The 'A' stands for 'arc.'",
+      "why": "AFCIs detect the electrical signature of dangerous arcing and interrupt the circuit to reduce fire risk.",
+      "ok": "Correct.",
+      "no": "GFCIs handle ground faults; AFCIs handle arc faults."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "Which of these locations typically requires GFCI protection in a dwelling unit?",
+      "options": ["Living room receptacles", "Bedroom receptacles", "Bathroom receptacles", "Hallway lighting"],
+      "correct": 2,
+      "hint": "Think about where water and electricity are close together.",
+      "why": "NEC 210.8 requires GFCI protection in bathrooms, kitchens, garages, outdoors, and other damp or wet locations.",
+      "ok": "Correct.",
+      "no": "Bathrooms are a classic required GFCI location; bedrooms and living rooms typically are not."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "A dual-element (time-delay) fuse is designed to:",
+      "options": [
+        "Blow instantly at rated current",
+        "Allow a brief overload, such as motor starting current, before opening",
+        "Never open under any overload",
+        "Only be used with DC circuits"
+      ],
+      "correct": 1,
+      "hint": "Motors draw much higher current at startup than while running.",
+      "why": "Time-delay fuses tolerate short-term overloads like motor inrush current while still opening quickly on a true short circuit.",
+      "ok": "Correct.",
+      "no": "The point of time-delay is to ride through brief overloads, not to blow instantly."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "An overcurrent device's interrupting rating must be:",
+      "options": [
+        "Lower than the available fault current",
+        "Equal to or greater than the available fault current",
+        "Unrelated to available fault current",
+        "Set by the conductor size only"
+      ],
+      "correct": 1,
+      "hint": "If it can't handle the fault, it can fail violently instead of protecting the circuit.",
+      "why": "A device's interrupting rating (AIC) must be equal to or greater than the available fault current at that point, or it may not safely clear a fault.",
+      "ok": "Correct.",
+      "no": "An interrupting rating below available fault current is a serious safety hazard."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "What is the primary purpose of an equipment grounding conductor?",
+      "options": [
+        "To carry normal operating current",
+        "To provide a low-impedance path to clear a ground fault and remove voltage from a fault",
+        "To reduce voltage drop on branch circuits",
+        "To replace the neutral conductor"
+      ],
+      "correct": 1,
+      "hint": "It should carry current only during a fault, not during normal operation.",
+      "why": "The equipment grounding conductor provides a low-impedance fault-current path back to the source, allowing the overcurrent device to operate quickly and clear the fault.",
+      "ok": "Correct.",
+      "no": "Under normal operation, the EGC should carry no current at all."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "A ground rod driven into the earth must be a minimum of how long?",
+      "options": ["4 feet", "6 feet", "8 feet", "10 feet"],
+      "correct": 2,
+      "hint": "This is a widely tested NEC number.",
+      "why": "NEC 250.52 requires driven ground rods to be a minimum of 8 feet in contact with the earth.",
+      "ok": "Correct.",
+      "no": "8 feet is the standard minimum rod length, not 6 feet."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "A concrete-encased electrode (sometimes called a 'Ufer ground') generally requires a minimum conductor or rebar length of:",
+      "options": ["10 feet", "15 feet", "20 feet", "25 feet"],
+      "correct": 2,
+      "hint": "It must be encased in at least 2 inches of concrete near the bottom of a footing.",
+      "why": "NEC 250.52 describes the concrete-encased electrode as at least 20 feet of rebar or conductor encased in concrete.",
+      "ok": "Correct.",
+      "no": "20 feet is the standard minimum length for this electrode."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "Where should the neutral-to-ground bond normally be made in a standard single-service system?",
+      "options": [
+        "At every subpanel",
+        "Only at the service equipment (or system source)",
+        "At every receptacle box",
+        "It should never be bonded anywhere"
+      ],
+      "correct": 1,
+      "hint": "Bonding it in more than one place creates parallel neutral current paths.",
+      "why": "The neutral-to-ground bond belongs at the service (or at a separately derived system's source); bonding it again downstream creates objectionable parallel current on grounding conductors and metal parts.",
+      "ok": "Correct.",
+      "no": "Bonding neutral to ground at subpanels causes objectionable current on the grounding system."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "What is the main purpose of bonding a metal underground water piping system to the electrical system?",
+      "options": [
+        "To improve water pressure",
+        "To eliminate a potential difference (shock hazard) between the piping and the electrical system",
+        "To reduce the water bill",
+        "It's purely a plumbing code requirement, not electrical"
+      ],
+      "correct": 1,
+      "hint": "Metal piping that isn't bonded can become energized and create a shock hazard.",
+      "why": "Bonding metal water piping keeps it at the same potential as the electrical grounding system, eliminating dangerous voltage differences.",
+      "ok": "Correct.",
+      "no": "The purpose is safety bonding, not a plumbing benefit."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "The grounding electrode conductor for a service is sized primarily based on:",
+      "options": [
+        "The distance to the nearest ground rod",
+        "The size of the service-entrance conductors (per Table 250.66)",
+        "The number of branch circuits in the panel",
+        "It is always 6 AWG copper regardless of service size"
+      ],
+      "correct": 1,
+      "hint": "Bigger services need a bigger grounding electrode conductor.",
+      "why": "Table 250.66 sizes the grounding electrode conductor according to the size of the largest ungrounded service-entrance conductor.",
+      "ok": "Correct.",
+      "no": "Sizing follows the service conductor size, not distance or circuit count."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "Which of these can serve as an equipment grounding conductor under the NEC?",
+      "options": [
+        "A properly listed metal conduit or raceway",
+        "A cold water pipe with no other bonding",
+        "Any bare wire regardless of size",
+        "The neutral conductor in a branch circuit"
+      ],
+      "correct": 0,
+      "hint": "Article 250.118 lists acceptable EGC types.",
+      "why": "NEC 250.118 permits certain listed metal raceways (such as properly installed rigid metal conduit or EMT) to serve as the equipment grounding conductor, in addition to wire-type conductors.",
+      "ok": "Correct.",
+      "no": "A branch-circuit neutral cannot double as the equipment ground under normal wiring methods."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "What is the maximum conduit fill percentage generally allowed when three or more conductors are installed in a raceway?",
+      "options": ["25%", "40%", "53%", "75%"],
+      "correct": 1,
+      "hint": "This is the most commonly cited conduit fill number.",
+      "why": "Chapter 9, Table 1 allows 40% fill for three or more conductors in a raceway (53% for a single conductor, 31% for two).",
+      "ok": "Correct.",
+      "no": "40% is the standard limit for three or more conductors."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "In an outlet box fill calculation, each current-carrying conductor entering the box counts as:",
+      "options": [
+        "A half volume allowance",
+        "One volume allowance based on its conductor size",
+        "Two volume allowances regardless of size",
+        "It is not counted at all"
+      ],
+      "correct": 1,
+      "hint": "Devices, not individual conductors, get the double count.",
+      "why": "Per NEC 314.16, each conductor originating outside the box and terminating or spliced inside counts once, sized by its own conductor volume allowance; devices count double, and all grounding conductors together count once.",
+      "ok": "Correct.",
+      "no": "Devices (like receptacles) count double — individual conductors count once each."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "EMT (electrical metallic tubing) is generally connected using:",
+      "options": [
+        "Threaded couplings, like rigid conduit",
+        "Set-screw or compression fittings",
+        "Solvent-welded joints",
+        "Soldered joints"
+      ],
+      "correct": 1,
+      "hint": "EMT is not threaded.",
+      "why": "EMT is a thin-wall raceway joined with set-screw or compression-type fittings and couplings, not threads.",
+      "ok": "Correct.",
+      "no": "Threading is used for rigid metal conduit, not EMT."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "Long, straight runs of PVC conduit exposed to temperature swings typically require:",
+      "options": [
+        "No special fittings",
+        "Expansion fittings to accommodate thermal movement",
+        "Grounding bushings only",
+        "A different conduit material entirely"
+      ],
+      "correct": 1,
+      "hint": "PVC expands and contracts noticeably more than metal conduit with temperature changes.",
+      "why": "PVC has a high coefficient of thermal expansion, so long runs need expansion fittings to prevent damage as temperature changes.",
+      "ok": "Correct.",
+      "no": "PVC's expansion characteristics are why these fittings exist — they aren't optional in long runs."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "Between pull points, the total bends in a single conduit run should not exceed:",
+      "options": ["90° total", "180° total", "270° total", "360° total"],
+      "correct": 3,
+      "hint": "Think of it as 'the equivalent of four 90° bends.'",
+      "why": "NEC 358.26 (and similar sections for other raceway types) limits the total bends between pull points to 360 degrees to keep conductors pullable without damage.",
+      "ok": "Correct.",
+      "no": "360° total is the standard limit, equivalent to four quarter-bends."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "NM (nonmetallic-sheathed) cable running through framing members generally needs a protective plate when it is closer than:",
+      "options": ["1/2 inch from the edge", "1 inch from the edge", "1-1/4 inch from the edge", "2 inches from the edge"],
+      "correct": 2,
+      "hint": "This protects the cable from nails and screws.",
+      "why": "NEC 300.4 requires a steel plate at least 1/16 inch thick when cable runs closer than 1-1/4 inch to the nearest edge of a framing member.",
+      "ok": "Correct.",
+      "no": "1-1/4 inch is the standard clearance distance that triggers the protective plate requirement."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "Junction boxes must remain:",
+      "options": [
+        "Accessible without damaging the building finish",
+        "Permanently concealed behind drywall",
+        "Painted to match the wall",
+        "Only accessible to the utility company"
+      ],
+      "correct": 0,
+      "hint": "You should always be able to open a junction box for future work.",
+      "why": "NEC 314.29 requires boxes and conduit bodies to remain accessible; they cannot be permanently concealed by finished surfaces.",
+      "ok": "Correct.",
+      "no": "Junction boxes cannot be buried behind permanent finishes."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "Rigid metal conduit (RMC) is distinguished from EMT mainly by:",
+      "options": [
+        "RMC is thinner-walled and unthreaded",
+        "RMC is thicker-walled and can be threaded",
+        "RMC is only made of PVC",
+        "There is no real difference"
+      ],
+      "correct": 1,
+      "hint": "Think about which one you'd use in a more physically demanding location.",
+      "why": "RMC has a thick wall that can be threaded for couplings and fittings, giving it more physical protection than thin-wall EMT.",
+      "ok": "Correct.",
+      "no": "EMT is the thinner, unthreaded raceway — RMC is the thicker, threadable one."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "Support spacing for EMT is commonly required at intervals not exceeding:",
+      "options": ["3 feet", "6 feet", "10 feet", "15 feet"],
+      "correct": 2,
+      "hint": "It also needs a support within a few feet of each box or fitting.",
+      "why": "NEC 358.30 generally requires EMT to be secured within 3 feet of each box or fitting and supported at intervals not exceeding 10 feet.",
+      "ok": "Correct.",
+      "no": "10 feet is the standard maximum spacing between supports."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "What is generally the minimum service disconnect rating required for a one-family dwelling?",
+      "options": ["60 amps", "100 amps", "150 amps", "200 amps"],
+      "correct": 1,
+      "hint": "This is a widely tested minimum.",
+      "why": "NEC 230.79(C) sets 100 amps as the minimum rating for a one-family dwelling service disconnect.",
+      "ok": "Correct.",
+      "no": "100 amps is the minimum, though many homes now use larger services."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "How many service disconnects are generally permitted for one building or structure?",
+      "options": ["Only 1", "Up to 2", "Up to 6", "There is no limit"],
+      "correct": 2,
+      "hint": "It's grouped into one location and counted as a single set.",
+      "why": "NEC 230.71 permits up to six service disconnects grouped at one location to be treated as the service disconnecting means.",
+      "ok": "Correct.",
+      "no": "The commonly tested number is six, not one or two."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "What is the required minimum working space width in front of most electrical equipment?",
+      "options": ["24 inches", "30 inches", "36 inches", "48 inches"],
+      "correct": 1,
+      "hint": "Depth requirements vary, but width is more consistent.",
+      "why": "NEC 110.26 requires a working space at least 30 inches wide (or the width of the equipment, if wider) in front of electrical equipment.",
+      "ok": "Correct.",
+      "no": "30 inches is the standard minimum working space width."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "What is the minimum required headroom (working space height) in front of electrical equipment?",
+      "options": ["5 feet", "6 feet", "6.5 feet", "7 feet"],
+      "correct": 2,
+      "hint": "It's the same height referenced elsewhere in the code as 78 inches.",
+      "why": "NEC 110.26(E) requires a minimum headroom of 6.5 feet (78 inches) in the working space.",
+      "ok": "Correct.",
+      "no": "6.5 feet is the standard minimum headroom, not a flat 6 feet."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "A feeder is best described as the conductors between:",
+      "options": [
+        "Two branch-circuit devices",
+        "The service equipment (or another power source) and the final branch-circuit overcurrent device",
+        "A receptacle and a light fixture",
+        "The utility transformer and the meter"
+      ],
+      "correct": 1,
+      "hint": "Think of the conductors that feed a subpanel.",
+      "why": "A feeder carries power from the service equipment (or another source) to the overcurrent device protecting a branch circuit, typically feeding a subpanel.",
+      "ok": "Correct.",
+      "no": "Branch circuits are downstream of the final overcurrent device; feeders are upstream of it."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "What is the purpose of demand factors when calculating a service or feeder load?",
+      "options": [
+        "To increase the calculated load for safety margin",
+        "To reasonably reduce the calculated load, since not all connected loads run at full capacity simultaneously",
+        "To determine wire color coding",
+        "They only apply to lighting circuits"
+      ],
+      "correct": 1,
+      "hint": "Not every appliance in a house runs at the same time.",
+      "why": "Demand factors (Article 220) recognize that connected loads are rarely all on at once, allowing a smaller, more realistic calculated load for sizing services and feeders.",
+      "ok": "Correct.",
+      "no": "Demand factors reduce the calculated load — they don't inflate it."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "A panelboard's circuit directory should:",
+      "options": [
+        "Only be required for commercial buildings",
+        "Legibly identify the purpose of each circuit",
+        "Be optional if the homeowner knows the circuits",
+        "List only the circuits added after original construction"
+      ],
+      "correct": 1,
+      "hint": "This helps anyone working on the panel later know what each breaker controls.",
+      "why": "NEC 408.4 requires circuit directories to be legibly identified as to their clear, evident purpose.",
+      "ok": "Correct.",
+      "no": "This requirement applies broadly, not just to commercial work."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "Which location is generally prohibited for installing a panelboard?",
+      "options": ["A hallway closet", "A garage", "A bathroom", "A utility room"],
+      "correct": 2,
+      "hint": "Think about moisture and limited working space.",
+      "why": "NEC 240.24(E) prohibits overcurrent devices, including panelboards, from being located in bathrooms of dwelling units and certain other occupancies.",
+      "ok": "Correct.",
+      "no": "Bathrooms are specifically restricted; the other listed spaces generally are not."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "A load that is expected to continue for three hours or more is classified as a:",
+      "options": ["Non-continuous load", "Continuous load, generally sized at 125%", "Standby load", "Demand-exempt load"],
+      "correct": 1,
+      "hint": "Think of store lighting left on for a full business day.",
+      "why": "A continuous load runs for 3 hours or more; conductors and overcurrent devices generally must be sized at 125% of that continuous load.",
+      "ok": "Correct.",
+      "no": "The 125% sizing rule applies specifically to continuous loads."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "Service-entrance conductor size is ultimately determined by:",
+      "options": [
+        "The calculated load per Article 220",
+        "The homeowner's preference",
+        "Whichever wire is cheapest",
+        "The number of rooms in the building"
+      ],
+      "correct": 0,
+      "hint": "This ties back to the load calculation process.",
+      "why": "Service-entrance conductors must be sized to safely carry the calculated load determined under Article 220.",
+      "ok": "Correct.",
+      "no": "Sizing follows the calculated load, not preference or cost alone."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "For sizing branch-circuit conductors to a motor, the electrician should use:",
+      "options": [
+        "The current stamped on the motor's nameplate only",
+        "The full-load current values in the NEC motor tables (such as Table 430.250)",
+        "Whatever the manufacturer's catalog lists as 'typical'",
+        "The locked-rotor current"
+      ],
+      "correct": 1,
+      "hint": "This keeps sizing consistent across similar motors, rather than relying on nameplate variation.",
+      "why": "NEC 430.6 directs that conductor and overcurrent sizing use the full-load current values from the NEC tables (like 430.250 for three-phase motors), not the nameplate current, except in specific cases.",
+      "ok": "Correct.",
+      "no": "The NEC tables — not the nameplate current — govern standard motor circuit sizing."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "Motor overload protection is generally sized close to what percentage of the motor's rated full-load current?",
+      "options": ["50%", "80%", "115–125%", "300%"],
+      "correct": 2,
+      "hint": "It needs enough margin to avoid nuisance tripping but still protect the motor from sustained overload.",
+      "why": "Motor overload (running) protection is typically sized around 115–125% of the motor's nameplate full-load current, depending on the motor's service factor and temperature rise.",
+      "ok": "Correct.",
+      "no": "Overload protection is set modestly above full-load current, not several times higher."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "Motor branch-circuit short-circuit and ground-fault protection is generally sized:",
+      "options": [
+        "Lower than overload protection",
+        "Higher than overload protection, to allow starting current without tripping",
+        "Exactly equal to overload protection",
+        "It isn't required for motors"
+      ],
+      "correct": 1,
+      "hint": "Starting (inrush) current is much higher than running current.",
+      "why": "Table 430.52 allows short-circuit and ground-fault protection to be set well above the overload device's rating so the motor can start without nuisance tripping, while still clearing true faults.",
+      "ok": "Correct.",
+      "no": "Short-circuit/ground-fault protection is set higher than overload protection, not lower."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "Locked-rotor current on a motor compared to its normal full-load running current is:",
+      "options": [
+        "About the same",
+        "Lower",
+        "Significantly higher",
+        "Impossible to measure"
+      ],
+      "correct": 2,
+      "hint": "This is why motor starting can dim lights briefly.",
+      "why": "A stalled (locked) rotor draws far more current than normal running current, often several times the full-load value, which is why motor starting inrush is so high.",
+      "ok": "Correct.",
+      "no": "Locked-rotor current is much higher than running current, not lower or equal."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "A transformer with a step-down turns ratio will have a secondary current that is:",
+      "options": [
+        "Lower than the primary current",
+        "Higher than the primary current",
+        "Equal to the primary current",
+        "Unrelated to the primary current"
+      ],
+      "correct": 1,
+      "hint": "Power in roughly equals power out — voltage and current trade off.",
+      "why": "As voltage steps down from primary to secondary, current steps up proportionally (ignoring losses), since transformer power transfer is roughly constant.",
+      "ok": "Correct.",
+      "no": "A step-down transformer increases current on the secondary side, not decreases it."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "Transformer overcurrent protection sizing is primarily addressed in which NEC article?",
+      "options": ["Article 250", "Article 310", "Article 430", "Article 450"],
+      "correct": 3,
+      "hint": "This article is specifically dedicated to transformers.",
+      "why": "Article 450 covers transformer installation requirements, including overcurrent protection sizing on primary and secondary sides.",
+      "ok": "Correct.",
+      "no": "Article 430 covers motors, not transformers — Article 450 is the transformer article."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "A motor disconnecting means is generally required to be:",
+      "options": [
+        "Located anywhere in the building",
+        "Within sight of the motor, or lockable if not within sight",
+        "Optional if the motor is small",
+        "Combined with the branch-circuit protection only"
+      ],
+      "correct": 1,
+      "hint": "This protects someone working on the motor from it being unexpectedly energized.",
+      "why": "NEC 430.102 requires a disconnect within sight of the motor and controller, or a lockable disconnecting means if it isn't within sight.",
+      "ok": "Correct.",
+      "no": "A motor disconnect must either be within sight or capable of being locked in the open position."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "Low-voltage circuits used to control motor starters (like pushbutton or relay wiring) generally fall under:",
+      "options": ["Article 250", "Article 300", "Article 725 (Class 1, 2, 3 circuits)", "Article 90"],
+      "correct": 2,
+      "hint": "This article covers remote-control, signaling, and power-limited circuits.",
+      "why": "Article 725 covers Class 1, Class 2, and Class 3 remote-control and signaling circuits, which commonly include motor control wiring.",
+      "ok": "Correct.",
+      "no": "Article 725, not 250 or 300, addresses these control circuit classes."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "What is the primary purpose of a variable frequency drive (VFD)?",
+      "options": [
+        "To convert AC to DC permanently",
+        "To control motor speed by varying frequency and voltage",
+        "To provide overload protection only",
+        "To eliminate the need for a motor disconnect"
+      ],
+      "correct": 1,
+      "hint": "Think of it as an energy-saving speed controller.",
+      "why": "A VFD adjusts the frequency (and voltage) supplied to a motor to control its speed and torque, often improving energy efficiency.",
+      "ok": "Correct.",
+      "no": "A motor disconnect is still required even when a VFD is installed."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "A capacitor is often added to a motor circuit to:",
+      "options": [
+        "Increase running speed beyond nameplate rating",
+        "Improve power factor",
+        "Replace the need for overload protection",
+        "Convert single-phase to three-phase power permanently"
+      ],
+      "correct": 1,
+      "hint": "This helps reduce the reactive power drawn from the utility.",
+      "why": "Capacitors are commonly added to offset the lagging power factor caused by motor inductance, improving overall power factor.",
+      "ok": "Correct.",
+      "no": "Capacitors improve power factor; they don't replace required overload protection."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "A Class I hazardous location is one where:",
+      "options": [
+        "Combustible dust is present",
+        "Ignitible fibers or flyings are present",
+        "Flammable gases or vapors may be present",
+        "Only wet conditions exist"
+      ],
+      "correct": 2,
+      "hint": "Think of a location like a spray-painting booth or fuel storage area.",
+      "why": "Class I locations (Article 500) are those where flammable gases, vapors, or liquids may be present in ignitible quantities.",
+      "ok": "Correct.",
+      "no": "Combustible dust defines Class II, not Class I."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "A Class II hazardous location involves the presence of:",
+      "options": ["Flammable gases", "Combustible dust", "Ignitible fibers or flyings", "High humidity"],
+      "correct": 1,
+      "hint": "Think of a grain elevator or a facility handling combustible metal dust.",
+      "why": "Class II locations are those made hazardous by the presence of combustible dust, such as grain, coal, or metal dust.",
+      "ok": "Correct.",
+      "no": "Combustible dust is the defining hazard for Class II, not gases or vapors."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "A Class III hazardous location involves the presence of:",
+      "options": ["Flammable gases", "Combustible dust", "Easily ignitible fibers or flyings", "Corrosive liquids"],
+      "correct": 2,
+      "hint": "Think of a textile mill with loose cotton fibers in the air.",
+      "why": "Class III locations are hazardous because of easily ignitible fibers or flyings, though not typically in suspension in a way that would produce ignitible mixtures.",
+      "ok": "Correct.",
+      "no": "Class III is about fibers and flyings, not dust suspended in air (that's Class II)."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "In hazardous location classification, what distinguishes a Division 1 area from a Division 2 area?",
+      "options": [
+        "Division 1 has no real hazard at all",
+        "Division 1 hazards are present under normal operating conditions; Division 2 only under abnormal conditions",
+        "Division 2 is always more dangerous than Division 1",
+        "There is no practical difference"
+      ],
+      "correct": 1,
+      "hint": "Think about how likely the hazardous material is to be present at any given moment.",
+      "why": "Division 1 locations have the hazardous substance present during normal operations; Division 2 locations only have it present under abnormal conditions like a leak or equipment failure.",
+      "ok": "Correct.",
+      "no": "Division 1 is normally hazardous; Division 2 is hazardous only under fault or abnormal conditions."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "What is the purpose of an explosionproof enclosure?",
+      "options": [
+        "To keep dust out only",
+        "To contain an internal explosion and prevent it from igniting the surrounding atmosphere",
+        "To make equipment waterproof",
+        "To eliminate the need for grounding"
+      ],
+      "correct": 1,
+      "hint": "The enclosure is designed to withstand and contain a blast from within.",
+      "why": "Explosionproof enclosures are built to contain an internal arc or explosion and cool escaping gases enough to prevent ignition of the surrounding hazardous atmosphere.",
+      "ok": "Correct.",
+      "no": "It's about containing an internal explosion safely, not general waterproofing."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "Which NEC article covers essential electrical systems for health care facilities?",
+      "options": ["Article 501", "Article 517", "Article 547", "Article 680"],
+      "correct": 1,
+      "hint": "Think 'hospitals and health care.'",
+      "why": "Article 517 addresses wiring and essential (emergency) electrical systems for health care facilities.",
+      "ok": "Correct.",
+      "no": "Article 501 covers Class I hazardous locations, not health care facilities."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "Article 680 primarily covers wiring requirements for:",
+      "options": ["Agricultural buildings", "Swimming pools, spas, and similar installations", "Marinas", "Health care facilities"],
+      "correct": 1,
+      "hint": "Think about equipotential bonding around water.",
+      "why": "Article 680 covers pools, spas, fountains, and similar installations, including equipotential bonding grid requirements.",
+      "ok": "Correct.",
+      "no": "Marinas fall under Article 555, not 680."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "The area immediately around a fuel dispenser at a gas station is typically classified as:",
+      "options": ["A non-hazardous location", "A Class I hazardous location", "A Class II hazardous location", "A Class III hazardous location"],
+      "correct": 1,
+      "hint": "Gasoline vapors are flammable.",
+      "why": "Article 514 classifies the area around fuel dispensers as Class I due to the presence of flammable vapors.",
+      "ok": "Correct.",
+      "no": "Fuel vapors make this a Class I location, not Class II or III."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "Wiring methods for agricultural buildings often require special consideration primarily because of:",
+      "options": [
+        "High-voltage service exclusively",
+        "Corrosive, damp, or dusty conditions common to livestock and equipment areas",
+        "The buildings are always classified as Class I",
+        "No special consideration is needed"
+      ],
+      "correct": 1,
+      "hint": "Think about barns with manure gases, moisture, and dust.",
+      "why": "Article 547 addresses the corrosive, damp, and dusty conditions typical of agricultural buildings, which accelerate corrosion of standard wiring components.",
+      "ok": "Correct.",
+      "no": "Agricultural buildings aren't automatically Class I; the concern is corrosion and moisture, not hazardous vapors by default."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "Article 555 (marinas and boatyards) places strong emphasis on:",
+      "options": [
+        "Eliminating all GFCI protection near docks",
+        "GFCI protection for shore power connections to reduce electric shock drowning risk",
+        "Using only aluminum wiring",
+        "Prohibiting any electrical service near water"
+      ],
+      "correct": 1,
+      "hint": "Electric shock drowning is a serious hazard at marinas.",
+      "why": "Article 555 requires GFCI protection for shore power receptacles and related circuits to help prevent electric shock drowning incidents.",
+      "ok": "Correct.",
+      "no": "The article requires GFCI protection, not the elimination of it."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "What does 'NEC' stand for, and who publishes it?",
+      "options": [
+        "National Electrical Code, published by NFPA (NFPA 70)",
+        "National Energy Code, published by OSHA",
+        "National Electrical Certification, published by IEEE",
+        "National Equipment Code, published by UL"
+      ],
+      "correct": 0,
+      "hint": "It's the same document that's also called NFPA 70.",
+      "why": "The National Electrical Code (NEC) is published by the National Fire Protection Association as NFPA 70.",
+      "ok": "Correct.",
+      "no": "The NEC is an NFPA document (NFPA 70), not an OSHA or UL publication."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "The NEC itself becomes enforceable law only when:",
+      "options": [
+        "It is published by the NFPA",
+        "It is adopted by a state or local authority having jurisdiction (AHJ)",
+        "An electrician personally agrees to follow it",
+        "It never becomes law; it's always voluntary"
+      ],
+      "correct": 1,
+      "hint": "Publication and legal adoption are two different steps.",
+      "why": "The NEC is a model code; it only carries legal force in a jurisdiction once that jurisdiction's authority having jurisdiction formally adopts it.",
+      "ok": "Correct.",
+      "no": "Publication alone doesn't make the NEC law — local adoption does."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "According to the NEC's own stated purpose, its primary goal is:",
+      "options": [
+        "To serve as a design specification manual",
+        "The practical safeguarding of persons and property from hazards from the use of electricity",
+        "To guarantee equipment will be usable for its intended life",
+        "To set utility billing rates"
+      ],
+      "correct": 1,
+      "hint": "This wording appears near the very beginning of the code (Article 90).",
+      "why": "NEC 90.1 states its purpose is the practical safeguarding of persons and property from hazards arising from electricity use, and explicitly notes it is not a design specification or instruction manual.",
+      "ok": "Correct.",
+      "no": "The NEC explicitly states it is not intended as a design manual."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "Equipment described as 'listed' means:",
+      "options": [
+        "It appears on a manufacturer's own sales list",
+        "It has been included on a list published by a recognized qualified testing organization",
+        "It is the cheapest option available",
+        "It has passed a local inspection only"
+      ],
+      "correct": 1,
+      "hint": "Think UL, ETL, or similar nationally recognized testing labs.",
+      "why": "'Listed' equipment appears on a list published by an organization (like UL) that evaluates products and periodically inspects production to confirm they meet appropriate standards.",
+      "ok": "Correct.",
+      "no": "Being 'listed' refers to third-party testing lab recognition, not a manufacturer's own catalog."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "In most jurisdictions, new electrical work generally requires:",
+      "options": [
+        "No permit if the homeowner does the work",
+        "A permit and inspection before being energized/covered",
+        "Only a permit, with no inspection ever required",
+        "Approval solely from the utility company"
+      ],
+      "correct": 1,
+      "hint": "This is a core part of code enforcement, separate from the NEC text itself.",
+      "why": "Most jurisdictions require an electrical permit and inspection process to verify code compliance before work is covered or energized.",
+      "ok": "Correct.",
+      "no": "Permits typically require an inspection step, not just paperwork."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "Lockout/tagout procedures (as emphasized by OSHA) exist primarily to:",
+      "options": [
+        "Speed up maintenance work",
+        "Prevent unexpected energization of equipment during service or maintenance",
+        "Replace the need for a disconnecting means",
+        "Only apply to three-phase equipment"
+      ],
+      "correct": 1,
+      "hint": "Think about someone working on equipment that could suddenly turn back on.",
+      "why": "Lockout/tagout procedures are designed to prevent equipment from being unexpectedly re-energized or started while someone is servicing or maintaining it.",
+      "ok": "Correct.",
+      "no": "Lockout/tagout is a safety procedure, not a substitute for a proper disconnecting means."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "A 'qualified person,' as used in electrical safety standards, is someone who:",
+      "options": [
+        "Simply has a driver's license",
+        "Has demonstrated skills and knowledge related to the construction and operation of the equipment, and has received safety training on the hazards involved",
+        "Only needs to have watched a training video once",
+        "Is defined the same way in every state with no variation"
+      ],
+      "correct": 1,
+      "hint": "This term appears throughout OSHA and NFPA 70E language.",
+      "why": "A qualified person has demonstrated the skills, knowledge, and safety training necessary to recognize and avoid the hazards associated with specific electrical equipment.",
+      "ok": "Correct.",
+      "no": "The term requires demonstrated skill, knowledge, and hazard-specific training — not just minimal exposure."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "NFPA 70E primarily addresses:",
+      "options": [
+        "Conductor ampacity tables",
+        "Electrical safety in the workplace, including arc flash hazards",
+        "Grounding electrode systems",
+        "Residential load calculations"
+      ],
+      "correct": 1,
+      "hint": "This is a companion standard to the NEC, focused on worker safety.",
+      "why": "NFPA 70E addresses electrical safety-related work practices, including arc flash risk assessment and required PPE, complementing the installation-focused NEC.",
+      "ok": "Correct.",
+      "no": "Ampacity tables and load calculations are NEC topics, not the focus of NFPA 70E."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "As a business and supervisory matter, a master electrician is generally responsible for:",
+      "options": [
+        "Only their own individual work, never work performed by others",
+        "Overall code compliance and supervision of electrical work performed under their license",
+        "Setting national NEC requirements",
+        "Approving their own permits without inspection"
+      ],
+      "correct": 1,
+      "hint": "A master license typically carries supervisory and business responsibility, not just personal task performance.",
+      "why": "A master electrician's license typically carries responsibility for the code compliance and supervision of electrical work performed by the business or crew operating under that license.",
+      "ok": "Correct.",
+      "no": "Master-level licensure generally includes supervisory responsibility, not just personal work."
+    },
+    {
+      "topic": "Circuit theory",
+      "prompt": "Which power formula uses only current and resistance?",
+      "options": ["P = I × R", "P = I² × R", "P = I / R", "P = R / I"],
+      "correct": 1,
+      "hint": "This is derived by substituting Ohm's law into P = I × V.",
+      "why": "Substituting V = IR into P = IV gives P = I²R.",
+      "ok": "Correct.",
+      "no": "Squaring the current is the key — P = I²R, not I × R."
+    },
+    {
+      "topic": "Circuit theory",
+      "prompt": "Which power formula uses only voltage and resistance?",
+      "options": ["P = V × R", "P = V / R", "P = V² / R", "P = R / V"],
+      "correct": 2,
+      "hint": "Substitute I = V/R into P = IV.",
+      "why": "Substituting I = V/R into P = IV gives P = V²/R.",
+      "ok": "Correct.",
+      "no": "Voltage is squared in this version of the power formula."
+    },
+    {
+      "topic": "AC theory",
+      "prompt": "Apparent power in an AC circuit is measured in:",
+      "options": ["Watts (W)", "Volt-amps (VA or kVA)", "Ohms", "Henries"],
+      "correct": 1,
+      "hint": "This is the unit you'll see on a generator or UPS nameplate.",
+      "why": "Apparent power (voltage × current, without regard to phase angle) is measured in volt-amps or kilovolt-amps, while true power is in watts.",
+      "ok": "Correct.",
+      "no": "Watts measure true power; VA/kVA measures apparent power."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "A conductor insulation marked THWN is generally suited for:",
+      "options": [
+        "Dry locations only, at low temperature",
+        "Wet or dry locations, being heat- and moisture-resistant",
+        "Only underground direct burial with no conduit",
+        "High-voltage transmission exclusively"
+      ],
+      "correct": 1,
+      "hint": "The 'W' in the marking is the clue.",
+      "why": "The 'W' designation means the insulation is rated for wet locations in addition to dry, making THWN suitable for both.",
+      "ok": "Correct.",
+      "no": "The 'W' marking specifically indicates suitability for wet locations."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "Aluminum conductor terminations are more prone to problems from:",
+      "options": [
+        "Being too flexible",
+        "Cold flow and loosening at connections over time if not properly torqued",
+        "Corroding faster than copper in all cases",
+        "Never being allowed by the NEC"
+      ],
+      "correct": 1,
+      "hint": "Aluminum behaves differently than copper does under mechanical stress at a termination.",
+      "why": "Aluminum is prone to 'cold flow,' where the metal deforms slightly under pressure over time, which can loosen connections if terminations aren't properly rated, torqued, and (where required) treated with antioxidant compound.",
+      "ok": "Correct.",
+      "no": "The concern is loosening connections over time, not simple corrosion in all cases."
+    },
+    {
+      "topic": "Conductors & ampacity",
+      "prompt": "Compared to a solid conductor of the same AWG size, a stranded conductor is generally:",
+      "options": [
+        "Less flexible",
+        "More flexible, with roughly comparable ampacity",
+        "Rated for much higher ampacity",
+        "Not permitted in branch circuits"
+      ],
+      "correct": 1,
+      "hint": "Stranding is mainly about flexibility and ease of pulling/terminating.",
+      "why": "Stranded conductors are more flexible than solid conductors of the same gauge, with similar ampacity, and are often preferred for larger sizes and for ease of pulling through raceways.",
+      "ok": "Correct.",
+      "no": "Stranding primarily improves flexibility, not ampacity."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "A standard inverse-time circuit breaker trips faster when:",
+      "options": [
+        "The overcurrent is smaller",
+        "The overcurrent is larger",
+        "Trip time is unrelated to current magnitude",
+        "The ambient temperature is lower"
+      ],
+      "correct": 1,
+      "hint": "'Inverse-time' describes the relationship between current level and how quickly the breaker opens.",
+      "why": "Inverse-time breakers trip faster as the overcurrent magnitude increases, allowing brief small overloads while clearing large faults quickly.",
+      "ok": "Correct.",
+      "no": "Larger overcurrents cause faster tripping, not slower."
+    },
+    {
+      "topic": "Overcurrent protection",
+      "prompt": "What does 'AIC' on an overcurrent device's label refer to?",
+      "options": [
+        "Ampere Interrupting Capacity",
+        "Average Impedance Coefficient",
+        "Alternating Insulation Class",
+        "Amps In Conduit"
+      ],
+      "correct": 0,
+      "hint": "It describes how much fault current the device can safely interrupt.",
+      "why": "AIC (Amps Interrupting Capacity) rates the maximum fault current a device can safely interrupt without failure.",
+      "ok": "Correct.",
+      "no": "AIC refers to interrupting capacity, not insulation class or conduit fill."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "A 'ground fault' is best described as:",
+      "options": [
+        "A normal, expected current path",
+        "An unintentional connection between an ungrounded (hot) conductor and ground",
+        "A planned bonding connection at the service",
+        "A voltage drop along a long feeder"
+      ],
+      "correct": 1,
+      "hint": "This is the abnormal condition that grounding and GFCI protection are designed to respond to.",
+      "why": "A ground fault occurs when a hot conductor unintentionally contacts a grounded surface or object, creating a fault current path.",
+      "ok": "Correct.",
+      "no": "A ground fault is an unintended fault condition, not a normal bonding connection."
+    },
+    {
+      "topic": "Grounding & bonding",
+      "prompt": "A bonding jumper is sometimes installed around a water meter because:",
+      "options": [
+        "Meters improve grounding continuity",
+        "A meter can be removed for service, breaking continuity of the piping as a grounding path",
+        "It is required only for aesthetic reasons",
+        "Water meters are never metallic"
+      ],
+      "correct": 1,
+      "hint": "Think about what happens to the piping's continuity when the meter is temporarily removed.",
+      "why": "Because a water meter may be removed for maintenance, a bonding jumper around it maintains electrical continuity of the piping system used as part of the grounding electrode system.",
+      "ok": "Correct.",
+      "no": "The jumper exists because meter removal would otherwise interrupt continuity."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "Nonmetallic-sheathed (NM) cable installed in an exposed location subject to physical damage generally needs:",
+      "options": [
+        "No additional protection",
+        "Additional physical protection, such as conduit",
+        "To be replaced with bare copper wire",
+        "A larger gauge only, with no other change"
+      ],
+      "correct": 1,
+      "hint": "NM cable's outer jacket alone isn't meant to resist significant impact.",
+      "why": "Where NM cable is exposed to physical damage, the NEC requires additional protection, such as running it through conduit or another approved protective method.",
+      "ok": "Correct.",
+      "no": "A larger gauge doesn't address physical damage — added protection like conduit does."
+    },
+    {
+      "topic": "Wiring methods",
+      "prompt": "A wireway is best described as:",
+      "options": [
+        "A type of flexible cord",
+        "A sheet-metal trough with a hinged or removable cover used to house and protect conductors",
+        "A synonym for a ground rod",
+        "A type of transformer enclosure"
+      ],
+      "correct": 1,
+      "hint": "Think of a long metal channel that conductors are laid into, not pulled through like a pipe.",
+      "why": "A wireway is a sheet-metal (or nonmetallic) trough with a removable or hinged cover, used to hold and protect conductors that are laid in rather than pulled through.",
+      "ok": "Correct.",
+      "no": "A wireway is a conductor-housing trough, not a cord, ground rod, or transformer enclosure."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "A 'service drop' refers to:",
+      "options": [
+        "Underground conductors from the utility to the building",
+        "Overhead conductors from the utility pole to the building's point of attachment",
+        "The conductors inside the meter socket only",
+        "Any feeder longer than 100 feet"
+      ],
+      "correct": 1,
+      "hint": "Think 'overhead' service.",
+      "why": "The service drop is the overhead set of conductors running from the utility's pole or transformer to the building's point of attachment.",
+      "ok": "Correct.",
+      "no": "Underground utility conductors are called a service lateral, not a service drop."
+    },
+    {
+      "topic": "Services & feeders",
+      "prompt": "A 'service lateral' refers to:",
+      "options": [
+        "Overhead utility conductors",
+        "Underground conductors from the utility to the building's service point",
+        "A feeder between two subpanels",
+        "The grounding electrode conductor"
+      ],
+      "correct": 1,
+      "hint": "Think 'underground' service.",
+      "why": "A service lateral is the underground service conductor run from the utility source to the building's service point.",
+      "ok": "Correct.",
+      "no": "Overhead utility conductors are the service drop, not the service lateral."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "A motor enclosure's NEMA rating primarily describes:",
+      "options": [
+        "The motor's horsepower",
+        "The enclosure's level of protection against environmental conditions like water or dust",
+        "The motor's voltage rating only",
+        "The motor's starting torque"
+      ],
+      "correct": 1,
+      "hint": "Think of NEMA 4 vs. a basic open drip-proof enclosure.",
+      "why": "NEMA enclosure ratings describe how well an enclosure protects against environmental conditions such as dust, water, or corrosion — not the motor's electrical performance.",
+      "ok": "Correct.",
+      "no": "Horsepower and voltage are separate nameplate ratings, not the NEMA enclosure rating."
+    },
+    {
+      "topic": "Motors & transformers",
+      "prompt": "A wye-delta (star-delta) motor starter is primarily used to:",
+      "options": [
+        "Increase starting torque beyond normal",
+        "Reduce inrush/starting current on larger motors",
+        "Convert single-phase power to three-phase",
+        "Eliminate the need for overload protection"
+      ],
+      "correct": 1,
+      "hint": "This is a reduced-voltage starting method.",
+      "why": "A wye-delta starter first connects motor windings in wye (reducing starting voltage and current), then switches to delta for normal running, reducing inrush current on large motors.",
+      "ok": "Correct.",
+      "no": "This method reduces starting current — it doesn't boost torque or convert phases."
+    },
+    {
+      "topic": "Hazardous locations",
+      "prompt": "Intrinsically safe equipment is designed to:",
+      "options": [
+        "Operate at very high power levels safely",
+        "Limit electrical and thermal energy so a fault cannot ignite a surrounding hazardous atmosphere",
+        "Eliminate the need for hazardous location classification entirely",
+        "Only be used in Class III locations"
+      ],
+      "correct": 1,
+      "hint": "The key idea is limiting available energy, not containing an explosion.",
+      "why": "Intrinsically safe circuits are designed with low enough energy levels that even a fault or spark cannot release enough energy to ignite a hazardous atmosphere.",
+      "ok": "Correct.",
+      "no": "It works by limiting energy, unlike explosionproof equipment which contains an explosion after it starts."
+    },
+    {
+      "topic": "Code administration",
+      "prompt": "When an authority having jurisdiction (AHJ) grants a variance or special permission, it generally means:",
+      "options": [
+        "The NEC no longer applies to that project at all",
+        "A deviation from strict code text is allowed because equivalent safety is judged to be achieved",
+        "The inspector is required to approve any future project the same way",
+        "The permit fee is waived"
+      ],
+      "correct": 1,
+      "hint": "This is a judgment call made by the AHJ on a case-by-case basis, not a blanket exemption.",
+      "why": "An AHJ may grant special permission for an alternative method when they judge it provides equivalent safety to what the code text requires, without exempting the project from the code overall.",
+      "ok": "Correct.",
+      "no": "A variance is a case-by-case judgment, not a blanket exemption from the code or future approvals."
+    }
+  ]
+}
