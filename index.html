@@ -167,6 +167,18 @@
   .results-actions .next{margin-top:0}
   .next.secondary{background:var(--card);color:var(--ink)}
   .next.secondary:hover{background:var(--paper)}
+  .share-box{
+    margin:0 0 22px;padding:12px 14px;background:var(--paper);
+    border:1.5px solid var(--rule);border-radius:4px;
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  }
+  .share-box label{font-family:var(--display);font-size:13px;font-weight:600;color:var(--ink-soft)}
+  .share-box input{
+    flex:1 1 220px;min-width:0;font-family:var(--mono);font-size:13px;
+    padding:7px 9px;border:1.5px solid var(--rule);border-radius:3px;
+    background:var(--card);color:var(--ink);
+  }
+  .share-copied{font-family:var(--display);font-size:12.5px;font-weight:700;color:var(--right)}
 
   code{font-family:var(--mono);font-size:14px;background:#EDF2F5;
     border:1px solid var(--rule);border-radius:2px;padding:1px 5px}
@@ -262,6 +274,12 @@ function freshQuestions(){
 }
 
 async function boot(){
+  const shareParam = new URLSearchParams(location.search).get("share");
+  if (shareParam) {
+    renderSharedResults(shareParam);
+    return;
+  }
+
   if (!SOURCE) {
     if (!window.GENERATORS || !window.GENERATORS.length) {
       showGeneratorError();
@@ -447,7 +465,8 @@ function renderResults(){
   const closing = missedTopics.length === 0
     ? "Every topic in this set is solid. Worth trying a harder round."
     : "Worth another look at: " + [...new Set(missedTopics)].join(", ") + ".";
-  const elapsed = startTime ? formatDuration(Date.now() - startTime) : null;
+  const elapsedMs = startTime ? Date.now() - startTime : null;
+  const elapsed = elapsedMs != null ? formatDuration(elapsedMs) : null;
 
   stage.innerHTML =
     '<p class="qmeta"><span>Results</span></p>' +
@@ -458,6 +477,7 @@ function renderResults(){
       (wrongEntries.length ? '<button class="next" id="reviewBtn">Review the ones you missed</button>' : '') +
       '<button class="next secondary" id="againBtn">Start over</button>' +
       '<button class="next secondary" id="printResultsBtn">Save your results to PDF</button>' +
+      '<button class="next secondary" id="shareResultsBtn">Share results</button>' +
     '</div>' +
     '<p class="why">' + closing + '</p>' +
     '<ul class="review">' +
@@ -473,6 +493,7 @@ function renderResults(){
   const rb = document.getElementById("reviewBtn");
   if (rb) rb.addEventListener("click", startReview);
   document.getElementById("printResultsBtn").addEventListener("click", () => printResults(rightCount, answered, elapsed));
+  document.getElementById("shareResultsBtn").addEventListener("click", () => shareResults(rightCount, answered, elapsedMs));
 }
 
 function printResults(rightCount, answered, elapsed){
@@ -491,6 +512,122 @@ function printResults(rightCount, answered, elapsed){
   window.print();
 }
 window.addEventListener("afterprint", () => document.body.classList.remove("printing-results"));
+
+/* ---------- share a result as a URL ---------- */
+
+function b64urlEncode(str){
+  const bytes = new TextEncoder().encode(str);
+  let binary = "";
+  bytes.forEach(b => binary += String.fromCharCode(b));
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+function b64urlDecode(str){
+  str = str.replace(/-/g, "+").replace(/_/g, "/");
+  while (str.length % 4) str += "=";
+  const binary = atob(str);
+  const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+const STATUS_CODE = {right: "r", wrong: "w", skip: "s"};
+const STATUS_NAME = {r: "right", w: "wrong", s: "skip"};
+
+function shareResults(rightCount, answered, elapsedMs){
+  const codes = log.map(e => STATUS_CODE[e.status] || "s").join("");
+  const seconds = elapsedMs != null ? Math.round(elapsedMs / 1000) : "";
+  const fields = ["1", rightCount, answered, skippedCount, seconds, codes];
+  const encoded = b64urlEncode(fields.join("|"));
+  const url = location.origin + location.pathname + "?share=" + encoded;
+  showShareUrl(url);
+}
+
+function showShareUrl(url){
+  let box = document.getElementById("shareUrlBox");
+  if (!box) {
+    box = document.createElement("div");
+    box.id = "shareUrlBox";
+    box.className = "share-box";
+    document.querySelector(".results-actions").insertAdjacentElement("afterend", box);
+  }
+  box.innerHTML =
+    '<label for="shareUrlInput">Share this link:</label>' +
+    '<input type="text" id="shareUrlInput" readonly>' +
+    '<span class="share-copied" id="shareCopiedNote" hidden>Copied to clipboard!</span>';
+  const input = document.getElementById("shareUrlInput");
+  input.value = url;
+  input.focus();
+  input.select();
+  const note = document.getElementById("shareCopiedNote");
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      note.hidden = false;
+      setTimeout(() => { note.hidden = true; }, 2500);
+    }).catch(() => {});
+  }
+}
+
+function renderSharedResults(encoded){
+  let r, a, sk, t, codes;
+  try {
+    const parts = b64urlDecode(encoded).split("|");
+    if (parts[0] !== "1") throw new Error("unsupported version");
+    [, r, a, sk, t, codes] = parts;
+    r = Number(r); a = Number(a); sk = Number(sk);
+    if (!Number.isFinite(r) || !Number.isFinite(a) || typeof codes !== "string") throw new Error("bad fields");
+  } catch (err) {
+    showShareError();
+    return;
+  }
+
+  const defaultTitle = "Grade 10 Math Warm-Up";
+  document.getElementById("setTitle").textContent = defaultTitle;
+  document.title = defaultTitle + " — Shared score";
+  document.getElementById("setIntro").textContent = "A friend shared their quiz score with you.";
+  document.getElementById("eyebrow").textContent = "Shared result";
+  ruler.hidden = true;
+  footnote.hidden = true;
+
+  // Topics aren't sent over the wire — when the code list lines up with the
+  // built-in generator set, look each topic up by its position instead.
+  const gens = window.GENERATORS;
+  const topicsKnown = gens && gens.length === codes.length;
+  const restoredLog = codes.split("").map((c, i) => ({
+    status: STATUS_NAME[c] || "skip",
+    topic: topicsKnown ? gens[i]().topic : ("Question " + (i + 1))
+  }));
+  const missedTopics = restoredLog.filter(row => row.status === "wrong").map(row => row.topic);
+  const closing = missedTopics.length === 0
+    ? "Every topic in this set was solid."
+    : topicsKnown
+      ? "They could use another look at: " + [...new Set(missedTopics)].join(", ") + "."
+      : "A few questions were missed.";
+  const elapsed = t !== "" && Number.isFinite(Number(t)) ? formatDuration(Number(t) * 1000) : null;
+
+  stage.innerHTML =
+    '<p class="qmeta"><span>Shared result</span></p>' +
+    '<p class="score">' + r + '<span> / ' + a + '</span></p>' +
+    (elapsed ? '<p class="timing">Completed in ' + elapsed +
+      (sk ? " · " + sk + " skipped" : "") + '</p>' : '') +
+    '<div class="results-actions"><button class="next" id="tryQuizBtn">Take the quiz yourself</button></div>' +
+    '<p class="why">' + closing + '</p>' +
+    '<ul class="review">' +
+      restoredLog.map((row, i) =>
+        '<li><span class="mark ' + (row.status === "right" ? "ok" : row.status === "skip" ? "skip" : "no") + '">' +
+          (row.status === "right" ? "✓" : row.status === "skip" ? "–" : "✗") + '</span>' +
+        '<span><span class="topic-tag">' + row.topic + '</span>Question ' + (i + 1) +
+          (row.status === "skip" ? " (skipped)" : "") + '</span></li>'
+      ).join("") +
+    '</ul>';
+
+  document.getElementById("tryQuizBtn").addEventListener("click", () => { location.href = location.pathname; });
+}
+
+function showShareError(){
+  stage.innerHTML =
+    '<p class="qmeta"><span>Could not read this share link</span></p>' +
+    '<p class="why">The link looks incomplete or corrupted. Ask for a fresh one, or ' +
+    '<a href="' + location.pathname + '">take the quiz yourself</a>.</p>';
+}
 
 function startOver(){
   QUESTIONS = SOURCE ? QUESTIONS : freshQuestions();

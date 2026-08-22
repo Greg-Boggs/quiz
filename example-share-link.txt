@@ -1,0 +1,4 @@
+Example "Share results" link (58/65 correct, 3 skipped, 6m 42s)
+Generated with the same encoding logic as the app's Share button.
+
+https://quiz.ddev.site/?share=MXw1OHw2NXwzfDQwMnxycnJ3cnJycnJycnNyd3JycnJycnJycndycnJycnJycnJ3c3JycnJycnJyd3JycnJycnJycndycnJzcnJycnJ3cnJycg
