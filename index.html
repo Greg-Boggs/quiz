@@ -151,8 +151,15 @@
     width:20px;text-align:center}
   .mark.ok{color:var(--right)}
   .mark.no{color:var(--wrong)}
+  .mark.skip{color:var(--ink-soft)}
   .review .topic-tag{font-family:var(--display);font-size:11px;font-weight:700;
     letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block}
+
+  .timing{font-family:var(--mono);font-size:14px;color:var(--ink-soft);margin:0 0 16px}
+  .results-actions{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+  .results-actions .next{margin-top:0}
+  .next.secondary{background:var(--card);color:var(--ink)}
+  .next.secondary:hover{background:var(--paper)}
 
   code{font-family:var(--mono);font-size:14px;background:#EDF2F5;
     border:1px solid var(--rule);border-radius:2px;padding:1px 5px}
@@ -201,19 +208,22 @@
     <main class="card" id="stage" aria-live="polite">
       <p class="loading">Loading questions&hellip;</p>
     </main>
-    <footer class="note" id="footnote" hidden>Answer, read the explanation, then move on. Nothing is timed.</footer>
+    <footer class="note" id="footnote" hidden>Answer, read the explanation, then move on. Skip anything that's too easy — it won't be marked wrong.</footer>
   </div>
 
   <div class="print-only" id="printSheet"></div>
 </div>
 
+<script src="generators.js"></script>
 <script>
 /* ---------------------------------------------------------------
-   Questions live in questions.json, not in this file.
-   Load a different set with ?set=algebra.json in the URL.
+   By default, questions come from the generators in generators.js:
+   each one builds a fresh, randomized version of the same problem,
+   so retaking the quiz means doing new math, not recalling an answer.
+   Load a fixed, non-randomized set instead with ?set=algebra.json.
    --------------------------------------------------------------- */
 
-const SOURCE = new URLSearchParams(location.search).get("set") || "questions.json";
+const SOURCE = new URLSearchParams(location.search).get("set") || null;
 const LETTERS = ["A","B","C","D","E","F"];
 
 const stage      = document.getElementById("stage");
@@ -225,30 +235,52 @@ const footnote   = document.getElementById("footnote");
 const printSheet = document.getElementById("printSheet");
 
 let QUESTIONS = [];
-let index = 0, correctCount = 0, log = [];
+let index = 0, correctCount = 0, skippedCount = 0, log = [];
+let startTime = null;
 
 /* ---------- loading ---------- */
 
+function freshQuestions(){
+  return window.GENERATORS.map((gen, i) => {
+    const q = gen();
+    q.genIndex = i;
+    return q;
+  });
+}
+
 async function boot(){
-  let data;
-  try {
-    const res = await fetch(SOURCE, {cache:"no-store"});
-    if (!res.ok) throw new Error("Server returned " + res.status);
-    data = await res.json();
-  } catch (err) {
-    showLoadError(err);
-    return;
+  if (!SOURCE) {
+    if (!window.GENERATORS || !window.GENERATORS.length) {
+      showGeneratorError();
+      return;
+    }
+    QUESTIONS = freshQuestions();
+    document.getElementById("setTitle").textContent = "Grade 10 Math Warm-Up";
+    document.title = "Grade 10 Math Warm-Up";
+    document.getElementById("setIntro").textContent =
+      "Basic skills from middle school and freshman year, grouped by topic. The numbers reshuffle every time you play, so retaking this quiz means doing the math again, not remembering an answer. Take a hint if you need one; the worked solution comes after every answer.";
+  } else {
+    let data;
+    try {
+      const res = await fetch(SOURCE, {cache:"no-store"});
+      if (!res.ok) throw new Error("Server returned " + res.status);
+      data = await res.json();
+    } catch (err) {
+      showLoadError(err);
+      return;
+    }
+
+    const list = Array.isArray(data) ? data : data.questions;
+    const problem = validate(list);
+    if (problem) { showDataError(problem); return; }
+
+    QUESTIONS = list.map(q => ({...q, genIndex: null}));
+    if (!Array.isArray(data)) {
+      if (data.title) { document.getElementById("setTitle").textContent = data.title; document.title = data.title; }
+      if (data.intro) { document.getElementById("setIntro").textContent = data.intro; }
+    }
   }
 
-  const list = Array.isArray(data) ? data : data.questions;
-  const problem = validate(list);
-  if (problem) { showDataError(problem); return; }
-
-  QUESTIONS = list;
-  if (!Array.isArray(data)) {
-    if (data.title) { document.getElementById("setTitle").textContent = data.title; document.title = data.title; }
-    if (data.intro) { document.getElementById("setIntro").textContent = data.intro; }
-  }
   document.getElementById("eyebrow").textContent =
     "Practice set \u00b7 " + QUESTIONS.length + " question" + (QUESTIONS.length === 1 ? "" : "s");
 
@@ -258,6 +290,7 @@ async function boot(){
   footnote.hidden = false;
 
   buildPrintSheet();
+  startTime = Date.now();
   renderQuestion();
 }
 
@@ -274,6 +307,12 @@ function validate(list){
       return "Question " + (i + 1) + " has a <code>correct</code> value outside its options. It counts from 0, so the first option is 0.";
   }
   return null;
+}
+
+function showGeneratorError(){
+  stage.innerHTML =
+    '<p class="qmeta"><span>Could not load generators.js</span></p>' +
+    '<p class="why">This page builds its questions from <code>generators.js</code>, which needs to sit in the same folder as <code>index.html</code>. Check that the file is there and that the filename matches exactly, including capitals.</p>';
 }
 
 function showLoadError(err){
@@ -302,6 +341,12 @@ function meter(done){
   label.textContent = done >= QUESTIONS.length ? "Finished" : (done + 1) + " of " + QUESTIONS.length;
 }
 
+function formatDuration(ms){
+  const totalSec = Math.max(0, Math.round(ms / 1000));
+  const m = Math.floor(totalSec / 60), s = totalSec % 60;
+  return m > 0 ? (m + "m " + String(s).padStart(2, "0") + "s") : (s + "s");
+}
+
 function renderQuestion(){
   const q = QUESTIONS[index];
   meter(index);
@@ -314,13 +359,17 @@ function renderQuestion(){
         '<li><button class="opt" data-i="' + i + '"><span class="key">' + (LETTERS[i] || (i + 1)) + '</span><span>' + t + '</span></button></li>'
       ).join("") +
     '</ul>' +
-    (q.hint ? '<div class="tools"><button class="linkbtn" id="hintBtn">Need a hint?</button></div>' : '<div class="tools"></div>') +
+    '<div class="tools">' +
+      (q.hint ? '<button class="linkbtn" id="hintBtn">Need a hint?</button>' : '') +
+      '<button class="linkbtn" id="skipBtn">Skip \u2014 too easy</button>' +
+    '</div>' +
     '<div id="slot"></div>';
 
   document.querySelectorAll(".opt").forEach(b =>
     b.addEventListener("click", () => choose(+b.dataset.i)));
   const hb = document.getElementById("hintBtn");
   if (hb) hb.addEventListener("click", showHint);
+  document.getElementById("skipBtn").addEventListener("click", skipQuestion);
 }
 
 function showHint(){
@@ -332,11 +381,24 @@ function showHint(){
     '<div class="hint"><strong>Hint</strong>' + QUESTIONS[index].hint + '</div>');
 }
 
+function advance(){
+  index++;
+  if (index < QUESTIONS.length) renderQuestion(); else renderResults();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function skipQuestion(){
+  const q = QUESTIONS[index];
+  log.push({topic:q.topic || "Question " + (index + 1), status:"skip", genIndex: q.genIndex});
+  skippedCount++;
+  advance();
+}
+
 function choose(picked){
   const q = QUESTIONS[index];
   const right = picked === q.correct;
   if (right) correctCount++;
-  log.push({topic:q.topic || "Question " + (index + 1), right:right});
+  log.push({topic:q.topic || "Question " + (index + 1), status: right ? "right" : "wrong", genIndex: q.genIndex});
 
   document.querySelectorAll(".opt").forEach(b => {
     const i = +b.dataset.i;
@@ -346,6 +408,8 @@ function choose(picked){
   });
   const hb = document.getElementById("hintBtn");
   if (hb) { hb.disabled = true; hb.style.opacity = ".5"; }
+  const sb = document.getElementById("skipBtn");
+  if (sb) sb.remove();
 
   document.getElementById("slot").innerHTML =
     '<div class="feedback">' +
@@ -357,38 +421,139 @@ function choose(picked){
     '</div>';
 
   const nb = document.getElementById("nextBtn");
-  nb.addEventListener("click", () => {
-    index++;
-    if (index < QUESTIONS.length) renderQuestion(); else renderResults();
-    window.scrollTo({top:0, behavior:"smooth"});
-  });
+  nb.addEventListener("click", advance);
   nb.focus();
 }
 
 function renderResults(){
   meter(QUESTIONS.length);
-  const missed = log.filter(r => !r.right).map(r => r.topic);
-  const closing = missed.length === 0
+  const wrongEntries = log.filter(r => r.status === "wrong");
+  const rightCount = log.filter(r => r.status === "right").length;
+  const answered = rightCount + wrongEntries.length;
+  const missedTopics = wrongEntries.map(r => r.topic);
+  const closing = missedTopics.length === 0
     ? "Every topic in this set is solid. Worth trying a harder round."
-    : "Worth another look at: " + [...new Set(missed)].join(", ") + ".";
+    : "Worth another look at: " + [...new Set(missedTopics)].join(", ") + ".";
+  const elapsed = startTime ? formatDuration(Date.now() - startTime) : null;
 
   stage.innerHTML =
     '<p class="qmeta"><span>Results</span></p>' +
-    '<p class="score">' + correctCount + '<span> / ' + QUESTIONS.length + '</span></p>' +
+    '<p class="score">' + rightCount + '<span> / ' + answered + '</span></p>' +
+    '<p class="timing">' +
+      (elapsed ? "Completed in " + elapsed : "") +
+      (skippedCount ? " \u00b7 " + skippedCount + " skipped" : "") +
+    '</p>' +
     '<p class="why">' + closing + '</p>' +
     '<ul class="review">' +
       log.map((r, i) =>
-        '<li><span class="mark ' + (r.right ? "ok" : "no") + '">' + (r.right ? "\u2713" : "\u2717") + '</span>' +
-        '<span><span class="topic-tag">' + r.topic + '</span>Question ' + (i + 1) + '</span></li>'
+        '<li><span class="mark ' + (r.status === "right" ? "ok" : r.status === "skip" ? "skip" : "no") + '">' +
+          (r.status === "right" ? "\u2713" : r.status === "skip" ? "\u2013" : "\u2717") + '</span>' +
+        '<span><span class="topic-tag">' + r.topic + '</span>Question ' + (i + 1) +
+          (r.status === "skip" ? " (skipped)" : "") + '</span></li>'
       ).join("") +
     '</ul>' +
-    '<button class="next" id="againBtn">Start over</button>';
+    '<div class="results-actions">' +
+      (wrongEntries.length ? '<button class="next" id="reviewBtn">Review the ones you missed</button>' : '') +
+      '<button class="next' + (wrongEntries.length ? ' secondary' : '') + '" id="againBtn">Start over</button>' +
+    '</div>';
 
-  document.getElementById("againBtn").addEventListener("click", () => {
-    index = 0; correctCount = 0; log = [];
-    renderQuestion();
+  document.getElementById("againBtn").addEventListener("click", startOver);
+  const rb = document.getElementById("reviewBtn");
+  if (rb) rb.addEventListener("click", startReview);
+}
+
+function startOver(){
+  QUESTIONS = SOURCE ? QUESTIONS : freshQuestions();
+  index = 0; correctCount = 0; skippedCount = 0; log = [];
+  startTime = Date.now();
+  renderQuestion();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ---------- review missed questions ---------- */
+
+let reviewList = [], reviewPos = 0, reviewCurrent = null;
+
+function startReview(){
+  reviewList = log
+    .map((r, i) => ({...r, original: QUESTIONS[i]}))
+    .filter(r => r.status === "wrong");
+  reviewPos = 0;
+  renderReviewExplain();
+}
+
+function renderReviewExplain(){
+  const item = reviewList[reviewPos];
+  const q = item.original;
+  stage.innerHTML =
+    '<p class="qmeta"><span>Review ' + (reviewPos + 1) + ' of ' + reviewList.length + '</span>' +
+      (q.topic ? '<span class="topic">' + q.topic + '</span>' : '') + '</p>' +
+    '<p class="prompt">' + q.prompt + '</p>' +
+    '<div class="feedback">' +
+      '<p class="verdict wrong">Here\u2019s how that one works</p>' +
+      '<p class="why">' + (q.why || "") + '</p>' +
+      '<button class="next" id="tryAgainBtn">Try a new one like it</button>' +
+    '</div>';
+  document.getElementById("tryAgainBtn").addEventListener("click", renderReviewQuestion);
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function renderReviewQuestion(){
+  const item = reviewList[reviewPos];
+  reviewCurrent = (item.genIndex != null && window.GENERATORS) ? window.GENERATORS[item.genIndex]() : item.original;
+  const q = reviewCurrent;
+  stage.innerHTML =
+    '<p class="qmeta"><span>Review ' + (reviewPos + 1) + ' of ' + reviewList.length + '</span>' +
+      (q.topic ? '<span class="topic">' + q.topic + '</span>' : '') + '</p>' +
+    '<p class="prompt">' + q.prompt + '</p>' +
+    '<ul class="options">' +
+      q.options.map((t, i) =>
+        '<li><button class="opt" data-i="' + i + '"><span class="key">' + (LETTERS[i] || (i + 1)) + '</span><span>' + t + '</span></button></li>'
+      ).join("") +
+    '</ul>' +
+    '<div id="slot"></div>';
+  document.querySelectorAll(".opt").forEach(b =>
+    b.addEventListener("click", () => chooseReview(+b.dataset.i)));
+}
+
+function chooseReview(picked){
+  const q = reviewCurrent;
+  const right = picked === q.correct;
+
+  document.querySelectorAll(".opt").forEach(b => {
+    const i = +b.dataset.i;
+    b.disabled = true;
+    if (i === q.correct) b.classList.add("is-right");
+    else if (i === picked) b.classList.add("is-wrong");
+  });
+
+  const isLast = reviewPos === reviewList.length - 1;
+  document.getElementById("slot").innerHTML =
+    '<div class="feedback">' +
+      '<p class="verdict ' + (right ? "right" : "wrong") + '">' +
+        (right ? (q.ok || "That's right.") : (q.no || "Not quite.")) + '</p>' +
+      '<p class="why">' + (q.why || "") + '</p>' +
+      '<button class="next" id="reviewNextBtn">' +
+        (right ? (isLast ? "Finish review" : "Next missed question") : "Try another") +
+      '</button>' +
+    '</div>';
+
+  document.getElementById("reviewNextBtn").addEventListener("click", () => {
+    if (!right) { renderReviewQuestion(); return; }
+    reviewPos++;
+    if (reviewPos < reviewList.length) renderReviewExplain(); else renderReviewComplete();
     window.scrollTo({top:0, behavior:"smooth"});
   });
+}
+
+function renderReviewComplete(){
+  stage.innerHTML =
+    '<p class="qmeta"><span>Review complete</span></p>' +
+    '<p class="why">Nice work working back through ' + reviewList.length +
+      ' missed question' + (reviewList.length === 1 ? "" : "s") + '.</p>' +
+    '<button class="next" id="backToResultsBtn">Back to results</button>';
+  document.getElementById("backToResultsBtn").addEventListener("click", renderResults);
+  window.scrollTo({top:0, behavior:"smooth"});
 }
 
 /* ---------- printable worksheet + answer key ---------- */
