@@ -165,13 +165,6 @@
   }
   .results-actions{margin:4px 0 22px;padding-bottom:20px;border-bottom:1.5px dashed var(--rule);display:flex;gap:12px;flex-wrap:wrap}
   .results-actions .next{margin-top:0}
-  .printlink{
-    display:inline-block;margin-top:2px;font-family:var(--display);font-size:13.5px;font-weight:500;
-    color:var(--ink-soft);background:none;border:0;padding:0;cursor:pointer;
-    text-decoration:underline;text-underline-offset:3px;
-  }
-  .printlink:hover{color:var(--ink)}
-  .printlink:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
   .next.secondary{background:var(--card);color:var(--ink)}
   .next.secondary:hover{background:var(--paper)}
 
@@ -463,7 +456,8 @@ function renderResults(){
       (skippedCount ? " \u00b7 " + skippedCount + " skipped" : "") + '</p>' : '') +
     '<div class="results-actions">' +
       (wrongEntries.length ? '<button class="next" id="reviewBtn">Review the ones you missed</button>' : '') +
-      '<button class="next' + (wrongEntries.length ? ' secondary' : '') + '" id="againBtn">Start over</button>' +
+      '<button class="next secondary" id="againBtn">Start over</button>' +
+      '<button class="next secondary" id="printResultsBtn">Save your results to PDF</button>' +
     '</div>' +
     '<p class="why">' + closing + '</p>' +
     '<ul class="review">' +
@@ -473,8 +467,7 @@ function renderResults(){
         '<span><span class="topic-tag">' + r.topic + '</span>Question ' + (i + 1) +
           (r.status === "skip" ? " (skipped)" : "") + '</span></li>'
       ).join("") +
-    '</ul>' +
-    '<button class="printlink" id="printResultsBtn">Save your results to PDF</button>';
+    '</ul>';
 
   document.getElementById("againBtn").addEventListener("click", startOver);
   const rb = document.getElementById("reviewBtn");
