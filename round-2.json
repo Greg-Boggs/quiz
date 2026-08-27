@@ -1,0 +1,346 @@
+{
+  "title": "Grade 10 Math Warm-Up — Round 2",
+  "intro": "Graphs, data, and square roots — the ground Round 1 barely touched. Bar graphs, circle graphs, histograms, scatter plots, box plots, Venn diagrams, and more, all in TerraNova style: no precalculus, no trig. This set is fixed, not randomized, so retaking it repeats the same problems.",
+  "questions": [
+    {
+      "topic": "Bar graphs",
+      "prompt": "<svg viewBox='0 0 300 180' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Bar graph of fruit sales'><line x1='30' y1='150' x2='280' y2='150' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='30' x2='30' y2='150' stroke='var(--ink)' stroke-width='1.5'/><rect x='45' y='90' width='40' height='60' fill='var(--amber)'/><text x='65' y='84' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink)'>12</text><text x='65' y='166' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>Apples</text><rect x='115' y='60' width='40' height='90' fill='var(--amber)'/><text x='135' y='54' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink)'>18</text><text x='135' y='166' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>Bananas</text><rect x='185' y='105' width='40' height='45' fill='var(--amber)'/><text x='205' y='99' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink)'>9</text><text x='205' y='166' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>Cherries</text><rect x='255' y='75' width='40' height='75' fill='var(--amber)'/><text x='275' y='69' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink)'>15</text><text x='275' y='166' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>Dates</text></svg><p>Which fruit sold the <b>second</b>-most?</p>",
+      "options": ["Apples", "Bananas", "Cherries", "Dates"],
+      "correct": 3,
+      "hint": "Put the four totals in order from highest to lowest, then pick the second one.",
+      "why": "In order: Bananas (18), Dates (15), Apples (12), Cherries (9). The most is Bananas, so the second-most is Dates.",
+      "ok": "Read that bar graph exactly right.",
+      "no": "The most is Bananas — you need the one right after it."
+    },
+    {
+      "topic": "Bar graphs",
+      "prompt": "<svg viewBox='0 0 300 180' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Bar graph of quiz score frequency'><line x1='30' y1='150' x2='280' y2='150' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='30' x2='30' y2='150' stroke='var(--ink)' stroke-width='1.5'/><rect x='40' y='134' width='30' height='16' fill='var(--amber)'/><text x='55' y='128' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>2</text><text x='55' y='164' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>6</text><rect x='90' y='110' width='30' height='40' fill='var(--amber)'/><text x='105' y='104' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>5</text><text x='105' y='164' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>7</text><rect x='140' y='78' width='30' height='72' fill='var(--amber)'/><text x='155' y='72' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>9</text><text x='155' y='164' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>8</text><rect x='190' y='94' width='30' height='56' fill='var(--amber)'/><text x='205' y='88' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>7</text><text x='205' y='164' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>9</text><rect x='240' y='126' width='30' height='24' fill='var(--amber)'/><text x='255' y='120' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>3</text><text x='255' y='164' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>10</text></svg><p>The bars show how many students earned each score. How many students scored an 8 or higher?</p>",
+      "options": ["9", "16", "19", "26"],
+      "correct": 2,
+      "hint": "Add up the bars for 8, 9, and 10.",
+      "why": "9 students scored an 8, 7 scored a 9, and 3 scored a 10. That's 9 + 7 + 3 = 19.",
+      "ok": "Added exactly the right bars.",
+      "no": "You want 8, 9, and 10 combined — not just one bar."
+    },
+    {
+      "topic": "Circle graphs",
+      "prompt": "<p style='margin:0 0 10px'>A household's monthly budget is split as shown:</p><svg viewBox='0 0 300 180' style='width:100%;height:auto;display:block' role='img' aria-label='Pie chart of a monthly budget'><path d='M150,90 L150,20 A70,70 0 0,1 191,147 Z' fill='var(--amber)'/><path d='M150,90 L191,147 A70,70 0 0,1 109,147 Z' fill='var(--right)'/><path d='M150,90 L109,147 A70,70 0 0,1 80,90 Z' fill='var(--wrong)'/><path d='M150,90 L80,90 A70,70 0 0,1 109,33 Z' fill='var(--ink-soft)'/><path d='M150,90 L109,33 A70,70 0 0,1 150,20 Z' fill='var(--rule)'/></svg><div style='display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--mono);font-size:13px;margin:8px 0 14px'><span><span style='display:inline-block;width:10px;height:10px;background:var(--amber);margin-right:5px;vertical-align:middle'></span>Housing — 40%</span><span><span style='display:inline-block;width:10px;height:10px;background:var(--right);margin-right:5px;vertical-align:middle'></span>Food — 20%</span><span><span style='display:inline-block;width:10px;height:10px;background:var(--wrong);margin-right:5px;vertical-align:middle'></span>Transportation — 15%</span><span><span style='display:inline-block;width:10px;height:10px;background:var(--ink-soft);margin-right:5px;vertical-align:middle'></span>Savings — 15%</span><span><span style='display:inline-block;width:10px;height:10px;background:var(--rule);margin-right:5px;vertical-align:middle'></span>Other — 10%</span></div><p>If the family's total monthly budget is $2,000, how much goes to Food?</p>",
+      "options": ["$200", "$300", "$400", "$500"],
+      "correct": 2,
+      "hint": "Food is 20% of the budget. Find 20% of $2,000.",
+      "why": "20% of $2,000 is <span class='expr'>0.20 × 2000 = 400</span>.",
+      "ok": "That's the right slice.",
+      "no": "Turn 20% into a decimal (0.20) and multiply by $2,000."
+    },
+    {
+      "topic": "Circle graphs",
+      "prompt": "<p style='margin:0 0 10px'>A pie chart shows a survey of favorite seasons. The Summer sector is marked below:</p><svg viewBox='0 0 180 180' style='width:160px;height:auto;display:block;margin:0 auto' role='img' aria-label='Circle with a 90 degree sector highlighted'><circle cx='90' cy='90' r='60' fill='none' stroke='var(--ink)' stroke-width='1.5'/><path d='M90,90 L90,30 A60,60 0 0,1 150,90 Z' fill='var(--amber)'/><line x1='90' y1='90' x2='90' y2='30' stroke='var(--ink)' stroke-width='1.5'/><line x1='90' y1='90' x2='150' y2='90' stroke='var(--ink)' stroke-width='1.5'/><text x='112' y='75' font-family='var(--mono)' font-size='13' fill='var(--ink)'>90°</text></svg><p>The Summer sector measures 90° out of the full circle. What percent of people chose Summer?</p>",
+      "options": ["15%", "20%", "25%", "30%"],
+      "correct": 2,
+      "hint": "A full circle is 360°. What fraction is 90° of that?",
+      "why": "<span class='expr'>90 ÷ 360 = 0.25</span>, which is 25%.",
+      "ok": "Exactly a quarter of the circle.",
+      "no": "Divide the sector's angle by the full 360° circle."
+    },
+    {
+      "topic": "Line graphs",
+      "prompt": "<svg viewBox='0 0 300 180' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Line graph of temperature over time'><line x1='30' y1='160' x2='280' y2='160' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='20' x2='30' y2='160' stroke='var(--ink)' stroke-width='1.5'/><polyline points='40,140 110,108 180,84 250,100' fill='none' stroke='var(--ink)' stroke-width='2'/><circle cx='40' cy='140' r='4' fill='var(--amber)'/><text x='40' y='132' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>60°</text><text x='40' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>0h</text><circle cx='110' cy='108' r='4' fill='var(--amber)'/><text x='110' y='100' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>68°</text><text x='110' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>2h</text><circle cx='180' cy='84' r='4' fill='var(--amber)'/><text x='180' y='76' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>74°</text><text x='180' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>4h</text><circle cx='250' cy='100' r='4' fill='var(--amber)'/><text x='250' y='92' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>70°</text><text x='250' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>6h</text></svg><p>Between which two hours did the temperature rise the fastest?</p>",
+      "options": ["0h to 2h", "2h to 4h", "4h to 6h", "It never rises"],
+      "correct": 0,
+      "hint": "Fastest rise means the biggest change in temperature for the same 2-hour gap.",
+      "why": "0h→2h rises 8° in 2 hours (4°/h). 2h→4h rises 6° in 2 hours (3°/h). 4h→6h actually falls. The steepest upward stretch is 0h to 2h.",
+      "ok": "That's the steepest climb on the graph.",
+      "no": "Compare how many degrees each 2-hour stretch gains — the biggest jump wins."
+    },
+    {
+      "topic": "Line graphs",
+      "prompt": "<svg viewBox='0 0 300 180' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Line graph of cyclist distance over time'><line x1='30' y1='160' x2='280' y2='160' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='20' x2='30' y2='160' stroke='var(--ink)' stroke-width='1.5'/><polyline points='40,160 95,120 150,80 205,80 260,40' fill='none' stroke='var(--ink)' stroke-width='2'/><circle cx='40' cy='160' r='4' fill='var(--amber)'/><text x='40' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>0h</text><text x='40' y='150' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>0mi</text><circle cx='95' cy='120' r='4' fill='var(--amber)'/><text x='95' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>1h</text><text x='95' y='110' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>10mi</text><circle cx='150' cy='80' r='4' fill='var(--amber)'/><text x='150' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>2h</text><text x='150' y='70' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>20mi</text><circle cx='205' cy='80' r='4' fill='var(--amber)'/><text x='205' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>3h</text><text x='205' y='70' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>20mi</text><circle cx='260' cy='40' r='4' fill='var(--amber)'/><text x='260' y='174' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>4h</text><text x='260' y='30' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>30mi</text></svg><p>What was the cyclist's average speed between hour 2 and hour 4?</p>",
+      "options": ["5 mph", "10 mph", "15 mph", "20 mph"],
+      "correct": 0,
+      "hint": "Average speed = change in distance ÷ change in time.",
+      "why": "Distance went from 20 miles to 30 miles, a change of 10 miles over 2 hours: <span class='expr'>10 ÷ 2 = 5</span> mph.",
+      "ok": "Right speed, right interval.",
+      "no": "Find the distance covered from hour 2 to hour 4, then divide by the 2 hours it took."
+    },
+    {
+      "topic": "Histograms",
+      "prompt": "<svg viewBox='0 0 300 180' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Histogram of test scores'><line x1='30' y1='150' x2='280' y2='150' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='20' x2='30' y2='150' stroke='var(--ink)' stroke-width='1.5'/><rect x='40' y='123' width='58' height='27' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='69' y='117' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>3</text><text x='69' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>60–69</text><rect x='100' y='96' width='58' height='54' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='129' y='90' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>6</text><text x='129' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>70–79</text><rect x='160' y='60' width='58' height='90' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='189' y='54' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>10</text><text x='189' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>80–89</text><rect x='220' y='105' width='58' height='45' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='249' y='99' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>5</text><text x='249' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>90–100</text></svg><p>How many students scored 80 or above?</p>",
+      "options": ["10", "15", "21", "24"],
+      "correct": 1,
+      "hint": "Add the two bars covering 80 and up.",
+      "why": "10 students scored 80–89, and 5 scored 90–100: <span class='expr'>10 + 5 = 15</span>.",
+      "ok": "Combined those two bars correctly.",
+      "no": "You need both the 80–89 bar and the 90–100 bar together."
+    },
+    {
+      "topic": "Histograms",
+      "prompt": "<svg viewBox='0 0 300 180' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Histogram of gym member ages'><line x1='30' y1='150' x2='280' y2='150' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='20' x2='30' y2='150' stroke='var(--ink)' stroke-width='1.5'/><rect x='40' y='126' width='58' height='24' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='69' y='120' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>4</text><text x='69' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>10–19</text><rect x='100' y='78' width='58' height='72' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='129' y='72' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>12</text><text x='129' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>20–29</text><rect x='160' y='96' width='58' height='54' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='189' y='90' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>9</text><text x='189' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>30–39</text><rect x='220' y='120' width='58' height='30' fill='var(--amber)' stroke='var(--card)' stroke-width='2'/><text x='249' y='114' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink)'>5</text><text x='249' y='164' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>40–49</text></svg><p>Which age range has the most gym members?</p>",
+      "options": ["10–19", "20–29", "30–39", "40–49"],
+      "correct": 1,
+      "hint": "Find the tallest bar.",
+      "why": "The 20–29 bar is tallest at 12 members, taller than 4, 9, and 5 in the other ranges.",
+      "ok": "Found the tallest bar.",
+      "no": "Look for the bar that reaches highest on the graph."
+    },
+    {
+      "topic": "Line plots",
+      "prompt": "<svg viewBox='0 0 320 170' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Dot plot of number of siblings'><line x1='30' y1='140' x2='290' y2='140' stroke='var(--ink)' stroke-width='1.5'/><line x1='50' y1='136' x2='50' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='50' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>0</text><line x1='120' y1='136' x2='120' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='120' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>1</text><line x1='190' y1='136' x2='190' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='190' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>2</text><line x1='260' y1='136' x2='260' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='260' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>3</text><circle cx='50' cy='130' r='6' fill='var(--amber)'/><circle cx='50' cy='116' r='6' fill='var(--amber)'/><circle cx='50' cy='102' r='6' fill='var(--amber)'/><circle cx='120' cy='130' r='6' fill='var(--amber)'/><circle cx='120' cy='116' r='6' fill='var(--amber)'/><circle cx='120' cy='102' r='6' fill='var(--amber)'/><circle cx='120' cy='88' r='6' fill='var(--amber)'/><circle cx='120' cy='74' r='6' fill='var(--amber)'/><circle cx='120' cy='60' r='6' fill='var(--amber)'/><circle cx='190' cy='130' r='6' fill='var(--amber)'/><circle cx='190' cy='116' r='6' fill='var(--amber)'/><circle cx='190' cy='102' r='6' fill='var(--amber)'/><circle cx='190' cy='88' r='6' fill='var(--amber)'/><circle cx='260' cy='130' r='6' fill='var(--amber)'/><circle cx='260' cy='116' r='6' fill='var(--amber)'/></svg><p style='font-size:13px;color:var(--ink-soft);margin:4px 0 14px'>Each dot is one student. The number line shows how many siblings they have.</p><p>How many students have exactly 2 siblings?</p>",
+      "options": ["2", "3", "4", "6"],
+      "correct": 2,
+      "hint": "Count the dots stacked above the '2' mark.",
+      "why": "There are 4 dots stacked above 2 on the number line.",
+      "ok": "Counted that stack correctly.",
+      "no": "Count only the dots directly above the '2' tick mark."
+    },
+    {
+      "topic": "Line plots",
+      "prompt": "<svg viewBox='0 0 320 170' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Dot plot of number of siblings'><line x1='30' y1='140' x2='290' y2='140' stroke='var(--ink)' stroke-width='1.5'/><line x1='50' y1='136' x2='50' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='50' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>0</text><line x1='120' y1='136' x2='120' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='120' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>1</text><line x1='190' y1='136' x2='190' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='190' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>2</text><line x1='260' y1='136' x2='260' y2='144' stroke='var(--ink)' stroke-width='1.5'/><text x='260' y='158' text-anchor='middle' font-family='var(--mono)' font-size='12' fill='var(--ink-soft)'>3</text><circle cx='50' cy='130' r='6' fill='var(--amber)'/><circle cx='50' cy='116' r='6' fill='var(--amber)'/><circle cx='50' cy='102' r='6' fill='var(--amber)'/><circle cx='120' cy='130' r='6' fill='var(--amber)'/><circle cx='120' cy='116' r='6' fill='var(--amber)'/><circle cx='120' cy='102' r='6' fill='var(--amber)'/><circle cx='120' cy='88' r='6' fill='var(--amber)'/><circle cx='120' cy='74' r='6' fill='var(--amber)'/><circle cx='120' cy='60' r='6' fill='var(--amber)'/><circle cx='190' cy='130' r='6' fill='var(--amber)'/><circle cx='190' cy='116' r='6' fill='var(--amber)'/><circle cx='190' cy='102' r='6' fill='var(--amber)'/><circle cx='190' cy='88' r='6' fill='var(--amber)'/><circle cx='260' cy='130' r='6' fill='var(--amber)'/><circle cx='260' cy='116' r='6' fill='var(--amber)'/></svg><p style='font-size:13px;color:var(--ink-soft);margin:4px 0 14px'>Each dot is one student. The number line shows how many siblings they have.</p><p>How many students are represented in this dot plot in total?</p>",
+      "options": ["14", "15", "16", "20"],
+      "correct": 1,
+      "hint": "Add the dot counts above 0, 1, 2, and 3.",
+      "why": "3 dots above 0, 6 above 1, 4 above 2, and 2 above 3: <span class='expr'>3 + 6 + 4 + 2 = 15</span>.",
+      "ok": "Every dot accounted for.",
+      "no": "Count every dot on the whole plot, not just one stack."
+    },
+    {
+      "topic": "Box plots",
+      "prompt": "<svg viewBox='0 0 300 140' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Box and whisker plot'><line x1='30' y1='120' x2='270' y2='120' stroke='var(--rule)' stroke-width='1'/><line x1='78' y1='80' x2='114' y2='80' stroke='var(--ink)' stroke-width='1.5'/><line x1='186' y1='80' x2='246' y2='80' stroke='var(--ink)' stroke-width='1.5'/><line x1='78' y1='65' x2='78' y2='95' stroke='var(--ink)' stroke-width='1.5'/><line x1='246' y1='65' x2='246' y2='95' stroke='var(--ink)' stroke-width='1.5'/><rect x='114' y='60' width='72' height='40' fill='var(--card)' stroke='var(--ink)' stroke-width='1.5'/><line x1='150' y1='60' x2='150' y2='100' stroke='var(--amber-deep)' stroke-width='2.5'/><text x='78' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>20</text><text x='114' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>35</text><text x='150' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>50</text><text x='186' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>65</text><text x='246' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>90</text></svg><p>This box plot shows the minimum, quartiles, and maximum of a data set. What is the median?</p>",
+      "options": ["35", "50", "65", "90"],
+      "correct": 1,
+      "hint": "The median is the line drawn inside the box.",
+      "why": "The line inside the box marks the median, which sits at 50.",
+      "ok": "That's the median line.",
+      "no": "The median is the vertical line drawn inside the box, not an edge."
+    },
+    {
+      "topic": "Box plots",
+      "prompt": "<svg viewBox='0 0 300 140' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Box and whisker plot'><line x1='30' y1='120' x2='270' y2='120' stroke='var(--rule)' stroke-width='1'/><line x1='78' y1='80' x2='114' y2='80' stroke='var(--ink)' stroke-width='1.5'/><line x1='186' y1='80' x2='246' y2='80' stroke='var(--ink)' stroke-width='1.5'/><line x1='78' y1='65' x2='78' y2='95' stroke='var(--ink)' stroke-width='1.5'/><line x1='246' y1='65' x2='246' y2='95' stroke='var(--ink)' stroke-width='1.5'/><rect x='114' y='60' width='72' height='40' fill='var(--card)' stroke='var(--ink)' stroke-width='1.5'/><line x1='150' y1='60' x2='150' y2='100' stroke='var(--amber-deep)' stroke-width='2.5'/><text x='78' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>20</text><text x='114' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>35</text><text x='150' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>50</text><text x='186' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>65</text><text x='246' y='112' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>90</text></svg><p>The box spans from the first quartile (Q1) to the third quartile (Q3). What is the interquartile range (IQR) of this data set?</p>",
+      "options": ["15", "30", "45", "65"],
+      "correct": 1,
+      "hint": "IQR = Q3 − Q1, which is the width of the box.",
+      "why": "The box runs from Q1 = 35 to Q3 = 65: <span class='expr'>65 − 35 = 30</span>.",
+      "ok": "That's the box's width.",
+      "no": "Subtract the left edge of the box (Q1) from the right edge (Q3)."
+    },
+    {
+      "topic": "Scatter plots",
+      "prompt": "<svg viewBox='0 0 300 170' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Scatter plot of study hours versus test score'><line x1='30' y1='150' x2='280' y2='150' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='20' x2='30' y2='150' stroke='var(--ink)' stroke-width='1.5'/><circle cx='45' cy='140' r='4' fill='var(--amber)'/><circle cx='70' cy='128' r='4' fill='var(--amber)'/><circle cx='90' cy='135' r='4' fill='var(--amber)'/><circle cx='115' cy='112' r='4' fill='var(--amber)'/><circle cx='135' cy='100' r='4' fill='var(--amber)'/><circle cx='160' cy='92' r='4' fill='var(--amber)'/><circle cx='180' cy='98' r='4' fill='var(--amber)'/><circle cx='205' cy='72' r='4' fill='var(--amber)'/><circle cx='230' cy='62' r='4' fill='var(--amber)'/><circle cx='255' cy='50' r='4' fill='var(--amber)'/><text x='150' y='168' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>hours studied →</text></svg><p>Each point is one student, plotting hours studied against test score. As study hours increase, scores tend to:</p>",
+      "options": ["Increase", "Decrease", "Stay the same", "Show no pattern"],
+      "correct": 0,
+      "hint": "Follow the cloud of points from left to right.",
+      "why": "Points higher on the graph (better scores) mostly sit farther to the right (more hours studied) — the points trend upward, a positive relationship.",
+      "ok": "Spotted the upward trend.",
+      "no": "Look at the general direction of the points moving left to right, not any single dot."
+    },
+    {
+      "topic": "Scatter plots",
+      "prompt": "<svg viewBox='0 0 300 170' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Scatter plot of TV hours versus test score'><line x1='30' y1='150' x2='280' y2='150' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='20' x2='30' y2='150' stroke='var(--ink)' stroke-width='1.5'/><circle cx='45' cy='50' r='4' fill='var(--amber)'/><circle cx='70' cy='55' r='4' fill='var(--amber)'/><circle cx='90' cy='65' r='4' fill='var(--amber)'/><circle cx='115' cy='70' r='4' fill='var(--amber)'/><circle cx='135' cy='85' r='4' fill='var(--amber)'/><circle cx='160' cy='90' r='4' fill='var(--amber)'/><circle cx='180' cy='95' r='4' fill='var(--amber)'/><circle cx='205' cy='110' r='4' fill='var(--amber)'/><circle cx='230' cy='125' r='4' fill='var(--amber)'/><circle cx='255' cy='138' r='4' fill='var(--amber)'/><text x='150' y='168' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>hours of TV watched →</text></svg><p>What kind of correlation does this scatter plot show between TV hours and test score?</p>",
+      "options": ["Strong positive", "Strong negative", "No correlation", "Cannot be determined"],
+      "correct": 1,
+      "hint": "As one variable goes up, what happens to the other?",
+      "why": "As TV hours increase, scores clearly drop in a consistent line-like pattern — that's a strong negative correlation.",
+      "ok": "Correctly read the downward trend.",
+      "no": "Scores fall as TV hours rise, and the points hug a fairly tight line — that's a strong relationship, just a negative one."
+    },
+    {
+      "topic": "Two-way tables",
+      "prompt": "<table style='width:100%;border-collapse:collapse;font-family:var(--mono);font-size:14px;margin:10px 0'><tr><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'></th><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'>Boys</th><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'>Girls</th><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'>Total</th></tr><tr><td style='border:1.5px solid var(--rule);padding:6px'>Prefer dogs</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>18</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>12</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>30</td></tr><tr><td style='border:1.5px solid var(--rule);padding:6px'>Prefer cats</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>9</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>21</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>30</td></tr><tr><td style='border:1.5px solid var(--rule);padding:6px'>Total</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>27</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>33</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>60</td></tr></table><p>How many students total prefer cats?</p>",
+      "options": ["21", "27", "30", "33"],
+      "correct": 2,
+      "hint": "Read straight across the 'Prefer cats' row to its Total column.",
+      "why": "The 'Prefer cats' row totals 9 + 21 = 30, which also matches the Total column entry.",
+      "ok": "Read the row total correctly.",
+      "no": "Follow the 'Prefer cats' row all the way to the Total column on the right."
+    },
+    {
+      "topic": "Two-way tables",
+      "prompt": "<table style='width:100%;border-collapse:collapse;font-family:var(--mono);font-size:14px;margin:10px 0'><tr><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'></th><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'>Boys</th><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'>Girls</th><th style='border:1.5px solid var(--ink);padding:6px;background:var(--paper)'>Total</th></tr><tr><td style='border:1.5px solid var(--rule);padding:6px'>Prefer dogs</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>18</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>12</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>30</td></tr><tr><td style='border:1.5px solid var(--rule);padding:6px'>Prefer cats</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>9</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>21</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>30</td></tr><tr><td style='border:1.5px solid var(--rule);padding:6px'>Total</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>27</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>33</td><td style='border:1.5px solid var(--rule);padding:6px;text-align:center'>60</td></tr></table><p>Of the students who prefer dogs, what fraction are boys?</p>",
+      "options": ["3/5", "2/5", "1/2", "9/10"],
+      "correct": 0,
+      "hint": "Boys who prefer dogs, out of everyone who prefers dogs.",
+      "why": "18 of the 30 dog-preferring students are boys: <span class='expr'>18/30 = 3/5</span>.",
+      "ok": "Simplified that fraction correctly.",
+      "no": "Use the dog row only: boys-who-like-dogs over total-who-like-dogs (18 out of 30)."
+    },
+    {
+      "topic": "Pictographs",
+      "prompt": "<table style='font-family:var(--mono);font-size:16px;margin:10px 0'><tr><td style='padding:4px 12px'>Mon</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■■</td></tr><tr><td style='padding:4px 12px'>Tue</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■■■■</td></tr><tr><td style='padding:4px 12px'>Wed</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■</td></tr><tr><td style='padding:4px 12px'>Thu</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■■■</td></tr></table><p style='font-size:13px;color:var(--ink-soft);margin:0 0 14px'>Key: each ■ = 5 books read.</p><p>How many books were read on Tuesday?</p>",
+      "options": ["15", "20", "25", "30"],
+      "correct": 2,
+      "hint": "Count the squares on Tuesday's row, then multiply by the key.",
+      "why": "Tuesday has 5 squares, and each square equals 5 books: <span class='expr'>5 × 5 = 25</span>.",
+      "ok": "Used the key correctly.",
+      "no": "Multiply the number of squares on that row by 5, the value from the key."
+    },
+    {
+      "topic": "Pictographs",
+      "prompt": "<table style='font-family:var(--mono);font-size:16px;margin:10px 0'><tr><td style='padding:4px 12px'>Mon</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■■</td></tr><tr><td style='padding:4px 12px'>Tue</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■■■■</td></tr><tr><td style='padding:4px 12px'>Wed</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■</td></tr><tr><td style='padding:4px 12px'>Thu</td><td style='letter-spacing:4px;color:var(--amber-deep)'>■■■■</td></tr></table><p style='font-size:13px;color:var(--ink-soft);margin:0 0 14px'>Key: each ■ = 5 books read.</p><p>How many more books were read on Tuesday than on Wednesday?</p>",
+      "options": ["5", "10", "15", "20"],
+      "correct": 2,
+      "hint": "Convert both rows to books first, then subtract.",
+      "why": "Tuesday: <span class='expr'>5 × 5 = 25</span> books. Wednesday: <span class='expr'>2 × 5 = 10</span> books. The difference is <span class='expr'>25 − 10 = 15</span>.",
+      "ok": "Subtracted the right totals.",
+      "no": "Turn each row into an actual book count using the key, then subtract."
+    },
+    {
+      "topic": "Stem-and-leaf plots",
+      "prompt": "<table style='font-family:var(--mono);font-size:15px;margin:10px 0;border-collapse:collapse'><tr><th style='border-bottom:1.5px solid var(--ink);padding:4px 14px;text-align:left'>Stem</th><th style='border-bottom:1.5px solid var(--ink);padding:4px 14px;text-align:left'>Leaf</th></tr><tr><td style='padding:4px 14px'>2</td><td style='padding:4px 14px'>3&nbsp;&nbsp;5&nbsp;&nbsp;8</td></tr><tr><td style='padding:4px 14px'>3</td><td style='padding:4px 14px'>1&nbsp;&nbsp;2&nbsp;&nbsp;2&nbsp;&nbsp;6</td></tr><tr><td style='padding:4px 14px'>4</td><td style='padding:4px 14px'>0&nbsp;&nbsp;4</td></tr></table><p style='font-size:13px;color:var(--ink-soft);margin:0 0 14px'>Read stem 3, leaf 2 as the value 32.</p><p>How many data values are in this stem-and-leaf plot?</p>",
+      "options": ["7", "8", "9", "10"],
+      "correct": 2,
+      "hint": "Count every leaf digit across all three rows.",
+      "why": "Stem 2 has 3 leaves, stem 3 has 4 leaves, and stem 4 has 2 leaves: <span class='expr'>3 + 4 + 2 = 9</span>.",
+      "ok": "Counted every leaf.",
+      "no": "Count each digit listed after every stem, across all three rows."
+    },
+    {
+      "topic": "Stem-and-leaf plots",
+      "prompt": "<table style='font-family:var(--mono);font-size:15px;margin:10px 0;border-collapse:collapse'><tr><th style='border-bottom:1.5px solid var(--ink);padding:4px 14px;text-align:left'>Stem</th><th style='border-bottom:1.5px solid var(--ink);padding:4px 14px;text-align:left'>Leaf</th></tr><tr><td style='padding:4px 14px'>2</td><td style='padding:4px 14px'>3&nbsp;&nbsp;5&nbsp;&nbsp;8</td></tr><tr><td style='padding:4px 14px'>3</td><td style='padding:4px 14px'>1&nbsp;&nbsp;2&nbsp;&nbsp;2&nbsp;&nbsp;6</td></tr><tr><td style='padding:4px 14px'>4</td><td style='padding:4px 14px'>0&nbsp;&nbsp;4</td></tr></table><p style='font-size:13px;color:var(--ink-soft);margin:0 0 14px'>Read stem 3, leaf 2 as the value 32.</p><p>What is the mode of this data set?</p>",
+      "options": ["28", "31", "32", "36"],
+      "correct": 2,
+      "hint": "The mode is the value that appears more than once.",
+      "why": "The value 32 appears twice (stem 3, leaf 2 shows up twice), more than any other value.",
+      "ok": "Spotted the repeated value.",
+      "no": "Look for a value built from stem and leaf that shows up more than once in the plot."
+    },
+    {
+      "topic": "Function tables",
+      "prompt": "<table style='font-family:var(--mono);font-size:15px;margin:10px 0;border-collapse:collapse'><tr><th style='border:1.5px solid var(--ink);padding:6px 16px'>x</th><td style='border:1.5px solid var(--rule);padding:6px 16px'>1</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>2</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>3</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>4</td></tr><tr><th style='border:1.5px solid var(--ink);padding:6px 16px'>y</th><td style='border:1.5px solid var(--rule);padding:6px 16px'>4</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>7</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>10</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>13</td></tr></table><p>Which rule matches every pair in this table?</p>",
+      "options": ["y = 3x + 1", "y = x + 3", "y = 2x + 2", "y = 4x"],
+      "correct": 0,
+      "hint": "Check how much y increases each time x increases by 1.",
+      "why": "y increases by 3 each time x increases by 1, and at x = 1, y = 4, so <span class='expr'>y = 3x + 1</span>. Check x = 4: <span class='expr'>3(4) + 1 = 13</span>. ✓",
+      "ok": "That rule fits every pair.",
+      "no": "Test each rule against a pair like (1, 4) or (4, 13) — only one works for all of them."
+    },
+    {
+      "topic": "Function tables",
+      "prompt": "<table style='font-family:var(--mono);font-size:15px;margin:10px 0;border-collapse:collapse'><tr><th style='border:1.5px solid var(--ink);padding:6px 16px'>x</th><td style='border:1.5px solid var(--rule);padding:6px 16px'>0</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>1</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>2</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>3</td></tr><tr><th style='border:1.5px solid var(--ink);padding:6px 16px'>y</th><td style='border:1.5px solid var(--rule);padding:6px 16px'>5</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>3</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>1</td><td style='border:1.5px solid var(--rule);padding:6px 16px'>−1</td></tr></table><p>Following the same pattern, what is y when x = 5?</p>",
+      "options": ["−5", "−3", "0", "5"],
+      "correct": 0,
+      "hint": "Each time x goes up by 1, what happens to y?",
+      "why": "y drops by 2 each step: 5, 3, 1, −1, so at x = 4, y = −3, and at x = 5, y = −5.",
+      "ok": "Extended the pattern correctly.",
+      "no": "y drops by 2 for every step x takes — continue that pattern two more steps past x = 3."
+    },
+    {
+      "topic": "Square roots",
+      "prompt": "<p><span class='expr'>√50</span> falls between which two consecutive integers?</p>",
+      "options": ["6 and 7", "7 and 8", "8 and 9", "5 and 6"],
+      "correct": 1,
+      "hint": "Find the perfect squares just below and just above 50.",
+      "why": "<span class='expr'>7² = 49</span> and <span class='expr'>8² = 64</span>. Since 50 is between 49 and 64, √50 is between 7 and 8.",
+      "ok": "Bracketed it exactly right.",
+      "no": "Think of the nearest perfect squares to 50 — one just under, one just over."
+    },
+    {
+      "topic": "Square roots",
+      "prompt": "<p>Without a calculator, which is the best estimate of <span class='expr'>√95</span>?</p>",
+      "options": ["8.5", "9.2", "9.7", "10.5"],
+      "correct": 2,
+      "hint": "95 is very close to a perfect square just above it.",
+      "why": "<span class='expr'>10² = 100</span>, and 95 is close to 100, so √95 is a bit less than 10 — about 9.7 (the actual value is ≈9.75).",
+      "ok": "That's a solid estimate.",
+      "no": "95 is just under 100, and √100 = 10 — the answer should land just under 10."
+    },
+    {
+      "topic": "Number lines",
+      "prompt": "<svg viewBox='0 0 320 70' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Number line with a point at negative 4'><line x1='20' y1='40' x2='300' y2='40' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='35' x2='30' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='30' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>-6</text><line x1='70' y1='35' x2='70' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='70' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>-4</text><line x1='110' y1='35' x2='110' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='110' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>-2</text><line x1='150' y1='35' x2='150' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='150' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>0</text><line x1='190' y1='35' x2='190' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='190' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>2</text><line x1='230' y1='35' x2='230' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='230' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>4</text><line x1='270' y1='35' x2='270' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='270' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>6</text><circle cx='70' cy='40' r='6' fill='var(--amber)'/></svg><p>What is the distance between the graphed point and 3 on the number line?</p>",
+      "options": ["1", "4", "7", "12"],
+      "correct": 2,
+      "hint": "Distance on a number line is always positive — think about how far apart they are, not their difference sign.",
+      "why": "The point is at −4. <span class='expr'>|3 − (−4)| = |7| = 7</span>.",
+      "ok": "Distance is always positive, and you got it.",
+      "no": "Add the distance from −4 to 0, then from 0 to 3 — or take the absolute value of the difference."
+    },
+    {
+      "topic": "Number lines",
+      "prompt": "<svg viewBox='0 0 320 70' style='width:100%;height:auto;display:block;margin:6px 0' role='img' aria-label='Number line showing a shaded inequality'><line x1='20' y1='40' x2='300' y2='40' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='35' x2='30' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='30' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>-6</text><line x1='70' y1='35' x2='70' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='70' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>-4</text><line x1='110' y1='35' x2='110' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='110' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>-2</text><line x1='150' y1='35' x2='150' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='150' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>0</text><line x1='190' y1='35' x2='190' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='190' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>2</text><line x1='230' y1='35' x2='230' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='230' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>4</text><line x1='270' y1='35' x2='270' y2='45' stroke='var(--ink)' stroke-width='1'/><text x='270' y='60' text-anchor='middle' font-family='var(--mono)' font-size='11' fill='var(--ink-soft)'>6</text><line x1='110' y1='40' x2='285' y2='40' stroke='var(--amber-deep)' stroke-width='3'/><polygon points='285,34 297,40 285,46' fill='var(--amber-deep)'/><circle cx='110' cy='40' r='6' fill='var(--amber-deep)'/></svg><p>Which inequality does this number line represent?</p>",
+      "options": ["x > −2", "x ≥ −2", "x < −2", "x ≤ −2"],
+      "correct": 1,
+      "hint": "A filled-in (closed) circle means the boundary value is included.",
+      "why": "The circle at −2 is filled in, so −2 is included, and the shading points right toward larger numbers: <span class='expr'>x ≥ −2</span>.",
+      "ok": "Read the circle and direction correctly.",
+      "no": "A solid dot means 'included' (≥ or ≤), and the shaded arrow shows which direction the values go."
+    },
+    {
+      "topic": "Scale drawings",
+      "prompt": "<p>A map uses a scale of 1 inch = 25 miles. Two cities are 3.5 inches apart on the map. What is the actual distance between them?</p>",
+      "options": ["62.5 miles", "75 miles", "87.5 miles", "100 miles"],
+      "correct": 2,
+      "hint": "Multiply the map distance by how many miles each inch represents.",
+      "why": "<span class='expr'>3.5 × 25 = 87.5</span> miles.",
+      "ok": "Scaled it up correctly.",
+      "no": "Multiply the inches on the map by 25 — the number of real miles in each inch."
+    },
+    {
+      "topic": "Scale drawings",
+      "prompt": "<p>A blueprint uses a scale of 1 cm = 2 meters. A wall is 9 meters long in real life. How long is the wall on the blueprint?</p>",
+      "options": ["3.5 cm", "4.5 cm", "6 cm", "18 cm"],
+      "correct": 1,
+      "hint": "This time you're going from real-world meters back down to the drawing — divide.",
+      "why": "Each centimeter stands for 2 meters, so <span class='expr'>9 ÷ 2 = 4.5</span> cm.",
+      "ok": "Went the right direction with the scale.",
+      "no": "Divide the real length by 2, since every 2 real meters shrinks to 1 cm on the blueprint."
+    },
+    {
+      "topic": "Transformations",
+      "prompt": "<p>Point A is located at (3, 5). What are its coordinates after a reflection across the x-axis?</p>",
+      "options": ["(3, −5)", "(−3, 5)", "(−3, −5)", "(5, 3)"],
+      "correct": 0,
+      "hint": "Reflecting across the x-axis flips the sign of the y-coordinate only.",
+      "why": "A reflection across the x-axis keeps x the same and flips the sign of y: <span class='expr'>(3, 5) → (3, −5)</span>.",
+      "ok": "Flipped the right coordinate.",
+      "no": "Reflecting across the x-axis only changes the sign of y — x stays put."
+    },
+    {
+      "topic": "Transformations",
+      "prompt": "<p>Point B is at (−2, 4). What are its coordinates after being translated 5 units right and 3 units down?</p>",
+      "options": ["(3, 1)", "(−7, 7)", "(3, 7)", "(−7, 1)"],
+      "correct": 0,
+      "hint": "Right adds to x. Down subtracts from y.",
+      "why": "<span class='expr'>x: −2 + 5 = 3</span>, and <span class='expr'>y: 4 − 3 = 1</span>, giving (3, 1).",
+      "ok": "Shifted both coordinates correctly.",
+      "no": "Add 5 to the x-coordinate for 'right', and subtract 3 from the y-coordinate for 'down'."
+    },
+    {
+      "topic": "Systems of equations",
+      "prompt": "<svg viewBox='0 0 200 220' style='width:220px;height:auto;display:block;margin:6px auto' role='img' aria-label='Graph of two intersecting lines'><line x1='30' y1='190' x2='180' y2='190' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='190' x2='30' y2='30' stroke='var(--ink)' stroke-width='1.5'/><line x1='30' y1='165' x2='155' y2='40' stroke='var(--amber-deep)' stroke-width='2'/><line x1='30' y1='65' x2='155' y2='190' stroke='var(--right)' stroke-width='2'/><circle cx='80' cy='115' r='5' fill='var(--ink)'/><text x='20' y='194' text-anchor='end' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>0</text><text x='20' y='144' text-anchor='end' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>2</text><text x='20' y='94' text-anchor='end' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>4</text><text x='20' y='44' text-anchor='end' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>6</text><text x='30' y='205' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>0</text><text x='80' y='205' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>2</text><text x='130' y='205' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>4</text><text x='180' y='205' text-anchor='middle' font-family='var(--mono)' font-size='10' fill='var(--ink-soft)'>6</text><text x='140' y='45' font-family='var(--mono)' font-size='11' fill='var(--amber-deep)'>y = x + 1</text><text x='95' y='60' font-family='var(--mono)' font-size='11' fill='var(--right)'>y = −x + 5</text></svg><p>Based on where the two lines cross, what is the solution to this system of equations?</p>",
+      "options": ["(2, 3)", "(3, 2)", "(1, 2)", "(0, 1)"],
+      "correct": 0,
+      "hint": "The solution to a system is the point where the two lines cross.",
+      "why": "The lines meet at x = 2, y = 3. Check both equations: <span class='expr'>y = 2 + 1 = 3</span> and <span class='expr'>y = −2 + 5 = 3</span>. Both agree at (2, 3).",
+      "ok": "Read the intersection point correctly.",
+      "no": "Trace both axes from the dot where the lines cross to find its x and y values."
+    },
+    {
+      "topic": "Systems of equations",
+      "prompt": "<p>Line A: <span class='expr'>y = 2x − 1</span>. Line B: <span class='expr'>y = x + 3</span>. At what x-value do the two lines intersect?</p>",
+      "options": ["2", "3", "4", "5"],
+      "correct": 2,
+      "hint": "At the intersection, both equations give the same y — set them equal.",
+      "why": "<span class='expr'>2x − 1 = x + 3</span> → <span class='expr'>x = 4</span>.",
+      "ok": "Solved the system correctly.",
+      "no": "Set the two right-hand sides equal to each other and solve for x."
+    },
+    {
+      "topic": "Venn diagrams",
+      "prompt": "<svg viewBox='0 0 260 160' style='width:100%;max-width:280px;height:auto;display:block;margin:6px auto' role='img' aria-label='Venn diagram of students playing soccer and basketball'><circle cx='100' cy='85' r='55' fill='var(--amber)' fill-opacity='0.45' stroke='var(--ink)' stroke-width='1.5'/><circle cx='160' cy='85' r='55' fill='var(--right)' fill-opacity='0.45' stroke='var(--ink)' stroke-width='1.5'/><text x='65' y='25' font-family='var(--display)' font-size='12' font-weight='700' fill='var(--ink)'>Soccer</text><text x='158' y='25' font-family='var(--display)' font-size='12' font-weight='700' fill='var(--ink)'>Basketball</text><text x='75' y='90' text-anchor='middle' font-family='var(--mono)' font-size='16' fill='var(--ink)'>15</text><text x='130' y='90' text-anchor='middle' font-family='var(--mono)' font-size='16' fill='var(--ink)'>8</text><text x='185' y='90' text-anchor='middle' font-family='var(--mono)' font-size='16' fill='var(--ink)'>10</text></svg><p style='font-size:13px;color:var(--ink-soft);margin:6px 0 14px'>Out of 40 students surveyed, the diagram shows how many play each sport. The rest play neither.</p><p>How many students play at least one of the two sports?</p>",
+      "options": ["25", "33", "38", "40"],
+      "correct": 1,
+      "hint": "Add soccer-only, basketball-only, and the overlap — don't count the overlap twice.",
+      "why": "15 play soccer only, 8 play both, and 10 play basketball only: <span class='expr'>15 + 8 + 10 = 33</span>.",
+      "ok": "Combined the regions without double-counting.",
+      "no": "Add all three labeled regions of the diagram together — soccer-only, the overlap, and basketball-only."
+    },
+    {
+      "topic": "Venn diagrams",
+      "prompt": "<svg viewBox='0 0 260 160' style='width:100%;max-width:280px;height:auto;display:block;margin:6px auto' role='img' aria-label='Venn diagram of students playing soccer and basketball'><circle cx='100' cy='85' r='55' fill='var(--amber)' fill-opacity='0.45' stroke='var(--ink)' stroke-width='1.5'/><circle cx='160' cy='85' r='55' fill='var(--right)' fill-opacity='0.45' stroke='var(--ink)' stroke-width='1.5'/><text x='65' y='25' font-family='var(--display)' font-size='12' font-weight='700' fill='var(--ink)'>Soccer</text><text x='158' y='25' font-family='var(--display)' font-size='12' font-weight='700' fill='var(--ink)'>Basketball</text><text x='75' y='90' text-anchor='middle' font-family='var(--mono)' font-size='16' fill='var(--ink)'>15</text><text x='130' y='90' text-anchor='middle' font-family='var(--mono)' font-size='16' fill='var(--ink)'>8</text><text x='185' y='90' text-anchor='middle' font-family='var(--mono)' font-size='16' fill='var(--ink)'>10</text></svg><p style='font-size:13px;color:var(--ink-soft);margin:6px 0 14px'>Out of 40 students surveyed, the diagram shows how many play each sport. The rest play neither.</p><p>How many students play neither sport?</p>",
+      "options": ["0", "5", "7", "10"],
+      "correct": 2,
+      "hint": "Subtract everyone who plays at least one sport from the total surveyed.",
+      "why": "33 students play at least one sport, out of 40 total: <span class='expr'>40 − 33 = 7</span>.",
+      "ok": "Found the students outside both circles.",
+      "no": "First find how many play at least one sport (add the three labeled regions), then subtract that from 40."
+    }
+  ]
+}
