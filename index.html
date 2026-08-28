@@ -112,7 +112,7 @@
   .opt.is-wrong{border-color:var(--wrong);background:var(--wrong-bg)}
   .opt.is-wrong .key{border-color:var(--wrong);background:var(--wrong);color:#fff}
 
-  .tools{margin-top:auto;padding-top:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .tools{margin:2px 0 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .linkbtn{
     font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--ink-soft);
     background:var(--paper);border:1.5px solid var(--rule);border-radius:3px;
@@ -228,6 +228,8 @@
       <div class="ruler-ticks" id="rulerTicks"></div>
     </div>
 
+    <div class="tools" id="tools" hidden></div>
+
     <main class="card" id="stage" aria-live="polite">
       <p class="loading">Loading questions&hellip;</p>
     </main>
@@ -256,6 +258,7 @@ const fill       = document.getElementById("rulerFill");
 const ticks      = document.getElementById("rulerTicks");
 const label      = document.getElementById("rulerLabel");
 const footnote   = document.getElementById("footnote");
+const toolsBar   = document.getElementById("tools");
 const printSheet = document.getElementById("printSheet");
 const resultsPrintSheet = document.getElementById("resultsPrintSheet");
 
@@ -390,11 +393,12 @@ function renderQuestion(){
         '<li><button class="opt" data-i="' + i + '"><span class="key">' + (LETTERS[i] || (i + 1)) + '</span><span>' + t + '</span></button></li>'
       ).join("") +
     '</ul>' +
-    '<div class="tools">' +
-      (q.hint ? '<button class="linkbtn" id="hintBtn">Need a hint?</button>' : '') +
-      '<button class="linkbtn" id="skipBtn">Skip \u2014 too easy</button>' +
-    '</div>' +
     '<div id="slot"></div>';
+
+  toolsBar.innerHTML =
+    (q.hint ? '<button class="linkbtn" id="hintBtn">Need a hint?</button>' : '') +
+    '<button class="linkbtn" id="skipBtn">Skip \u2014 too easy</button>';
+  toolsBar.hidden = false;
 
   document.querySelectorAll(".opt").forEach(b =>
     b.addEventListener("click", () => choose(+b.dataset.i)));
@@ -408,7 +412,7 @@ function showHint(){
   if (!btn || btn.disabled) return;
   btn.disabled = true;
   btn.style.opacity = ".5";
-  document.querySelector(".tools").insertAdjacentHTML("afterend",
+  document.querySelector(".prompt").insertAdjacentHTML("afterend",
     '<div class="hint"><strong>Hint</strong>' + QUESTIONS[index].hint + '</div>');
 }
 
@@ -437,10 +441,8 @@ function choose(picked){
     if (i === q.correct) b.classList.add("is-right");
     else if (i === picked) b.classList.add("is-wrong");
   });
-  const hb = document.getElementById("hintBtn");
-  if (hb) { hb.disabled = true; hb.style.opacity = ".5"; }
-  const sb = document.getElementById("skipBtn");
-  if (sb) sb.remove();
+  toolsBar.hidden = true;
+  toolsBar.innerHTML = "";
 
   document.getElementById("slot").innerHTML =
     '<div class="feedback">' +
@@ -457,6 +459,7 @@ function choose(picked){
 }
 
 function renderResults(){
+  toolsBar.hidden = true;
   meter(QUESTIONS.length);
   const wrongEntries = log.filter(r => r.status === "wrong");
   const rightCount = log.filter(r => r.status === "right").length;
@@ -585,6 +588,7 @@ function renderSharedResults(encoded){
   document.title = defaultTitle + " — Shared score";
   document.getElementById("setIntro").textContent = "A friend shared their quiz score with you.";
   document.getElementById("eyebrow").textContent = "Shared result";
+  toolsBar.hidden = true;
   ruler.hidden = true;
   footnote.hidden = true;
 
@@ -651,6 +655,7 @@ function startReview(){
 }
 
 function renderReviewExplain(){
+  toolsBar.hidden = true;
   const item = reviewList[reviewPos];
   const q = item.original;
   stage.innerHTML =
@@ -667,6 +672,7 @@ function renderReviewExplain(){
 }
 
 function renderReviewQuestion(){
+  toolsBar.hidden = true;
   const item = reviewList[reviewPos];
   reviewCurrent = (item.genIndex != null && window.GENERATORS) ? window.GENERATORS[item.genIndex]() : item.original;
   const q = reviewCurrent;
@@ -715,6 +721,7 @@ function chooseReview(picked){
 }
 
 function renderReviewComplete(){
+  toolsBar.hidden = true;
   stage.innerHTML =
     '<p class="qmeta"><span>Review complete</span></p>' +
     '<p class="why">Nice work working back through ' + reviewList.length +
